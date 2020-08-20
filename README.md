@@ -56,4 +56,3 @@ chart.js
 
 ## Development Log
 
-[Koozzi's Velog](https://velog.io/@koozzi/series/Software-Maestro)
