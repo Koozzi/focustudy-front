@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, TextField, Grid, Paper} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
@@ -50,7 +47,9 @@ export default function SelectStudy() {
                         <Typography variant="body2" component="p">                            
                             Stay Hungry, Stay Foolish
                         </Typography>
-                        <Button size="small" component={Link} to={"/room"}>START</Button>
+                        <Button size="small" component={Link} to={"/room"}>
+                            START
+                        </Button>
                     </Paper>
                 </Grid>
                 <Grid item xs>
@@ -63,10 +62,12 @@ export default function SelectStudy() {
                         </Typography>
                         <Typography variant="body2" component="form">
                             <form noValidate autoComplete="off">
-                                <TextField id="outlined-basic" label="Room Number" variant="outlined" />
+                                <TextField id="roomNumber" label="Room Number" variant="outlined"/>
                             </form>
                         </Typography>
-                        <Button size="small" component={Link} to={"/joinroom"}>START</Button>
+                        <Button size="small" component={Link} to={"/room"}>
+                            START
+                        </Button>
                     </Paper>
                 </Grid>
             </Grid>

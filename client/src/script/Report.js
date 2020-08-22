@@ -1,7 +1,5 @@
 import * as React from "react";
 import * as tf from '@tensorflow/tfjs';
-import * as faceapi from 'face-api.js';
-import yolo from 'tfjs-yolo';
 const initJavis = () => {
     const enterBtn = document.querySelector("#enterBtn");
     const webcamElement = document.getElementById('myVideo');
@@ -86,13 +84,6 @@ const initJavis = () => {
 
     }
 
-    async function yolo_infer_start(){
-        console.log("SAgerarh");
-        let myYolo = await yolo.v3tiny();
-      
-        const boxes = await myYolo.predict(webcamElement);
-        console.log(boxes);
-    }
 
     // 배열 합계 구하기 함수
     function sum(array) {

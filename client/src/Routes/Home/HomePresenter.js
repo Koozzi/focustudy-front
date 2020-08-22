@@ -14,29 +14,10 @@ import RepeatIcon from '@material-ui/icons/Repeat';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { Container } from '@material-ui/core';
-import {Grid, Button} from '@material-ui/core';
-import { Link } from "react-router-dom";
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: '6px 16px',
-  },
-  root: {
-    backgroundColor: 'red',
-    color: props => props.color,
-  },
-  icon: {
-    marginRight: theme.spacing(2),
-  },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4),
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
   },
   secondaryTail: {
     backgroundColor: theme.palette.secondary.main,
@@ -46,20 +27,6 @@ function Home() {
     const classes = useStyles();
     return (
         <Container maxwidth="sm">
-            <div className={classes.heroButtons}>
-              <Grid container spacing={2} justify="center">
-                <Grid item>
-                  <Button variant="contained" color="primary" component={Link} to={'/study'}> 
-                    MULTI MODE
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    SINGLE MODE
-                  </Button>
-                </Grid>
-              </Grid>
-            </div>
             <Timeline align="alternate">
             <TimelineItem>
                 <TimelineOppositeContent>

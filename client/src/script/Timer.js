@@ -1,7 +1,6 @@
 const initTimer = () => {
     const enterBtn = document.querySelector("#enterBtn");
     let timer = document.getElementById('timer');
-    let alarm = document.getElementById('end-of-time');
     var seconds = 0;
     var minutes = 0;
     let isConnected = 0;
@@ -12,7 +11,7 @@ const initTimer = () => {
         seconds = 1;
         contador = window.setInterval(function(){
             if(seconds === 59){
-                // printTimer(minutes, seconds);
+                printTimer(minutes, seconds);
                 seconds = 0;
                 minutes++;
                 return;
@@ -26,9 +25,9 @@ const initTimer = () => {
                 seconds = 0;
                 minutes = 0;
                 timer.innerHTML = "00:00";
-                alarm.play();
+                
                 window.clearInterval(contador);
-                // window.location = '/result';
+                window.location = '/result';
                 return;
             }
             else{

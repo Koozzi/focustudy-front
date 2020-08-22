@@ -1,8 +1,8 @@
 import React, { useLayoutEffect } from 'react';
 import initConference from '../script/Conference';
 import initTimer from '../script/Timer';
-import initJavis from '../script/Report';
-import { Container, Grid, Paper, Button, Box} from '@material-ui/core';
+import initJavis from '../script/Report'
+import { Container, Grid, Paper, Button} from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -56,17 +56,13 @@ const Room = () => {
                         <Typography gutterBottom variant="h5" component="h2">
                             Local Video
                         </Typography>
-                        <Button size="small" variant="contained" color="primary" m={2}> 
-                            <div id="enterBtn" href="#">ENTER</div>
-                        </Button>
-                        <Typography className={classes.pos} color="textSecondary">
-                            <audio id="end-of-time" src="https://kr.object.ncloudstorage.com/resume/iu.mp3"></audio>
-                        </Typography>
                         <Typography className={classes.pos} color="textSecondary">
                             <p>Your Pomodoro score is <div id="facenum"></div></p>
                         </Typography>
+                        <Button size="small" variant="contained" color="primary"> 
+                            <div id="enterBtn" href="#">ENTER</div>
+                        </Button>
                         <Typography className={classes.pos}>
-                            <div>
                             <video
                                 id="myVideo"
                                 className="remote-video center w-150 h-150"
@@ -74,7 +70,7 @@ const Room = () => {
                                 muted
                                 controls
                                 playsInline
-                            ></video></div>
+                            ></video>
                         </Typography>
                     </Paper>
                 </Grid>

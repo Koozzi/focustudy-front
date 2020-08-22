@@ -14,8 +14,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {useHistory} from 'react-router-dom';
 import Axios from 'axios';
-import UserContext from '../Components/UserContext';
-import ErrorNotice from '../Components/ErrorNotice';
+import UserContext from '../../Components/UserContext';
+import ErrorNotice from '../../Components/ErrorNotice';
 
 function Copyright() {
   return (
@@ -89,7 +89,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
+        {/* {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />} */}
         <form className={classes.form} noValidate onClick={RealSubmit}>
           <TextField
             variant="outlined"
