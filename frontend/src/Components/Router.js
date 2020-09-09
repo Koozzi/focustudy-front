@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-d
 
 import Header from './Header';
 import Home from '../Routes/Home/';
-import Study from '../Routes/Study';
-import Room from '../Routes/Room';
+import Study from '../Routes/Study/';
+import Room from '../Routes/Room/';
 import Signin from '../Routes/SignIn';
 import JoinRoom from '../Routes/JoinRoom';
 import Result from '../Routes/Result/';
-import Login from '../Routes/Login';
-import Register from '../Routes/Register';
+import Login from '../Routes/Login/';
+import Register from '../Routes/Register/';
 import UserContext from './UserContext';
 import Axios from 'axios';
 
