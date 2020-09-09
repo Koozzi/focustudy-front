@@ -10,7 +10,7 @@
 
 ### Run Docker Container
 ```
-# docker run -d --nmae <new_container_name> -p 3000:3000 <image_name>
+# docker run -d --nmae <new_container_name> -p 5050:5050 <image_name>
 ```
 
 ### Check Running Containers
