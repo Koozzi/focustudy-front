@@ -42,7 +42,7 @@ export default function RegisterPresenter() {
     return (
         <div>
             <h2>Register</h2>
-            {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
+            {/* {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />} */}
             <form onSubmit={submit}>
                 <label>Email</label>
                 <input
