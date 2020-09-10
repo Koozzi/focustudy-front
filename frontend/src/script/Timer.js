@@ -4,7 +4,8 @@ const initTimer = () => {
     var seconds = 0;
     var minutes = 0;
     let isConnected = 0;
-    var left_time = 5;
+    let left_time = 25;
+
     async function timerstart(){
         var contador = null;
         console.log(isConnected);
@@ -48,6 +49,7 @@ const initTimer = () => {
         }
         timer.innerHTML = show_min+":"+show_sec;
     }
+    
     enterBtn.addEventListener("click",
         evt => {
           timerstart();

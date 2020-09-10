@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 
 import Header from './Header';
+import Ready from '../Routes/Ready/';
 import Home from '../Routes/Home/';
 import Study from '../Routes/Study/';
-import Room from '../Routes/Room/';
+import Multiroom from '../Routes/Multiroom/';
+import Listroom from '../Routes/Listroom/';
 import Signin from '../Routes/SignIn';
 import JoinRoom from '../Routes/JoinRoom';
 import Result from '../Routes/Result/';
@@ -62,12 +64,15 @@ export default () => {
                 <Switch>
                     <Route path="/" exact component={Home} />
                     <Route path="/study" exact component={Study} />
-                    <Route path="/room" exact component={Room} />
+                    <Route path="/multiroom" exact component={Multiroom} />
+                    <Route path="/listroom" exact component={Listroom} />
                     <Route path="/signin" exact component={Signin} />
                     <Route path="/joinroom" exact component={JoinRoom} />
                     <Route path="/result" exact component={Result} />
                     <Route path="/login" exact component={Login} />
                     <Route path="/register" exact component={Register} />
+                    <Route path="/room/:id" exact component={Ready} />
+
                     <Redirect from="*" to="/" /> 
                 </Switch>
             </UserContext.Provider>
