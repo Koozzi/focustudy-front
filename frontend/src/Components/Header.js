@@ -32,7 +32,7 @@ export default function Board() {
     <React.Fragment>
       <div className="header">
         <h1>Focustudy</h1>
-        <p>세상에 없던 AI 집중력 타이머.</p>
+        <p>세상에 없던 AI 집중력 타이머. Jenkins Test</p>
       </div>
       
       <div className="navbar">
