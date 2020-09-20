@@ -1,9 +1,11 @@
 import Remon from "@remotemonster/sdk";
 
-const initConference = () => {
+const initConference = (props) => {
   const enterBtn = document.querySelector("#enterBtn");
   const otherVideos= document.getElementById('otherVideos');
-
+  let roomid = props.location.state.roomNumber;
+  console.log(roomid);
+  //roomid="remn";
   let isConnected = false;
   let remon;
   let remonRoom=[];
@@ -112,8 +114,8 @@ const initConference = () => {
       isConnected = true;
       document.querySelector('#enterBtn').innerHTML = "leave"; 
       remon = new Remon({ config, listener }); 
-      await remon.createRoom("remn") 
-      let participants = await remon.fetchRooms("remn"); 
+      await remon.createRoom(roomid); 
+      let participants = await remon.fetchRooms(roomid); 
       participants.forEach(async function(participant){
         if(!remonRoom[participant.id]){
           remonRoom[participant.id] = true;

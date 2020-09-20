@@ -1,8 +1,20 @@
-import React from 'react'
 import ReadyPresenter from './ReadyPresenter';
+import initConference from '../../script/Conference';
+import initTimer from '../../script/Timer';
 
-export default () => {
+import React, { useLayoutEffect } from 'react'
+
+export default (props) => {
+    let roomNumber = props.location.state.roomNumber;
+    
+    useLayoutEffect(() => {
+        initConference(props);
+        initTimer(props);
+    }, []);
+    
     return(
-        <ReadyPresenter />
+        <ReadyPresenter 
+            roomNumber={roomNumber}
+        />
     )
 }

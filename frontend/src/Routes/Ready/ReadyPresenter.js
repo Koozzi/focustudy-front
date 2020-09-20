@@ -1,55 +1,21 @@
-const React = require('react');
-class Timer extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      time: 0,
-      start: 0,
-      isOn: false
-    }
-    this.startTimer = this.startTimer.bind(this)
-    this.stopTimer = this.stopTimer.bind(this)
-    this.resetTimer = this.resetTimer.bind(this)
-  }
-  startTimer() {
-    this.setState({
-      time: this.state.time,
-      start: Date.now() - this.state.time,
-      isOn: true
-    })
-    this.timer = setInterval(() => this.setState({
-      time: Date.now() - this.state.start
-    }), 1);
-  }
-  stopTimer() {
-    this.setState({isOn: false})
-    clearInterval(this.timer)
-  }
-  resetTimer() {
-    this.setState({time: 0})
-  }
-  render() {
-    let start = (this.state.time == 0) ?
-      <button onClick={this.startTimer}>start</button> :
-      null
-    let stop = (this.state.isOn) ?
-      <button onClick={this.stopTimer}>stop</button> :
-      null
-    let reset = (this.state.time != 0 && !this.state.isOn) ?
-      <button onClick={this.resetTimer}>reset</button> :
-      null
-    let resume = (this.state.time != 0 && !this.state.isOn) ?
-      <button onClick={this.startTimer}>resume</button> :
-      null
-    return(
-      <div>
-        <h3>timer: {this.state.time}</h3>
-        {start}
-        {resume}
-        {stop}
-        {reset}
+import React, { Component } from 'react';
+import { Container} from '@material-ui/core';
+import "./Ready.css";
+const ReadyPresenter = ({roomNumber})=> (
+  <Container maxwidth="sm">
+    <h1>공부를 그만하다니, 인성문제 있어? <button className="startbutton" id="enterBtn" href="#">ENTER</button></h1>
+    <div className="roomtitle"><p>You entered in Room {roomNumber} </p></div>
+    <div class="row">
+      <div class="column">
+        <div className="timer" id="timer">Pomodoro</div>
       </div>
-    )
-  }
-}
-module.exports = Timer
+      <div class="column">
+        <p> Your Pomodoro score is <div id="facenum"></div></p>
+        <video id="myVideo" className="remote-video" autoPlay muted controls playsInline></video>
+      </div>
+    </div>
+    <div className="othervideos" id="otherVideos"></div>
+    <canvas id="myChart"></canvas>
+  </Container>
+);
+export default ReadyPresenter;

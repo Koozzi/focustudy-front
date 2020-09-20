@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { Container} from '@material-ui/core';
 import "./Study.css";
-import Room from "../../Components/Room";
 import logo from "./assets/single.jpg";
 import logo2 from "./assets/multi.jpg";
 
-
 export default function SelectStudy() {
-    const rooms = [1, 3, 5, 7, 9];
     return (
         <Container maxwidth="sm">
             <div className="title"><h1>Single vs Multi?</h1></div>

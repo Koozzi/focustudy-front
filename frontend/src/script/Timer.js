@@ -1,11 +1,16 @@
-const initTimer = () => {
+const initTimer = (props) => {
     const enterBtn = document.querySelector("#enterBtn");
     let timer = document.getElementById('timer');
     var seconds = 0;
     var minutes = 0;
     let isConnected = 0;
     let left_time = 25;
-
+    
+    function speakstart(){
+        var msg = new SpeechSynthesisUtterance();
+        msg.text = "인성 문제 있어?";
+        window.speechSynthesis.speak(msg);
+    }
     async function timerstart(){
         var contador = null;
         console.log(isConnected);
@@ -15,6 +20,7 @@ const initTimer = () => {
                 printTimer(minutes, seconds);
                 seconds = 0;
                 minutes++;
+                speakstart();
                 return;
             }
             if(enterBtn.innerHTML === "Enter"){
@@ -53,6 +59,7 @@ const initTimer = () => {
     enterBtn.addEventListener("click",
         evt => {
           timerstart();
+          // speakstart();
           evt.preventDefault();
         },
         false

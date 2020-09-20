@@ -71,7 +71,7 @@ export default () => {
                     <Route path="/result" exact component={Result} />
                     <Route path="/login" exact component={Login} />
                     <Route path="/register" exact component={Register} />
-                    <Route path="/room/:id" exact component={Ready} />
+                    <Route path="/room/:roomNumber" exact component={Ready} />
 
                     <Redirect from="*" to="/" /> 
                 </Switch>

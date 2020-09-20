@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 .header {
-    padding: 20px; /* some padding */
+    padding: 10px; /* some padding */
     text-align: center; /* center the text */
     background: #A12003; /* green background */
     color: white; /* white text color */
