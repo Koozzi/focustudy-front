@@ -60,10 +60,10 @@ const initJavis = () => {
             if(prediction[0].class==="person"){
                 data.push(1.0);
                 times.push(time);
-                speakstart();
             }
             else{
                 data.push(0.0);
+                speakstart();
                 times.push(time);
             }
         }
