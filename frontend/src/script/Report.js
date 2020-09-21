@@ -27,7 +27,6 @@ const initJavis = () => {
             }
             if(seconds%5==0){
                 inference();
-                speakstart();
             }
             if(enterBtn.innerHTML==="Enter"){
                 window.clearInterval(contador);
@@ -61,6 +60,7 @@ const initJavis = () => {
             if(prediction[0].class==="person"){
                 data.push(1.0);
                 times.push(time);
+                speakstart();
             }
             else{
                 data.push(0.0);
