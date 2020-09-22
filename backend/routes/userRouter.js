@@ -54,7 +54,7 @@ router.get("/verify", async(req, res) => {
                 console.log('Email Sent!');
             }
             transporter.close();
-        }
+        })
 
         res.json({
             exist: false,
