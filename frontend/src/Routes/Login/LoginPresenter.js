@@ -73,7 +73,7 @@ export default function SignIn() {
         history.push("/");
     }
     catch(err){
-        err.response.data.msg && setError(err.response.data.msg);
+        // err.response.data.msg && setError(err.response.data.msg);
     }
   };
 
