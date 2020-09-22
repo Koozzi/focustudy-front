@@ -3,9 +3,12 @@ const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 const jwt = require("jsonwebtoken");
 const nodemailer = require('nodemailer');
+const aws = require('aws-sdk');
+const sesTransport = require('nodemailer-ses-transport');
 
 const User = require("../models/userModel");
 const auth = require("../middleware/auth");
+
 
 router.get("/verify", async(req, res) => {
     try{
@@ -21,9 +24,6 @@ router.get("/verify", async(req, res) => {
         }
         const transporter = nodemailer.createTransport({
             service: 'gmail',
-            host: 'smtp.gmail.com',
-            port: 465,
-            secure: true,
             auth: {
                 user: 'team.focustudy@gmail.com',
                 pass: 'rnclgns1!'
@@ -41,14 +41,20 @@ router.get("/verify", async(req, res) => {
             `
         };
 
-        await transporter.sendMail(mailOptions, (error, info)=>{
+        var sesTransporter = nodemailer.createTransport(sesTransport({
+            accessKeyId: 'AKIAU4UJS4NBTXQWNH4N',
+            secretAccessKey: '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',
+            region: 'ap-northeast-2'
+        }));
+        
+        await sesTransporter.sendMail(mailOptions, (error, info)=>{
             if(error){
                 console.log(error);
             } else {
                 console.log('Email Sent!');
             }
             transporter.close();
-        })
+        });
 
         res.json({
             exist: false,
