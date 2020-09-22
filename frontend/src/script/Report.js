@@ -11,6 +11,11 @@ const initJavis = () => {
     var data = new Array;
     var times = new Array;  
     var Chart = require('chart.js');
+    function speakstart(){
+        var msg = new SpeechSynthesisUtterance();
+        msg.text = "인성 문제 있어?";
+        window.speechSynthesis.speak(msg);
+    }
     async function inferencestart(){
         var contador = null;
         seconds = 1;
@@ -20,7 +25,7 @@ const initJavis = () => {
                 minutes++;
                 return;
             }
-            if(seconds%15==0){
+            if(seconds%5==0){
                 inference();
             }
             if(enterBtn.innerHTML==="Enter"){
@@ -58,29 +63,30 @@ const initJavis = () => {
             }
             else{
                 data.push(0.0);
+                speakstart();
                 times.push(time);
             }
         }
         document.getElementById("facenum").innerText = sum(data);
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var chart = new Chart(ctx, {
+        //var ctx = document.getElementById('myChart').getContext('2d');
+        //var chart = new Chart(ctx, {
             // The type of chart we want to create
-            type: 'bar',
+            //type: 'bar',
 
             // The data for our dataset
-            data: {
-                labels: times,
-                datasets: [{
-                    label: 'Your Pomodoro Score',
-                    backgroundColor: 'rgb(255, 99, 132)',
-                    borderColor: 'rgb(255, 99, 132)',
-                    data: data
-                }]
-            },
+            //data: {
+                //labels: times,
+                //datasets: [{
+                    //label: 'Your Pomodoro Score',
+                    //backgroundColor: 'rgb(255, 99, 132)',
+                    //borderColor: 'rgb(255, 99, 132)',
+                    //data: data
+                //}]
+            //},
 
             // Configuration options go here
-            options: {}
-        });
+            //options: {}
+        //});
 
     }
 
