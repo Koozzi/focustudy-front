@@ -46,7 +46,7 @@ router.get("/verify", async(req, res) => {
             secretAccessKey: 'hR0+resWj5XPdDpy6m2ikaHwevTJnkmSceny3OIU',
             region: 'ap-northeast-2'
         }));
-        
+
         await sesTransporter.sendMail(mailOptions, (error, info)=>{
             if(error){
                 console.log(error);
@@ -54,7 +54,7 @@ router.get("/verify", async(req, res) => {
                 console.log('Email Sent!');
             }
             transporter.close();
-        });
+        }
 
         res.json({
             exist: false,
