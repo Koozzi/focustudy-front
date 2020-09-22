@@ -40,8 +40,8 @@ export default function RegisterPresenter() {
         const userEmail = { email };
         const verify = await Axios({
             method: 'get',
-            // url: 'http://15.165.172.0:5050/users/verify',
-            url: 'http://localhost:5050/users/verify',
+            url: 'http://15.165.172.0:5050/users/verify',
+            // url: 'http://localhost:5050/users/verify',
             params: {
                 toEmail: userEmail
             }
@@ -115,7 +115,7 @@ export default function RegisterPresenter() {
             history.push("/");
         }
         catch(err){
-            err.response.data.msg && setError(err.response.data.msg);
+            // err.response.data.msg && setError(err.response.data.msg);
         }
     };
     return (
