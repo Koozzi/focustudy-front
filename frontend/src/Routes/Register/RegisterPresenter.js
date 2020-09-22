@@ -40,7 +40,7 @@ export default function RegisterPresenter() {
         const userEmail = { email };
         const verify = await Axios({
             method: 'get',
-            url: ' http://localhost:5050/users/verify',
+            url: ' http://15.165.172.0/:5050/users/verify',
             params: {
                 toEmail: userEmail
             }
@@ -96,12 +96,12 @@ export default function RegisterPresenter() {
         try{
             const newUser = {email, password, passwordCheck, displayName};
             await Axios.post(
-                "https://thefocustudy.com/users/register",
+                "http://15.165.172.0/users/register",
                 newUser
             ); // 생성
             const loginUser = {email, password};
             const loginRes = await Axios.post(
-                "https://thefocustudy.com/users/login",
+                "http://15.165.172.0/users/login",
                 loginUser
             ); // 새로 생성하면 자동으로 로그인이 되게끔.
             setUserData({
