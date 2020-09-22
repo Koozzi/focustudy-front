@@ -1,33 +1,86 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
+const crypto = require('crypto');
 const jwt = require("jsonwebtoken");
+const nodemailer = require('nodemailer');
+
 const User = require("../models/userModel");
 const auth = require("../middleware/auth");
 
+router.get("/verify", async(req, res) => {
+    try{
+        const key_one = crypto.randomBytes(256).toString('hex').substr(100,5);
+        const key_two = crypto.randomBytes(256).toString('base64').substr(50, 5);
+        const key_for_verify = key_one + key_two;
+
+
+        let { toEmail } = req.query;
+        console.log(toEmail);
+        if(!toEmail){
+            return res.status(404).json({msg: "이메일을 입력해 주세요."});
+        }
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'team.focustudy@gmail.com',
+                pass: 'rnclgns1!'
+            }
+        })
+
+        const mailOptions = {
+            from: 'team.focustudy@gmail.com',
+            to: toEmail,
+            subject: '환영합니다. 세상에 없던 AI 집중력 타이머, FocuStudy입니다.',
+            html: `
+                <h1>FocuStudy</h1>
+                <h3>아래의 인증 번호를 입력해주세요.</h3>
+                인증 번호 : ${key_for_verify}
+            `
+        };
+
+        await transporter.sendMail(mailOptions, (error, info)=>{
+            if(error){
+                console.log(error);
+            } else {
+                console.log('Email Sent!');
+            }
+            transporter.close();
+        })
+
+        res.json({
+            exist: false,
+            toEmail: toEmail,
+            verifyCode: key_for_verify
+        });
+    }
+    catch(err){
+        res.status(500).json({ error: err.message });
+    }
+})
 router.post("/register", async(req, res) => {
     try {
         let {email, password, passwordCheck, displayName} =  req.body;
 
         if(!email || !password || !passwordCheck || !displayName){
-            return res.status(404).json({msg: "Not all fields have been entered."})
+            return res.status(404).json({msg: "모든 항목을 채워주세요.😭"})
         }
 
-        if(password.length < 5){
-            return res.status(400).json({msg: "The password needs to be at least 5 characters long."})
+        if(password.length < 8){
+            return res.status(400).json({msg: "비밀번호는 8자리 이상으로 해주세요.😭"})
         }
 
         if(password !== passwordCheck){
-            return res.status(400).json({msg: "Enter the same password twice for verifictaion"})
+            return res.status(400).json({msg: "비밀번호가 일치되지 않아요.😭"})
         }
 
         const existingUser = await User.findOne({email: email});
         if(existingUser){
-            return res.status(400).json({msg: "An account with this email already exists."})
+            return res.status(400).json({msg: "해당 이메일으로 이미 가입이 되어 있어요.😭"})
         }
 
         const existingDisplayName = await User.findOne({displayName: displayName});
         if(existingDisplayName){
-            return res.status(400).json({msg: "An account with this display name already exists."})
+            return res.status(400).json({msg: "해당 이름으로 이미 가입이 되어 있어요.😭"})
         }
 
         const salt = await bcrypt.genSalt();
