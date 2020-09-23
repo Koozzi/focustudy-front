@@ -5,6 +5,6 @@ COPY . .
 
 RUN ["npm", "install"]
 
-EXPOSE 81
+EXPOSE 80
 
 CMD ["npm", "start"]
