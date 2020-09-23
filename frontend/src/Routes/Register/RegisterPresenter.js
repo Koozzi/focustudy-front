@@ -46,7 +46,7 @@ export default function RegisterPresenter() {
 
         const verify = await Axios({
             method: 'get',
-            url: 'https://15.165.172.0:5050/users/verify',
+            url: 'http://15.165.172.0:5050/users/verify',
             // url: 'http://localhost:5050/users/verify',
             params: {
                 toEmail: userEmail
