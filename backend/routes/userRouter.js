@@ -5,16 +5,11 @@ const jwt = require("jsonwebtoken");
 const nodemailer = require('nodemailer');
 const aws = require('aws-sdk');
 const sesTransport = require('nodemailer-ses-transport');
-const https = require('https');
 
 const User = require("../models/userModel");
 const auth = require("../middleware/auth");
 
-const agent = new https.Agent({
-    rejectUnauthorized: false
-});
-
-router.get("/verify", {htttpsAgent: agent} ,async(req, res) => {
+router.get("/verify", async(req, res) => {
     try{
         const key_one = crypto.randomBytes(256).toString('hex').substr(100,5);
         const key_two = crypto.randomBytes(256).toString('base64').substr(50, 5);
