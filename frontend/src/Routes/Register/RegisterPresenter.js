@@ -97,13 +97,13 @@ export default function RegisterPresenter() {
         try{
             const newUser = {email, password, passwordCheck, displayName};
             await Axios.post(
-                "http://15.165.172.0:5050/users/register",
+                "https://15.165.172.0:5050/users/register",
                 // "http://localhost:5050/users/register",
                 newUser
             ); // 생성
             const loginUser = {email, password};
             const loginRes = await Axios.post(
-                "http://15.165.172.0:5050/users/login",
+                "https://15.165.172.0:5050/users/login",
                 // "http://localhost/users/login",
                 loginUser
             ); // 새로 생성하면 자동으로 로그인이 되게끔.
