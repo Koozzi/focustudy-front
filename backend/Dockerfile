@@ -8,6 +8,6 @@ RUN npm install
  
 COPY . .
  
-EXPOSE 5050
+EXPOSE 443
  
 CMD [ "node", "server" ]
