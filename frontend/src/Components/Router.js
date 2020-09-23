@@ -30,7 +30,7 @@ export default () => {
             }
             console.log(token);
             const tokenRes = await Axios.post(
-                "http://localhost:5050/users/tokenIsValid",
+                "https://15.165.172.0:5050/users/tokenIsValid",
                 null,
                 {
                     headers: {
@@ -41,7 +41,7 @@ export default () => {
             console.log(tokenRes.data);
             if(tokenRes.data){
                 const userRes = await Axios.get(
-                    "http://localhost:5050/users/",
+                    "https://15.165.172.0:5050/users/",
                     {
                         headers: {
                             "x-auth-token": token
