@@ -38,13 +38,14 @@ export default function RegisterPresenter() {
     const verifyEmail = async(e) => {
         e.preventDefault();
         const userEmail = { email };
+
         const verify = await Axios({
             method: 'get',
             url: 'https://15.165.172.0:5050/users/verify',
             // url: 'http://localhost:5050/users/verify',
             params: {
                 toEmail: userEmail
-            }
+            },
         })
 
         console.log(verify.data.verifyCode);
