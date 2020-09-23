@@ -46,8 +46,8 @@ export default function RegisterPresenter() {
 
         const verify = await Axios({
             method: 'get',
-            url: 'https://thefocustudy.com:5050/users/verify',
-            // url: 'http://localhost:5050/users/verify',
+            // url: 'https://thefocustudy.com:5050/users/verify',
+            url: 'http://localhost:5050/users/verify',
             params: {
                 toEmail: userEmail
             },
