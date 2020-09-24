@@ -103,13 +103,13 @@ export default function RegisterPresenter() {
         try{
             const newUser = {email, password, passwordCheck, displayName};
             await Axios.post(
-                "https://thefocustudy.com:5050/users/register",
+                "https://focustudy-back.site/users/register",
                 // "http://localhost:5050/users/register",
                 newUser
             ); // 생성
             const loginUser = {email, password};
             const loginRes = await Axios.post(
-                "https://thefocustudy.com:5050/users/login",
+                "https://focustudy-back.site/users/login",
                 // "http://localhost/users/login",
                 loginUser
             ); // 새로 생성하면 자동으로 로그인이 되게끔.

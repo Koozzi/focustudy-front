@@ -30,7 +30,7 @@ export default () => {
             }
             console.log(token);
             const tokenRes = await Axios.post(
-                "https://thefocustudy.com:5050/users/tokenIsValid",
+                "https://focustudy-back.site/users/tokenIsValid",
                 null,
                 {
                     headers: {
@@ -41,7 +41,7 @@ export default () => {
             console.log(tokenRes.data);
             if(tokenRes.data){
                 const userRes = await Axios.get(
-                    "https://thefocustudy.com:5050/users/",
+                    "https://focustudy-back.site/users/",
                     {
                         headers: {
                             "x-auth-token": token
