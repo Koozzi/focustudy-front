@@ -7,7 +7,12 @@ require("dotenv").config()
 const app = express();
 app.use(express.json());
 
-app.use(cors());
+app.use(cors({
+    credentials: true,
+    origin: [
+        'https://focustudy.com'
+    ]
+}));
 app.options('*', cors());
 
 const PORT = process.env.PORT || 5050;
