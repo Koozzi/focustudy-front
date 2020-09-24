@@ -13,7 +13,6 @@ app.use(cors({
         'https://focustudy.com'
     ]
 }));
-app.options('*', cors());
 
 const PORT = process.env.PORT || 5050;
 
