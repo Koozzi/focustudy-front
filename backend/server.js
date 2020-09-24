@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors({
     credentials: true,
     origin: [
-        'https://focustudy.com'
+        'https://focustudy.com:443'
     ]
 }));
 
