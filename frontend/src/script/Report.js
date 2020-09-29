@@ -4,6 +4,7 @@ const initJavis = () => {
     const enterBtn = document.querySelector("#enterBtn");
     const webcamElement = document.getElementById('myVideo');
     const cocoSsd = require('@tensorflow-models/coco-ssd');
+    const facemesh = require("@tensorflow-models/facemesh");
     var seconds = 0; 
     var minutes = 0;
     var face_cnt = 0;
@@ -25,8 +26,9 @@ const initJavis = () => {
                 minutes++;
                 return;
             }
-            if(seconds%5==0){
+            if(seconds%1==0){
                 inference();
+                facemesh_inference();
             }
             if(enterBtn.innerHTML==="Enter"){
                 window.clearInterval(contador);
@@ -89,7 +91,27 @@ const initJavis = () => {
         //});
 
     }
+    async function facemesh_inference(){
+        const model = await facemesh.load();
 
+        const webcam = await tf.data.webcam(webcamElement);
+        const img = await webcam.capture();
+
+        console.log("AAAAAAAAAAAAAAA");
+        const predictions = await model.estimateFaces(img);
+        console.log("AAAAAAAAAAAAAAA");
+        if(predictions.length > 0){
+            for(let i=0;i<predictions.length;i++){
+                const keypoints = predictions[i].scaledMesh;
+                for(let j=0;j<keypoints.length;j++){
+                    const [x, y, z] = keypoints[j];
+                    console.log("Keypoint ${j}:[${x}, ${y}, ${z}]");
+                }
+
+            }
+        }
+
+    }
 
     // 배열 합계 구하기 함수
     function sum(array) {
@@ -100,6 +122,7 @@ const initJavis = () => {
     
         return result;
     }
+    
     enterBtn.addEventListener("click",
         evt => {
           inferencestart();
