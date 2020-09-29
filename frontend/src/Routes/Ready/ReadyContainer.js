@@ -11,9 +11,9 @@ export default (props) => {
         initConference(props);
         // 
         initMesh();
-    });
+    }, []);
     useLayoutEffect(() => {
-        initJavis();
+        // initJavis();
         initTimer(props);
     }, []);
     
