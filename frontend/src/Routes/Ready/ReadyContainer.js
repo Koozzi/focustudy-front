@@ -2,7 +2,6 @@ import ReadyPresenter from './ReadyPresenter';
 import initConference from '../../script/Conference';
 import initTimer from '../../script/Timer';
 import initJavis from '../../script/Report';
-import initMesh from '../../script/Mesh';
 import React, { useLayoutEffect, useEffect } from 'react'
 
 export default (props) => {
@@ -10,7 +9,6 @@ export default (props) => {
     useEffect(()=>{
         initConference(props);
         initJavis();
-        // initMesh();
     }, []);
     useLayoutEffect(() => {
         
