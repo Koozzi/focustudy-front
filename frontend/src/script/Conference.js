@@ -23,7 +23,7 @@ const initConference = (props) => {
     },
     view: {
       remote: "#remoteVideo",
-      local: "#myVideo"
+      // local: "#myVideo"
     },
     media: {
       video: {

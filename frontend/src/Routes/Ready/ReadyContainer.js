@@ -10,7 +10,7 @@ export default (props) => {
     useEffect(()=>{
         initConference(props);
         initJavis();
-        // initMesh();
+        initMesh();
     }, []);
     useLayoutEffect(() => {
         

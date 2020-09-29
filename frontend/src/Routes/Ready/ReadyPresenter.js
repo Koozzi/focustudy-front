@@ -10,7 +10,7 @@ const ReadyPresenter = ({roomNumber})=> (
         <div className="timer" id="timer">Pomodoro</div>
       </div>
       <div className="column">
-        <p> Your Pomodoro score is <div id="facenum"></div></p>
+        <div> Your Pomodoro score is <div id="facenum"></div></div>
         <video id="myVideo" className="remote-video" autoPlay muted controls playsInline></video>
       </div>
     </div>
