@@ -9,8 +9,7 @@ export default (props) => {
     let roomNumber = props.location.state.roomNumber;
     useEffect(()=>{
         initConference(props);
-        // 
-        initMesh();
+        // initMesh();
     }, []);
     useLayoutEffect(() => {
         // initJavis();
