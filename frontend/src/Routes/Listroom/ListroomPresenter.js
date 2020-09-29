@@ -6,13 +6,17 @@ import Room from "../../Components/Room";
 
 export default function SelectStudy() {
     const rooms = ["rmon1", "remon3", "remonvagegw", "awegwag", "waeg"];
+
+    
+        
+        
     return (
         <Container maxwidth="sm">
             <div className="row">
                 <div className="rooms">
                     {rooms.map(room => (
                         <Room 
-                            roomNumber={room}
+                            roomNumber={room} key={room}
                         />
                     ))}
                 </div>

@@ -4,6 +4,7 @@ const initMesh = () => {
     const enterBtn = document.querySelector("#enterBtn");
     const webcamElement = document.getElementById('myVideo');
     const facemesh = require("@tensorflow-models/facemesh");
+    
     async function main(){
         const model = await facemesh.load();
         console.log("AAAAAAAAAAAAAAA");
