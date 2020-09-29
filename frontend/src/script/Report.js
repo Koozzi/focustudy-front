@@ -26,7 +26,7 @@ const initJavis = () => {
                 minutes++;
                 return;
             }
-            if(seconds%1==0){
+            if(seconds%5==0){
                 inference();
                 facemesh_inference();
             }
