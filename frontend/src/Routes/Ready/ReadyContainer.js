@@ -2,15 +2,19 @@ import ReadyPresenter from './ReadyPresenter';
 import initConference from '../../script/Conference';
 import initTimer from '../../script/Timer';
 import initJavis from '../../script/Report';
-import React, { useLayoutEffect } from 'react'
+import initMesh from '../../script/Mesh';
+import React, { useLayoutEffect, useEffect } from 'react'
 
 export default (props) => {
     let roomNumber = props.location.state.roomNumber;
-    
-    useLayoutEffect(() => {
+    useEffect(()=>{
         initConference(props);
-        initTimer(props);
+        // 
+        initMesh();
+    });
+    useLayoutEffect(() => {
         initJavis();
+        initTimer(props);
     }, []);
     
     return(

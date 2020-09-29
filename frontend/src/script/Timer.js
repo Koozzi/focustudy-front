@@ -9,7 +9,7 @@ const initTimer = (props) => {
     
     async function timerstart(){
         var contador = null;
-        console.log(isConnected);
+       // console.log(isConnected);
         seconds = 1;
         contador = window.setInterval(function(){
             if(seconds === 59){
@@ -40,7 +40,7 @@ const initTimer = (props) => {
         }, 1000)
     }
     async function printTimer(minutes, seconds){
-        console.log(minutes, seconds);
+        //console.log(minutes, seconds);
         var show_min = left_time - minutes - 1;
         var show_sec = (60 - seconds) % 60;
         if(show_min<10){

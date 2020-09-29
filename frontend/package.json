@@ -8,6 +8,7 @@
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@remotemonster/sdk": "^2.6.5",
     "@tensorflow-models/coco-ssd": "^2.1.0",
+    "@tensorflow-models/facemesh": "0.0.4",
     "@tensorflow-models/posenet": "^2.2.1",
     "@tensorflow/tfjs": "^2.0.1",
     "@testing-library/jest-dom": "^4.2.4",
