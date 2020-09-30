@@ -73,7 +73,7 @@ export default () => {
                     <Route path="/login" exact component={Login} />
                     <Route path="/register" exact component={Register} />
                     <Route path="/room/:roomNumber" exact component={Ready} />
-                    <Route path="/dashboard" exact component={Dashboard_Home} />
+                    <Route path="/studyhome" exact component={Dashboard_Home} />
                     <Redirect from="*" to="/" /> 
                 </Switch>
             </UserContext.Provider>
