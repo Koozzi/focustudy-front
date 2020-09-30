@@ -13,6 +13,7 @@ import Result from '../Routes/Result/';
 import Login from '../Routes/Login/';
 import Register from '../Routes/Register/';
 import UserContext from './UserContext';
+import Dashboard_Home from './Dashboard';
 import Axios from 'axios';
 
 export default () => {
@@ -72,7 +73,7 @@ export default () => {
                     <Route path="/login" exact component={Login} />
                     <Route path="/register" exact component={Register} />
                     <Route path="/room/:roomNumber" exact component={Ready} />
-
+                    <Route path="/dashboard" exact component={Dashboard_Home} />
                     <Redirect from="*" to="/" /> 
                 </Switch>
             </UserContext.Provider>

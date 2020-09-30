@@ -38,9 +38,9 @@ export default function Board() {
       <div className="navbar">
         <Container>
           <a href="/" className="active">Home</a>
-          <a href="/Study">Study</a>
-          <a href="/Contact">Contact</a>
-          <a href="/Contact">About</a>
+          <a href="/dashboard">Study</a>
+          <a href="/contact">Contact</a>
+          <a href="/contact">About</a>
           {userData.user ?(
               <button onClick={logout} className="right">Log Out</button>
                 ) : (
