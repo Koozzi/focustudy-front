@@ -15,7 +15,7 @@ import Container from '@material-ui/core/Container';
 import {useHistory} from 'react-router-dom';
 import Axios from 'axios';
 import UserContext from '../../Components/UserContext';
-import ErrorNotice from '../../Components/ErrorNotice';
+// import ErrorNotice from '../../Components/ErrorNotice';
 
 function Copyright() {
   return (
@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [error, setError] = useState();
+  // const [error, setError] = useState();
 
   const { setUserData } = useContext(UserContext);
   const history = useHistory();
