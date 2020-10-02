@@ -38,7 +38,12 @@ export default function Board() {
       <div className="navbar">
         <Container>
           <a href="/" className="active">Home</a>
-          <a href="/studyhome">Study</a>
+          {userData.user ? (
+            <a href="/studyhome">Study</a>
+          ) : (
+            <a href="/login">Study</a>
+          )}
+
           <a href="/contact">Contact</a>
           <a href="/contact">About</a>
           {userData.user ?(
