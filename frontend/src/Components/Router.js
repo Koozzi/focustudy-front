@@ -29,7 +29,6 @@ export default () => {
                 localStorage.setItem("auth-token", "");
                 token = "";
             }
-            console.log(token);
             const tokenRes = await Axios.post(
                 "https://focustudy-back.site/users/tokenIsValid",
                 null,
