@@ -9,6 +9,7 @@ export default function Dashboard_Header() {
     const profile = () => history.push("/profile");
     const social = () => history.push("/social");
     const todo = () => history.push("/todo");
+    const rank = () => history.push("/rank");
 
     return (
         <div>
@@ -17,6 +18,7 @@ export default function Dashboard_Header() {
             <button onClick={profile}>나의정보</button>
             <button onClick={social}>소셜</button>
             <button onClick={todo}>계획</button>
+            <button onClick={rank}>랭크</button>
         </div>
     )
 }

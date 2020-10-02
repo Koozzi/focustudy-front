@@ -7,6 +7,7 @@ import Study from '../Routes/Study';
 import Dashboard_Social from '../Routes/Dashboard_Social/Dashboard_Social';
 import Dashboard_Profile from '../Routes/Dashboard_Profile/Dashboard_Profile';
 import Dashboard_Todo from '../Routes/Dashboard_Todo/Dashboard_Todo';
+import Dashboard_Rank from '../Routes/Dashboard_Rank/Dashboard_Rank';
 
 export default function Dashboard_Router() {
     return (
@@ -18,6 +19,7 @@ export default function Dashboard_Router() {
                 <Route path="/study" exact component={Study} />
                 <Route path="/profile" exact component={Dashboard_Profile} />
                 <Route path="/todo" exact component={Dashboard_Todo} />
+                <Route path="/rank" exact component={Dashboard_Rank} />
             </Switch>
         </Router>
     )
