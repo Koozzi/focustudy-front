@@ -7,6 +7,8 @@ export default function Dashboard_Profile() {
     const [totalScore, setTotalScore] = useState();
     const [avgScore, setAvgScore] = useState();
     const [badge1, setBadge1] = useState();
+    const [badge2, setBadge2] = useState();
+    const [badge3, setBadge3] = useState();
 
     const getUserInfo = async() => {
         let token = localStorage.getItem("auth-token");
@@ -25,6 +27,8 @@ export default function Dashboard_Profile() {
         setAvgScore(tokenRes.data.avgScore);
         setTotalScore(tokenRes.data.totalScore);
         setBadge1(tokenRes.data.badge.badge1);
+        setBadge2(tokenRes.data.badge.badge2);
+        setBadge3(tokenRes.data.badge.badge3);
     }
 
     useEffect(()=>{
@@ -39,6 +43,8 @@ export default function Dashboard_Profile() {
             <h3>Average Focus Score : {totalScore}</h3>
             <h3>Badges</h3>
             <h4>Badge1 : {badge1}</h4>
+            <h4>Badge2 : {badge2}</h4>
+            <h4>Badge3 : {badge3}</h4>
         </div>
     )
 }
