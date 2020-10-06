@@ -3,7 +3,7 @@ import * as tf from '@tensorflow/tfjs';
 const initJavis = () => {
     const enterBtn = document.querySelector("#enterBtn");
     const webcamElement = document.getElementById('myVideo');
-    const cocoSsd = require('@tensorflow-models/coco-ssd');
+    // const cocoSsd = require('@tensorflow-models/coco-ssd');
     const facemesh = require("@tensorflow-models/facemesh");
     var seconds = 0; 
     var minutes = 0;
@@ -11,6 +11,7 @@ const initJavis = () => {
     var time = 0;
     var data = new Array;
     var times = new Array;  
+    var prev_keypoints=0;
     var Chart = require('chart.js');
     function speakstart(){
         var msg = new SpeechSynthesisUtterance();
@@ -27,7 +28,7 @@ const initJavis = () => {
                 return;
             }
             if(seconds%5==0){
-                inference();
+                // inference();
                 facemesh_inference();
             }
             if(enterBtn.innerHTML==="Enter"){
@@ -44,82 +45,69 @@ const initJavis = () => {
                 
         }, 1000)
     }
-    async function inference(){
-        console.log("Loading coco SSD...");
-        time += 1;
-        // Load the model.
-        const model = await cocoSsd.load();
-        const webcam = await tf.data.webcam(webcamElement);
-        const img = await webcam.capture();
-        const prediction = await model.detect(img);
-        console.log(prediction);
-        if(prediction.length===0){
-            data.push(0.0);
-            times.push(time);
-        }
-        else if(prediction.length > 0){
-            face_cnt+=1;
-            if(prediction[0].class==="person"){
-                data.push(1.0);
-                times.push(time);
-            }
-            else{
-                data.push(0.0);
-                speakstart();
-                times.push(time);
-            }
-        }
-        document.getElementById("facenum").innerText = sum(data);
-        //var ctx = document.getElementById('myChart').getContext('2d');
-        //var chart = new Chart(ctx, {
-            // The type of chart we want to create
-            //type: 'bar',
-
-            // The data for our dataset
-            //data: {
-                //labels: times,
-                //datasets: [{
-                    //label: 'Your Pomodoro Score',
-                    //backgroundColor: 'rgb(255, 99, 132)',
-                    //borderColor: 'rgb(255, 99, 132)',
-                    //data: data
-                //}]
-            //},
-
-            // Configuration options go here
-            //options: {}
-        //});
-
-    }
+    
     async function facemesh_inference(){
+        time += 1
         const model = await facemesh.load();
-
-        const webcam = await tf.data.webcam(webcamElement);
-        const img = await webcam.capture();
-
-        console.log("AAAAAAAAAAAAAAA");
-        const predictions = await model.estimateFaces(img);
-        console.log("AAAAAAAAAAAAAAA");
+        const predictions = await model.estimateFaces(webcamElement);
+        var score = 1.0;
         if(predictions.length > 0){
             for(let i=0;i<predictions.length;i++){
                 const keypoints = predictions[i].scaledMesh;
+                var mse = 0;
                 for(let j=0;j<keypoints.length;j++){
                     const [x, y, z] = keypoints[j];
-                    console.log("Keypoint ${j}:[${x}, ${y}, ${z}]");
+                    if(prev_keypoints!=0){
+                        const [prev_x, prev_y, prev_z] = prev_keypoints[j];
+                        mse += (prev_x-x)*(prev_x-x) + (prev_y-y)*(prev_y-y)+(prev_z-z)*(prev_z-z);
+                    }
+                    else{
+                        var mse = 0;
+                    }
                 }
-
+                console.log(i, mse);
+                prev_keypoints = keypoints;
             }
+            if(mse>=500000){
+                score = 0.5;
+            }
+            else if(mse<500000){
+                score=1.0;
+            }
+            // document.getElementById("facenum").innerText = sum(data);
         }
+        else{
+            score = 0.0;
+            speakstart();
+        }
+        data.push(score);
+        times.push(time);
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            //The type of chart we want to create
+            type: 'line',
 
+            // The data for our dataset
+            data: {
+                labels: times,
+                datasets: [{
+                    label: 'Your Pomodoro Score',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: data
+                }]
+            },
+
+            // Configuration options go here
+            options: {}
+        });
     }
 
     // 배열 합계 구하기 함수
     function sum(array) {
         var result = 0.0;
-    
         for (var i = 0; i < array.length; i++)
             result += array[i];
-    
         return result;
     }
     
