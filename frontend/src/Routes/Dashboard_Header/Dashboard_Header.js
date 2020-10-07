@@ -1,6 +1,8 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom';
 
+import "./Dashboard_Header.css";
+
 export default function Dashboard_Header() {
     const history = useHistory();
 
@@ -12,13 +14,13 @@ export default function Dashboard_Header() {
     const rank = () => history.push("/rank");
 
     return (
-        <div>
-            <button onClick={home}>대시보드</button>
-            <button onClick={study}>공부하기</button>
-            <button onClick={profile}>나의정보</button>
-            <button onClick={social}>소셜</button>
-            <button onClick={todo}>계획</button>
-            <button onClick={rank}>랭크</button>
+        <div className="dashboard-navbar">
+            <li onClick={home}>대시보드</li>
+            <li onClick={study}>공부하기</li>
+            <li onClick={profile}>나의정보</li>
+            <li onClick={social}>소셜</li>
+            <li onClick={todo}>계획</li>
+            <li onClick={rank}>랭크</li>
         </div>
     )
 }

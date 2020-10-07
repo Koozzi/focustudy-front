@@ -1,0 +1,19 @@
+.dashboard-navbar{
+    text-align: center;
+    position: fixed;
+    width: 200px;
+    height: 1400px;
+    background-color: #57606f;
+    color: #fff;
+    font-size: 1.7rem;
+}
+
+li {
+    list-style-type: none;
+    padding: 15px;
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: #2d3436;
+}

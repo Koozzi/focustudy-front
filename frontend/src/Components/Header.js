@@ -30,22 +30,22 @@ export default function Board() {
   };
   return (
     <React.Fragment>
-      <div className="header">
+      {/* <div className="header">
         <h1>Focustudy</h1>
         <p>세상에 없던 AI 집중력 타이머. Jenkins Test</p>
-      </div>
+      </div> */}
       
       <div className="navbar">
         <Container>
-          <a href="/" className="active">Home</a>
+          <a href="/" className="active">FocuStudy</a>
+          <a href="/contact">About</a>
+          <a href="/contact">Contact</a>
           {userData.user ? (
             <a href="/studyhome">Study</a>
           ) : (
             <a href="/login">Study</a>
           )}
 
-          <a href="/contact">Contact</a>
-          <a href="/contact">About</a>
           {userData.user ?(
               <button onClick={logout} className="right">Log Out</button>
                 ) : (
