@@ -1,5 +1,6 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
+import React, { useContext, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Redirect, Switch, useHistory } from "react-router-dom";
+import Axios from 'axios';
 
 import Dashboard_Header from '../Routes/Dashboard_Header/Dashboard_Header';
 import Dashboard_Home from '../Routes/Dashboard_Home/Dashboard_Home';
@@ -12,6 +13,14 @@ import Dashboard_Rank from '../Routes/Dashboard_Rank/Dashboard_Rank';
 import "./Dashboard_Router.css"
 
 export default function Dashboard_Router() {
+    const history = useHistory();
+    const checkLoggedIn = async() => {
+        if(!localStorage.getItem("auth-token")) history.push("/login");
+    }
+    useEffect(()=>{
+        checkLoggedIn();
+    }, [])
+
     return (
         <Router>
             <Dashboard_Header />
