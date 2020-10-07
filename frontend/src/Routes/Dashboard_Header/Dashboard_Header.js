@@ -15,7 +15,7 @@ export default function Dashboard_Header() {
 
     return (
         <div className="dashboard-navbar">
-            <li onClick={home}>대시보드</li>
+            <li onClick={home}>홈</li>
             <li onClick={study}>공부하기</li>
             <li onClick={profile}>나의정보</li>
             <li onClick={social}>소셜</li>
