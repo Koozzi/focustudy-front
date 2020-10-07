@@ -1,3 +1,4 @@
+
 .header {
     padding: 10px; /* some padding */
     text-align: center; /* center the text */
@@ -12,23 +13,19 @@
 
 /* Style the top navigation bar */
 .navbar {
+    width: 100%;
     overflow: hidden; /* Hide overflow */
     background-color: #333; /* Dark background color */
+    justify-content: space-between;
 }
   
 /* Style the navigation bar links */
 .navbar button {
-    float: left; /* Make sure that the links stay side-by-side */
-    display: block; /* Change the display to block, for responsive reasons (see below) */
-    color: black; /* White text color */
-    text-align: center; /* Center the text */
-    padding: 12px 16px; /* Add some padding */
-    font-family: 'Nanum Gothic';
-    text-decoration: none; /* Remove underline */
-}
-
-.navbar a {
-    float: left; /* Make sure that the links stay side-by-side */
+    background-color: #333;
+    font-size: 0.99rem;
+    outline: none;
+    cursor: pointer;
+    border: none; 
     display: block; /* Change the display to block, for responsive reasons (see below) */
     color: white; /* White text color */
     text-align: center; /* Center the text */
@@ -36,7 +33,16 @@
     font-family: 'Nanum Gothic';
     text-decoration: none; /* Remove underline */
 }
-  
+
+.navbar a {
+    float: left; 
+    display: block; /* Change the display to block, for responsive reasons (see below) */
+    color: white; /* White text color */
+    text-align: center; /* Center the text */
+    padding: 12px 16px; /* Add some padding */
+    font-family: 'Nanum Gothic';
+    text-decoration: none; /* Remove underline */
+}
   
   /* Right-aligned link */
   .navbar button.right {
@@ -47,6 +53,8 @@
   .navbar a:hover, button:hover {
     background-color: #ddd; /* Grey background color */
     color: black; /* Black text color */
+    transition: 0.5s ease-in-out;
+    outline: none;
   }
 
   /* Active/current link */

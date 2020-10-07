@@ -12,8 +12,6 @@ const btnStyle = {
   lineHeight: 1.5,
 }
 
-
-
 export default function Board() {
   const { userData, setUserData } = useContext(UserContext);
   
@@ -36,24 +34,24 @@ export default function Board() {
       </div> */}
       
       <div className="navbar">
-        <Container>
+        <Container className="navbar_container">
+          <div>
           <a href="/" className="active">FocuStudy</a>
           <a href="/contact">About</a>
           <a href="/contact">Contact</a>
           {userData.user ? (
-            <a href="/studyhome">Study</a>
+            <a href="/focus">Study</a>
           ) : (
             <a href="/login">Study</a>
           )}
-
+          </div>
+          <div>
           {userData.user ?(
               <button onClick={logout} className="right">Log Out</button>
                 ) : (
-              <>
-              <button onClick={register} className="right">Register</button>
               <button onClick={login} className="right">Log In</button>
-              </>
           )}
+          </div>
         </Container>
       </div>
       

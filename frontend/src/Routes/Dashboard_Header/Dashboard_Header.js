@@ -3,15 +3,15 @@ import { useHistory } from 'react-router-dom';
 
 import "./Dashboard_Header.css";
 
-export default function Dashboard_Header() {
+export default function Dashboard_Header( {match} ) {
     const history = useHistory();
 
-    const home = () => history.push("/studyhome");
-    const study = () => history.push("/study");
-    const profile = () => history.push("/profile");
-    const social = () => history.push("/social");
-    const todo = () => history.push("/todo");
-    const rank = () => history.push("/rank");
+    const home = () => history.push("/focus");
+    const study = () => history.push("/focus/study");
+    const profile = () => history.push("/focus/profile");
+    const social = () => history.push("/focus/social");
+    const todo = () => history.push("/focus/todo");
+    const rank = () => history.push("/focus/rank");
 
     return (
         <div className="dashboard-navbar">

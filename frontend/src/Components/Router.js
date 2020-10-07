@@ -13,8 +13,8 @@ import Result from '../Routes/Result/';
 import Login from '../Routes/Login/';
 import Register from '../Routes/Register/';
 import UserContext from './UserContext';
-import Dashboard_Home from './Dashboard';
 import Axios from 'axios';
+import Dashboard_Router from './Dashboard_Router';
 
 export default () => {
     const [userData, setUserData] = useState({
@@ -63,16 +63,18 @@ export default () => {
                 <Header />
                 <Switch>
                     <Route path="/" exact component={Home} />
-                    <Route path="/study" exact component={Study} />
+                    <Route path="/signin" component={Signin} />
+                    <Route path="/login" component={Login} />
+                    <Route path="/register" component={Register} />
+                    <Route path="/focus" component={Dashboard_Router} />
+
+                    {/* 밑에 5줄 나중에 옮겨야 함 */}
+
                     <Route path="/multiroom" exact component={Multiroom} />
                     <Route path="/listroom" exact component={Listroom} />
-                    <Route path="/signin" exact component={Signin} />
                     <Route path="/joinroom" exact component={JoinRoom} />
                     <Route path="/result" exact component={Result} />
-                    <Route path="/login" exact component={Login} />
-                    <Route path="/register" exact component={Register} />
                     <Route path="/room/:roomNumber" exact component={Ready} />
-                    <Route path="/studyhome" exact component={Dashboard_Home} />
                 </Switch>
             </UserContext.Provider>
         </Router>

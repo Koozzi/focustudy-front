@@ -17,12 +17,12 @@ export default function Dashboard_Router() {
             <Dashboard_Header />
             <div className="Dashboard_Content">
                 <Switch>
-                    <Route path="/studyhome" exact component={Dashboard_Home} />
-                    <Route path="/social" exact component={Dashboard_Social} />
-                    <Route path="/study" exact component={Study} />
-                    <Route path="/profile" exact component={Dashboard_Profile} />
-                    <Route path="/todo" exact component={Dashboard_Todo} />
-                    <Route path="/rank" exact component={Dashboard_Rank} />
+                    <Route path="/focus" exact component={Dashboard_Home} />
+                    <Route path="/focus/social" component={Dashboard_Social} />
+                    <Route path="/focus/study" component={Study} />
+                    <Route path="/focus/profile" component={Dashboard_Profile} />
+                    <Route path="/focus/todo" component={Dashboard_Todo} />
+                    <Route path="/focus/rank" component={Dashboard_Rank} />
                 </Switch>
             </div>
         </Router>
