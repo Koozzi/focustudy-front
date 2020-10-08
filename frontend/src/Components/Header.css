@@ -54,9 +54,9 @@
   
   /* Change color on hover/mouse-over */
   .navbar a:hover, button:hover {
-    background-color: white; /* Grey background color */
-    color: red; /* Black text color */
-    transition: 0.5s ease-in-out;
+    /* background-color: white;  */
+    color: #c23616; 
+    /* transition: 0.5s ease-in-out; */
     outline: none;
   }
 
