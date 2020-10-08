@@ -16,13 +16,9 @@
     width: 100%;
     overflow: hidden; /* Hide overflow */
     background-color: red;
+    
 }
 
-.navbar_container {
-  width: 100%;
-  overflow: hidden; /* Hide overflow */
-  background-color: red;
-}
 
 .LEFT {
   font-size: x-large;
@@ -40,6 +36,8 @@
     text-align: center;
     padding: 12px 16px;
     text-decoration: none;
+    font-weight: bolder;
+    font-size: 1rem;
 }
 
 .navbar a {
