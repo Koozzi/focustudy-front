@@ -15,7 +15,7 @@
 .navbar {
     width: 100%;
     overflow: hidden; /* Hide overflow */
-    background-color: red; /* Dark background color */
+    background-color: red;
 }
 
 
@@ -45,7 +45,8 @@
     padding: 10px 16px;
     text-decoration: none; /* Remove underline */
 }
-  
+
+
   /* Right-aligned link */
   .navbar button.right {
     float: right; /* Float a link to the right */

@@ -37,7 +37,7 @@ export default function Board() {
       <div className="navbar">
         <Container className="navbar_container">
           <div className="LEFT">
-            <a href="/" className="active">FocuStudy</a>
+            <a href="/" className="Active">FocuStudy</a>
             <a href="/contact">About</a>
             <a href="/contact">Contact</a>
             {userData.user ? (
