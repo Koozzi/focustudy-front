@@ -24,7 +24,8 @@ export default function Board() {
         token: undefined,
         user: undefined
     })
-    localStorage.setItem("auth-token", "")
+    localStorage.setItem("auth-token", "");
+    history.push("/");
   };
   return (
     <React.Fragment>
@@ -35,23 +36,21 @@ export default function Board() {
       
       <div className="navbar">
         <Container className="navbar_container">
-          <div>
-          <a href="/" className="active">FocuStudy</a>
-          <a href="/contact">About</a>
-          <a href="/contact">Contact</a>
-          {userData.user ? (
-            <a href="/focus">Study</a>
-          ) : (
-            <a href="/login">Study</a>
-          )}
+          <div className="LEFT">
+            <a href="/" className="active">FocuStudy</a>
+            <a href="/contact">About</a>
+            <a href="/contact">Contact</a>
+            {userData.user ? (
+              <a href="/focus">Study</a>
+            ) : (
+              <a href="/login">Study</a>
+            )}
           </div>
-          <div>
           {userData.user ?(
-              <button onClick={logout} className="right">Log Out</button>
-                ) : (
-              <button onClick={login} className="right">Log In</button>
-          )}
-          </div>
+            <button onClick={logout} className="right">Log Out</button>
+              ) : (
+             <button onClick={login} className="right">Log In</button>
+            )}
         </Container>
       </div>
       

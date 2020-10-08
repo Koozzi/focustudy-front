@@ -38,7 +38,6 @@ export default () => {
                     }
                 }
             );
-            console.log(tokenRes.data);
             if(tokenRes.data){
                 const userRes = await Axios.get(
                     "https://focustudy-back.site/users/",

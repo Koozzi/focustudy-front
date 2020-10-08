@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch, useHistory } from "react-router-dom";
 import Axios from 'axios';
 
@@ -13,9 +13,40 @@ import Dashboard_Rank from '../Routes/Dashboard_Rank/Dashboard_Rank';
 import "./Dashboard_Router.css"
 
 export default function Dashboard_Router() {
+    var userData = {
+        token: null,
+        user: null
+    }
     const history = useHistory();
     const checkLoggedIn = async() => {
-        if(!localStorage.getItem("auth-token")) history.push("/login");
+        let token = localStorage.getItem("auth-token");
+        if(token === null){
+            history.push("/login");
+            return;
+        }
+        const tokenRes = await Axios.post(
+            "https://focustudy-back.site/users/tokenIsValid",
+            null,
+            {
+                headers: {
+                    "x-auth-token": token
+                }
+            }
+        );
+        if(tokenRes.data){
+            const userRes = await Axios.get(
+                "https://focustudy-back.site/users/",
+                {
+                    headers: {
+                        "x-auth-token": token
+                    }
+                }
+            )
+            userData.user = userRes.data;
+        }
+        if(!userData.user){
+            history.push("/login");
+        }
     }
     useEffect(()=>{
         checkLoggedIn();
