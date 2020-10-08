@@ -27,6 +27,13 @@ export default function Board() {
     localStorage.setItem("auth-token", "");
     history.push("/");
   };
+  const About = () => history.push("/");
+  const Contact = () => history.push("/");
+  const Study = () => {
+    if(userData.user) history.push("/focus")
+    else history.push("/login")
+  }
+
   return (
     <React.Fragment>
       {/* <div className="header">
@@ -38,19 +45,17 @@ export default function Board() {
         <Container className="navbar_container">
           <div className="LEFT">
             <a href="/" className="Active">FocuStudy</a>
-            <a href="/contact">About</a>
-            <a href="/contact">Contact</a>
-            {userData.user ? (
-              <a href="/focus">Study</a>
-            ) : (
-              <a href="/login">Study</a>
-            )}
           </div>
-          {userData.user ?(
-            <button onClick={logout} className="right">Log Out</button>
-              ) : (
-             <button onClick={login} className="right">Log In</button>
-            )}
+          <div className="RIGHT">
+            <button onClick={About}>About</button>
+            <button onClick={Contact}>Contack</button>
+            <button onClick={Study}>Study</button>
+            {userData.user ?(
+              <button onClick={logout}>Log Out</button>
+                ) : (
+              <button onClick={login}>Log In</button>
+              )}
+          </div>
         </Container>
       </div>
       
