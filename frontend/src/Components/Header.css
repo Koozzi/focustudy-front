@@ -15,7 +15,7 @@
 .navbar {
     width: 100%;
     overflow: hidden; /* Hide overflow */
-    background-color: #333; /* Dark background color */
+    background-color: red; /* Dark background color */
 }
 
 
@@ -26,7 +26,7 @@
 
 /* Style the navigation bar links */
 .navbar button {
-    background-color: #333;
+    background-color: red;
     outline: none;
     cursor: pointer;
     border: none; 
@@ -53,8 +53,8 @@
   
   /* Change color on hover/mouse-over */
   .navbar a:hover, button:hover {
-    background-color: #ddd; /* Grey background color */
-    color: black; /* Black text color */
+    background-color: white; /* Grey background color */
+    color: red; /* Black text color */
     transition: 0.5s ease-in-out;
     outline: none;
   }
