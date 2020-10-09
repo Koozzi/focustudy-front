@@ -13,6 +13,17 @@ p {
   top: calc(0% + 45px);
 }
 
+.study_button {
+  position: absolute;
+  padding-top: 130px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+}
+
+.Button {
+  
+}
 /* @import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 .container {
