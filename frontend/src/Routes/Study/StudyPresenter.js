@@ -18,14 +18,14 @@ export default function SelectStudy() {
                 <span className="List">
                     <div className="Text">
                         <BsFillPersonFill/>
-                        <div>Single</div>
+                        <div>싱글 모드</div>
                     </div>
                     <button className="Button" onClick={Multi}>Start</button>
                 </span>
                 <span className="List">
                     <div className="Text">
                         <BsPeopleFill/>
-                        <div>Multi</div>
+                        <div>멀티 모드</div>
                     </div>
                     <button className="Button" onClick={Multi}>Start</button>
                 </span>

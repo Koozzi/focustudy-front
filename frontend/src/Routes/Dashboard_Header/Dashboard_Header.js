@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import styled from "styled-components";
 
@@ -9,7 +9,12 @@ import { BsPeopleFill, BsListCheck, BsPencilSquare } from "react-icons/bs"
 import { BiMedal } from "react-icons/bi"
 
 export default function Dashboard_Header( {match} ) {
+    const [value, setValue] = useState('Home');
     const history = useHistory();
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+      };
 
     const home = () => history.push("/focus");
     const study = () => history.push("/focus/study");
@@ -19,8 +24,8 @@ export default function Dashboard_Header( {match} ) {
     const rank = () => history.push("/focus/rank");
 
     return (
-        <div className="dashboard-navbar">
-            <h3 className="RealHome"><a href="/">FocuStudy</a></h3>
+        <div className="dashboard-navbar" value={value} onChange={handleChange}>
+            <h1 className="RealHome"><a href="/">FocuStudy</a></h1>
             <li onClick={home}><TiHome/> Home</li>
             <li onClick={study}><BsPencilSquare/> Study</li>
             <li onClick={profile}><CgProfile/> Profile</li>
