@@ -59,7 +59,7 @@
   /* Change color on hover/mouse-over */
   .navbar button:hover {
     /* background-color: white;  */
-    color: blue; 
+    /* color: blue;  */
     /* transition: 0.5s ease-in-out; */
     outline: none;
   }
