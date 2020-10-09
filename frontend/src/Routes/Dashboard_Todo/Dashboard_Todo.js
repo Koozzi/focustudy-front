@@ -15,7 +15,7 @@ export default function Dashboard_Todo() {
         <div>
             <div>1. 우측 상단 프로필 아이콘</div>
             <div>2. 좌측 메뉴 클릭했을 때, 색상 유지</div>
-            <div>3. Redis -> Rank System</div>
+            <div>3. Redis Rank System</div>
             <div>4. ...</div>
         </div>
         </>
