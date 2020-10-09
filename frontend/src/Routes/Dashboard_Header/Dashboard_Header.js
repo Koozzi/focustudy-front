@@ -1,12 +1,12 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom';
 import styled from "styled-components";
-import { TiHome } from "react-icons/ti";
-import { MdFilterCenterFocus } from "react-icons/md";
-import { CgProfile } from "react-icons/cg"
-import { BsPeopleFill, BsListCheck } from "react-icons/bs"
-import { BiMedal } from "react-icons/bi"
+
 import "./Dashboard_Header.css";
+import { TiHome } from "react-icons/ti";
+import { CgProfile } from "react-icons/cg"
+import { BsPeopleFill, BsListCheck, BsPencilSquare } from "react-icons/bs"
+import { BiMedal } from "react-icons/bi"
 
 export default function Dashboard_Header( {match} ) {
     const history = useHistory();
@@ -22,10 +22,10 @@ export default function Dashboard_Header( {match} ) {
         <div className="dashboard-navbar">
             <h3 className="RealHome"><a href="/">FocuStudy</a></h3>
             <li onClick={home}><TiHome/> Home</li>
-            <li onClick={study}><MdFilterCenterFocus/> Study</li>
+            <li onClick={study}><BsPencilSquare/> Study</li>
             <li onClick={profile}><CgProfile/> Profile</li>
             <li onClick={social}><BsPeopleFill/> Social</li>
-            <li onClick={todo}><BsListCheck/> ToDo</li>
+            <li onClick={todo}><BsListCheck/> To-Do</li>
             <li onClick={rank}><BiMedal/> Rank</li>
         </div>
     )
