@@ -6,8 +6,8 @@ import "./Study.css";
 export default function SelectStudy() {
     const history = useHistory();
  
-    const Multi = () => history.push("/focus/study/listroom");
-    const Single = () => history.push("/focus/study/listroom");
+    const Multi = () => history.push("/focus/listroom");
+    const Single = () => history.push("/focus/listroom");
 
     return (
         <div>

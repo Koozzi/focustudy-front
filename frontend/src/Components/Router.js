@@ -72,7 +72,6 @@ export default () => {
                     <Route path="/listroom" exact component={Listroom} /> */}
                     <Route path="/joinroom" exact component={JoinRoom} />
                     <Route path="/result" exact component={Result} />
-                    <Route path="/room/:roomNumber" exact component={Ready} />
                 </Switch>
             </UserContext.Provider>
         </Router>

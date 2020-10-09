@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Container} from '@material-ui/core';
-import "./Listroom.css";
+import "./Dashboard_Listroom.css";
 import Room from "../../Components/Room";
-
 
 export default function SelectStudy() {
     const rooms = ["rmon1", "remon3", "remonvagegw", "awegwag", "waeg"];

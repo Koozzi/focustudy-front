@@ -14,7 +14,7 @@ export default function Dashboard_Home() {
                 <p>세상에 없던 AI 집중력 타이머, 지금 바로 경험해보세요.</p>
             </div>
             <div className="Dashboard-Home-Button">
-                <span onClick={study}>지금 당장 공부하러 가기</span>
+                <span onClick={study}>당장 공부하러 가기</span>
             </div>
         </div>
     )
