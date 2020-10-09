@@ -35,6 +35,7 @@ export default function Dashboard_Rank() {
         <div>
             <BiMedal className="icon"/>
             <h1 className="title"> Rank</h1>
+            <p>나의 집중력순위를 확인해보세요!</p>
         </div>
     )
 }

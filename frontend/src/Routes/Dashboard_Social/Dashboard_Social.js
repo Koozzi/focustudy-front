@@ -27,6 +27,7 @@ export default function Dashboard_Social() {
         <div>
             <BsPeopleFill className="icon"/>
             <h1 className="title"> Social</h1>
+            <p>여러분의 친구들은 열심히 하고 있나요?</p>
         </div>
     )
 }

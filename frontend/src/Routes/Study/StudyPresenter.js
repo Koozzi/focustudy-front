@@ -13,7 +13,8 @@ export default function SelectStudy() {
         <div>
             <BsPencilSquare className="icon"/>
             <h1 className="title"> Study</h1>
-            <p>"성공하기 위해 지녀야 할 자질이 있는데 이는 명확한 목표,목표에 대한 지식, 성취하고 자 하는 불타는 열망이다." -나폴레옹 힐-</p>
+            <p>여러분의 집중력은 저희가 체크할게요.</p>
+            <p>혼자 혹은 다른 사람들과 집중해서 공부를 시작해보세요.</p>
             <div className="study_button">
                 <span className="List">
                     <div className="Text">
