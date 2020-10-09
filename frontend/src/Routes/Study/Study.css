@@ -1,4 +1,19 @@
-@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+.title {
+  font-size: 3rem;
+  padding-left: 70px;
+}
+
+p {
+  padding-left: 10px;
+}
+
+.icon {
+  font-size: 4rem;
+  position: absolute;
+  top: calc(0% + 45px);
+}
+
+/* @import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 .container {
     position: relative;
@@ -47,8 +62,8 @@
     padding: 0 0px;
   }
   
-  /* Create two equal columns that sits next to each other */
+  
   .column {
     flex: 50%;
     padding: 0 0px;
-  }
+  } */

@@ -68,8 +68,8 @@ export default () => {
 
                     {/* 밑에 5줄 나중에 옮겨야 함 */}
 
-                    <Route path="/multiroom" exact component={Multiroom} />
-                    <Route path="/listroom" exact component={Listroom} />
+                    {/* <Route path="/multiroom" exact component={Multiroom} />
+                    <Route path="/listroom" exact component={Listroom} /> */}
                     <Route path="/joinroom" exact component={JoinRoom} />
                     <Route path="/result" exact component={Result} />
                     <Route path="/room/:roomNumber" exact component={Ready} />

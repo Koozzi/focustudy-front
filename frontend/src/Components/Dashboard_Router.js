@@ -9,6 +9,9 @@ import Dashboard_Social from '../Routes/Dashboard_Social/Dashboard_Social';
 import Dashboard_Profile from '../Routes/Dashboard_Profile/Dashboard_Profile';
 import Dashboard_Todo from '../Routes/Dashboard_Todo/Dashboard_Todo';
 import Dashboard_Rank from '../Routes/Dashboard_Rank/Dashboard_Rank';
+import Multiroom from '../Routes/Multiroom/';
+import Listroom from '../Routes/Listroom/';
+
 
 import "./Dashboard_Router.css"
 
@@ -63,6 +66,8 @@ export default function Dashboard_Router() {
                     <Route path="/focus/profile" component={Dashboard_Profile} />
                     <Route path="/focus/todo" component={Dashboard_Todo} />
                     <Route path="/focus/rank" component={Dashboard_Rank} />
+                    <Route path="/focus/study/multiroom" component={Multiroom} />
+                    <Route path="/focus/study/listroom" component={Listroom} />
                 </Switch>
             </div>
         </Router>
