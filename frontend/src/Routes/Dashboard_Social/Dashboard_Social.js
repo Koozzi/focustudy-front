@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios';
 
+import "./Dashboard_Social.css"
+import { BsPeopleFill } from "react-icons/bs"
+
 export default function Dashboard_Social() {
     const getUserInfo = async() => {
         let token = localStorage.getItem("auth-token");
@@ -22,7 +25,8 @@ export default function Dashboard_Social() {
     
     return (
         <div>
-            social
+            <BsPeopleFill className="icon"/>
+            <h1 className="title"> Social</h1>
         </div>
     )
 }

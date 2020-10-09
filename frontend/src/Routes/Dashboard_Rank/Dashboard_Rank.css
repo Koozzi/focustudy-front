@@ -1,0 +1,14 @@
+.title {
+    font-size: 3rem;
+    padding-left: 70px;
+  }
+  
+  p {
+    padding-left: 10px;
+  }
+  
+  .icon {
+    font-size: 4rem;
+    position: absolute;
+    top: calc(0% + 45px);
+  }

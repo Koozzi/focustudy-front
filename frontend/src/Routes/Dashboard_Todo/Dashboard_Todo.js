@@ -1,9 +1,13 @@
 import React from 'react'
 
+import './Dashboard_Todo.css'
+import { BsListCheck } from "react-icons/bs"
+
 export default function Dashboard_Todo() {
     return (
         <div>
-            Todo
+            <BsListCheck className="icon"/>
+            <h1 className="title"> To - Do</h1>
         </div>
     )
 }

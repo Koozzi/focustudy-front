@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import Axios from 'axios';
 
+import './Dashboard_Rank.css'
+import { BiMedal } from "react-icons/bi"
+
 export default function Dashboard_Rank() {
     const [top10TotalScore, setTop10TotalScore] = useState([]);
 
@@ -30,7 +33,8 @@ export default function Dashboard_Rank() {
 
     return (
         <div>
-            Rank
+            <BiMedal className="icon"/>
+            <h1 className="title"> Rank</h1>
         </div>
     )
 }

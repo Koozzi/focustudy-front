@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios';
 
+import './Dashboard_Profile.css'
+import { CgProfile } from "react-icons/cg"
+
 export default function Dashboard_Profile() {
     const [displayName, setDisplayName] = useState();
     const [tier, setTier] = useState();
@@ -37,6 +40,8 @@ export default function Dashboard_Profile() {
 
     return (
         <div>
+            <CgProfile className="icon"/>
+            <h1 className="title"> Profile</h1>
             <h1>This is {displayName}'s Profile</h1>
             <h3>Tier : {tier}</h3>
             <h3>Total Focus Score : {avgScore}</h3>
