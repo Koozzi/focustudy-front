@@ -14,16 +14,40 @@ p {
 }
 
 .study_button {
-  position: absolute;
-  padding-top: 130px;
+  padding-top: 100px;
   text-align: center;
   text-decoration: none;
   display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.List {
+  margin-left: 100px;
+  margin-right: 140px;
+  
+}
+
+.Text {
+  font-size: 5rem;
+  margin-bottom: 30px;
+
 }
 
 .Button {
-  
+  font-size: 2rem;
+  text-decoration: none;
+  margin-bottom: 10px;
+  padding-right: 40px;
+  padding-left: 40px;
+  background-color: #0984e3;
+  color: white;
+  border:none;
+  border-radius: 8px;
 }
+
+
 /* @import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 .container {
