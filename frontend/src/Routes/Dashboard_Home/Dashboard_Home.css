@@ -1,3 +1,14 @@
-.Dashboard-Home-Content {
+.Dashboard-Home-Text {
     font-size: 3rem;
+    margin-top: 100px;
+}
+
+p {
+    margin: 0px;
+}
+
+.Dashboard-Home-Button{
+    cursor: pointer;
+    font-size: 2rem;
+    margin-top: 200px;
 }
