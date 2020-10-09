@@ -25,7 +25,7 @@ export default function Dashboard_Header( {match} ) {
             <li onClick={study}><MdFilterCenterFocus/> Study</li>
             <li onClick={profile}><CgProfile/> Profile</li>
             <li onClick={social}><BsPeopleFill/> Social</li>
-            <li onClick={todo}><BsListCheck/> Todo</li>
+            <li onClick={todo}><BsListCheck/> ToDo</li>
             <li onClick={rank}><BiMedal/> Rank</li>
         </div>
     )

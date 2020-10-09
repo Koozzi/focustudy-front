@@ -7,7 +7,7 @@ export default function Dashboard_Todo() {
     return (
         <div>
             <BsListCheck className="icon"/>
-            <h1 className="title"> To - Do</h1>
+            <h1 className="title"> ToDo</h1>
         </div>
     )
 }
