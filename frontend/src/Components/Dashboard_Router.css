@@ -1,4 +1,8 @@
 .Dashboard_Content {
-    padding-left: 210px;
+    padding-left: 280px;
     padding-top: 10px;
+    padding-bottom: 100%;
+    background-color: #f1f4f7;
+    width: 100%;
+    height: 100%;
 }

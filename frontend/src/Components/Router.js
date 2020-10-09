@@ -59,7 +59,6 @@ export default () => {
     return(
         <Router>
             <UserContext.Provider value={{userData, setUserData}}>
-                <Header />
                 <Switch>
                     <Route path="/" exact component={Home} />
                     <Route path="/signin" component={Signin} />

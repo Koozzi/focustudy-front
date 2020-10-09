@@ -18,6 +18,7 @@ import { Container } from '@material-ui/core';
 import "./Home.css";
 import logo from "./assets/logo.PNG"
 import logo2 from "./assets/logo2.PNG"
+import Header from "../../Components/Header"
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: '6px 16px',
@@ -30,6 +31,7 @@ function Home() {
     const classes = useStyles();
     return (
         <React.Fragment>
+        <Header />
         <Container maxwidth="sm">
             <div className="container">
                 <div className="row">
