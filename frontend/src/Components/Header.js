@@ -48,7 +48,7 @@ export default function Board() {
           </div>
           <div className="RIGHT">
             <button onClick={About}>About</button>
-            <button onClick={Contact}>Contack</button>
+            <button onClick={Contact}>Contact</button>
             <button onClick={Study}>Study</button>
             {userData.user ?(
               <button onClick={logout}>Log Out</button>

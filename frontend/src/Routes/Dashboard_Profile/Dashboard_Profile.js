@@ -41,9 +41,8 @@ export default function Dashboard_Profile() {
     return (
         <div>
             <CgProfile className="icon"/>
-            <h1 className="title"> Profile</h1>
-            <h1>This is {displayName}'s Profile</h1>
-            <h3>Tier : {tier}</h3>
+            <h1 className="title">Profile - {displayName}</h1>
+            <h1>{tier}</h1>
             <h3>Total Focus Score : {avgScore}</h3>
             <h3>Average Focus Score : {totalScore}</h3>
             <h3>Badges</h3>
