@@ -30,3 +30,18 @@ a {
 .ReactIcon {
     padding-top: 5px;
 }
+
+
+.Menu {
+    display: block;
+    margin: 30px;
+}
+
+.Menu:hover{
+    transition: 0.3s ease-in-out;
+    color: #0984e3;
+}
+
+.active_class {
+    color: #0984e3;
+}
