@@ -41,12 +41,12 @@ a {
     /* color: white; */
     font-size: 1.7rem;
     /* background-color: #0984e3; */
-    border-right: 1px solid #0984e3;
+    border-right: 3px solid #0984e3;
     color: #0984e3;
 }
 
 .active_class {
     color: #0984e3;
-    border-right: 1px solid #0984e3;
+    border-right: 3px solid #0984e3;
     font-size: 1.7rem;
 }
