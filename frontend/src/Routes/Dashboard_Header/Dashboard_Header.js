@@ -10,7 +10,7 @@ import { BiMedal } from "react-icons/bi"
 export default function Dashboard_Header () {
     return (
         <>
-        <ui className="dashboard-navbar">
+        <div className="dashboard-navbar">
             <h1 className="Dash_RealHome"><a href="/">FocuStudy</a></h1>
             <div className="aaa">
                 <NavLink exact activeClassName="active_class" className="Menu" to="/focus"><TiHome className="ReactIcon"/> Home</NavLink>
@@ -20,7 +20,7 @@ export default function Dashboard_Header () {
                 <NavLink exact activeClassName="active_class" className="Menu" to="/focus/todo"><BsListCheck className="ReactIcon"/> To-Do</NavLink>
                 <NavLink exact activeClassName="active_class" className="Menu" to="/focus/rank"><BiMedal className="ReactIcon"/> Rank</NavLink>
             </div>
-        </ui>
+        </div>
         </>
     )
 }
