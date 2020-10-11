@@ -23,7 +23,7 @@ function Dashboard_Social_Table({friends}) {
                 {title:'누적점수', field:'totalScore'},
                 {title:'평균점수', field:'avgScore'}
             ]}
-            data={data}
+            data={friends}
             options={{
                 paging: false
             }}
