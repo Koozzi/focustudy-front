@@ -37,16 +37,33 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#F55364"
+    },
+    "& .MuiOutlinedInput-input": {
+      color: "#F55364"
+    },
+    "& .MuiInputLabel-outlined": {
+      color: "#F55364"
+    },
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    paddingTop: 8,
+    paddingBottom: 8,
+    fontSize: 20,
+    backgroundColor: '#F55364',
+    '&:hover':{
+      backgroundColor: '#F55364',
+    }
+  },
+  Login: {
+    fontSize: 35,
+    fontWeight: 1000,
+    marginBottom: 40
   },
 }));
 
@@ -57,6 +74,7 @@ export default function SignIn() {
 
   const { setUserData } = useContext(UserContext);
   const history = useHistory();
+
   const RealSubmit = async(e) => {
     e.preventDefault();
     try{
@@ -84,11 +102,8 @@ export default function SignIn() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign in
+        <Typography className={classes.Login} component="h1" variant="h5">
+          FocuStudy
         </Typography>
         {/* {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />} */}
         <form className={classes.form} noValidate onClick={RealSubmit}>
@@ -98,7 +113,7 @@ export default function SignIn() {
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="이메일 주소"
             name="email"
             autoComplete="email"
             autoFocus
@@ -111,7 +126,7 @@ export default function SignIn() {
             required
             fullWidth
             name="password"
-            label="Password"
+            label="비밀번호"
             type="password"
             id="password"
             autoComplete="current-password"
@@ -120,7 +135,7 @@ export default function SignIn() {
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
+            label="아이디 저장"
           />
           <Button
             type="RealSubmit"
@@ -129,17 +144,17 @@ export default function SignIn() {
             color="primary"
             className={classes.submit}
           >
-            Sign In
+            로그인
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
+              <Link to="/register">
+                비밀번호를 잊으셨나요?
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
+              <Link href="/register">
+                {"아직 계정이 없으신가요? 가입하기"}
               </Link>
             </Grid>
           </Grid>

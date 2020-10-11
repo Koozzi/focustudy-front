@@ -1,16 +1,17 @@
 .dashboard-navbar{
-    text-align: center;
     position: fixed;
-    width: 270px;
+    width: 280px;
     height: 100%;
-    background-color: white;
-    color: black;
+    /* background-color: #404346; */
+    background-color: rgb(51, 49, 49);
     font-size: 1.3rem;
 }
 
-a {
-    color: black;
+.Dash_RealHome {
+    text-align: center;
+    color: white;
     text-decoration: none;
+    padding-left: 35px;
 }
 
 .ReactIcon {
@@ -18,21 +19,26 @@ a {
 }
 
 .Menu {
+    color: white;
+    text-decoration: none;
     display: block;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 7px;
+    padding-left: 10px;
 }
 
 .Menu:hover{
-    transition: 0.3s ease-in-out;
-    /* color: white; */
-    font-size: 1.7rem;
-    /* background-color: #0984e3; */
-    border-right: 3px solid #0984e3;
-    color: #0984e3;
+    transition: 0.5s ease-in-out;
+    /* background-color: #F55364; */
+    background-color: red;
 }
 
 .active_class {
-    color: #0984e3;
-    border-right: 3px solid #0984e3;
-    font-size: 1.7rem;
+    color: white;
+    /* background-color: #F55364; */
+    background-color: red;
 }

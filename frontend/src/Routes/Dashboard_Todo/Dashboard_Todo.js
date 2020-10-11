@@ -7,7 +7,6 @@ export default function Dashboard_Todo() {
     return (
         <>
         <div>
-            <BsListCheck className="icon"/>
             <h1 className="title"> ToDo</h1>
             <p>내일의 계획을 한 번 세워볼까요?</p>
         </div>

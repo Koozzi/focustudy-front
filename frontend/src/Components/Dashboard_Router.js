@@ -12,7 +12,6 @@ import Dashboard_Rank from '../Routes/Dashboard_Rank/Dashboard_Rank';
 import Multiroom from '../Routes/Multiroom/';
 import Listroom from '../Routes/Dashboard_Listroom/Dashboard_Listroom';
 import Ready from '../Routes/Ready'
-
 import "./Dashboard_Router.css"
 
 export default function Dashboard_Router() {
@@ -64,13 +63,13 @@ export default function Dashboard_Router() {
                 <Switch>
                     <Route path="/focus" exact component={Dashboard_Home} />
                     <Route path="/focus/social" component={Dashboard_Social} />
-                    <Route path="/focus/study" component={Study} />
+                    <Route path="/focus/study" exact component={Study} />
                     <Route path="/focus/profile" component={Dashboard_Profile} />
                     <Route path="/focus/todo" component={Dashboard_Todo} />
                     <Route path="/focus/rank" component={Dashboard_Rank} />
                     <Route path="/focus/multiroom" component={Multiroom} />
-                    <Route path="/focus/listroom" component={Listroom} />
-                    <Route path="/focus/room/:roomNumber" exact component={Ready} />
+                    <Route path="/focus/study/listroom" component={Listroom} />
+                    <Route path="/focus/study/room/:roomNumber" component={Ready} />
                 </Switch>
             </div>
         </Router>

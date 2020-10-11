@@ -47,7 +47,6 @@ export default function RegisterPresenter() {
         const verify = await Axios({
             method: 'get',
             url: 'https://focustudy-back.site/users/verify',
-            // url: 'http://localhost:5050/users/verify',
             params: {
                 toEmail: userEmail
             },
@@ -128,6 +127,7 @@ export default function RegisterPresenter() {
         <div>
             <form onSubmit={verifyEmail} className={classes.root} noValidate autoComplete="off">
                 <TextField
+                variant="outlined"
                     id="standard-basic"
                     label="Email"
                     placeholder="email@example.com"
@@ -143,6 +143,7 @@ export default function RegisterPresenter() {
             </form>
             <form onSubmit={compareCode} className={classes.root} noValidate autoComplete="off">
                 <TextField
+                variant="outlined"
                     id="standard-basic"
                     label="인증번호"
                     placeholder="인증번호"
@@ -154,6 +155,7 @@ export default function RegisterPresenter() {
             </form>
             <form onSubmit={registerSubmit} className={classes.root} noValidate autoComplete="off">
                 <TextField
+                variant="outlined"
                     id="standard-basic"
                     label="Username"
                     placeholder="Username"
@@ -162,6 +164,7 @@ export default function RegisterPresenter() {
                     onChange={e => setDisplayName(e.target.value)}                
                 /><br/>
                 <TextField
+                variant="outlined"
                     id="standard-basic"
                     label="비밀번호"
                     placeholder="비밀번호"
@@ -170,6 +173,7 @@ export default function RegisterPresenter() {
                     onChange={e => setPassword(e.target.value)}                    
                 /><br />
                 <TextField
+                variant="outlined"
                     id="standard-basic"
                     label="비밀번호 확인"
                     placeholder="비밀번호 확인"
