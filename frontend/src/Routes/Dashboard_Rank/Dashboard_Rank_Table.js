@@ -16,8 +16,22 @@ function Dashboard_Rank_Table({ users }) {
             ]}
             data={users}
             options={{
-                // paging: false
+                paging: false
             }}
+            detailPanel={[
+                {
+                    render: rowData => {
+                        return (
+                            <div>
+                                <button>친구신청</button>
+                                <li>{rowData.displayName}</li>
+                                <li>{rowData.totalScore}</li>
+                                <li>{rowData.totalScore}</li>
+                            </div>
+                        )
+                    }
+                }
+            ]}
             />
         </div>
     )

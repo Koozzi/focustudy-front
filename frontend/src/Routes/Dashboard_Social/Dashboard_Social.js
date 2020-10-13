@@ -24,7 +24,9 @@ export default function Dashboard_Social() {
                 }
             }
         );
+
         await setDisplayName(userToken.data.displayName);
+
         const tokenRes = await Axios.post(
             "https://focustudy-back.site/social/friend_list",
             null,
@@ -36,13 +38,9 @@ export default function Dashboard_Social() {
         );
 
         const _friends = await tokenRes.data.map(Element => {
-            return {
-                displayName: Element.displayName,
-                tier: Element.tier,
-                totalScore: Element.totalScore,
-                avgScore: Element.avgScore
-            }
+            return Element;
         })
+
         setFriends(_friends);
     }
 
@@ -52,19 +50,15 @@ export default function Dashboard_Social() {
 
     return (
         <div>
-            <div>
-                <h1 className="title"> Social</h1>
-                <p>{displayName}님은 친구들 사이에서 ㅁ등을 하고있어요.</p>
-                <p>여러분의 친구들은 열심히 하고 있나요?</p>
-            </div>
-            <div>
-                <Dashboard_Social_Search />
-                <Dashborad_Social_Reqeust />
-            </div>
+            <h1 className="title"> Social</h1>
+            <p>{displayName}님의 친구들은 열심히 하고 있나요?</p>
+            <Dashboard_Social_Search />
+            <Dashborad_Social_Reqeust />
             <Dashboard_Social_Table friends={friends}/>
             <li>유저찾기(찾아서 친구추가), 신청목록(본인에게 온 신청 목록) 버튼</li>
             <li>Row에서 친구 아이디 누르면 친구 프로필 팝업</li>
             <li>친구 프로필에서 친구 삭제, 메세지 보내기 기능</li>
+            <li>friends 데이터에 본인 정보 빼기</li>
         </div>
     )
 }
