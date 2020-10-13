@@ -1,7 +1,10 @@
 import React from 'react'
 import MaterialTable from 'material-table'
 
-function Dashboard_Social_Table({friends}) {    
+function Dashboard_Rank_Table({ users }) {
+    const ListItem = users.map(Element => (
+        <li key={Element._id}>{Element.displayName} - {Element.totalScore}</li>
+    ))
     return (
         <div>
             <MaterialTable title="친구 목록"
@@ -11,13 +14,13 @@ function Dashboard_Social_Table({friends}) {
                 {title:'누적점수', field:'totalScore'},
                 {title:'평균점수', field:'avgScore'}
             ]}
-            data={friends}
+            data={users}
             options={{
-                paging: false
+                // paging: false
             }}
             />
         </div>
     )
 }
 
-export default Dashboard_Social_Table
+export default Dashboard_Rank_Table
