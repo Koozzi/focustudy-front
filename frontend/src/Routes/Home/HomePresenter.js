@@ -32,9 +32,9 @@ function Home() {
     return (
         <React.Fragment>
         <Header />
+        
         <div class="frame">
-            <iframe id="backvid" muted autoplay loop src="https://youtu.be/jnLSYfObARA?list=PLGmxyVGSCDKvmLInHxJ9VdiwEb82Lxd2E">
-            </iframe>
+            <iframe id="backvid" src="https://www.youtube.com/embed/2XX5zDThC3U?list=PLGmxyVGSCDKvmLInHxJ9VdiwEb82Lxd2E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="header">
                 <div class="up-logo"><div class="logo-link">DSC UOS</div></div>
             </div>
