@@ -18,6 +18,7 @@ import { Container } from '@material-ui/core';
 import "./Home.css";
 import logo from "./assets/logo.PNG"
 import logo2 from "./assets/logo2.PNG"
+import backgroundvideo from "./assets/background.mp4"
 import Header from "../../Components/Header"
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -34,7 +35,10 @@ function Home() {
         <Header />
         
         <div class="frame">
-            <iframe id="backvid" src="https://www.youtube.com/embed/2XX5zDThC3U?list=PLGmxyVGSCDKvmLInHxJ9VdiwEb82Lxd2E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <video id="backvid" muted autoplay loop>
+                <source src={backgroundvideo} type="video/mp4"/>
+                <strong>Your browser does not support the video tag.</strong>
+            </video>
             <div class="header">
                 <div class="up-logo"><div class="logo-link">DSC UOS</div></div>
             </div>
