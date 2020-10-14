@@ -33,9 +33,6 @@ function Home() {
         <React.Fragment>
         <Header />
         <div>
-        <div id="light" class="white_content"> <p class = "pop-up">Clone page has pop-up. So do i.</p>
-            <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a></div>
-            <div id="fade" class="black_overlay"></div>
         <div class="frame">
             <video id="backvid" muted autoplay loop>
                 <source src="https://www.youtube.com/watch?v=2Gg6Seob5Mg&list=PLGmxyVGSCDKvmLInHxJ9VdiwEb82Lxd2E&index=10" type="video/mp4"/>
