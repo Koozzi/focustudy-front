@@ -40,21 +40,21 @@ function Home() {
                 <strong>Your browser does not support the video tag.</strong>
             </video>
             <div class="header">
-                <div class="up-logo"><div class="logo-link">DSC UOS</div></div>
+                <div class="up-logo"><div class="logo-link">Focustudy.</div></div>
             </div>
             <ul class="btns">
                 <li class="left-btn">
-                    <em>Frontend</em>
-                    <div class="btn-letter">프론트엔드</div>
+                    <em>Single Mode</em>
+                    <div class="btn-letter">싱글모드</div>
                     <div class="rectangle">바로가기</div>
                 </li>
                 <li class="right-btn">
-                    <em>Backend</em>
-                    <div class="btn-letter">백엔드</div>
+                    <em>Multi Mode</em>
+                    <div class="btn-letter">멀티모드</div>
                     <div class="rectangle">바로가기</div>
                 </li>
             </ul>
-            <p class="slogan">Connectiong the Dots</p>
+            <p class="slogan">FocuStudy는 여러분을 항상 응원합니다. 세상에 없던 AI 집중력 타이머, 지금 바로 경험해보세요.</p>
         </div>
         </React.Fragment>
         

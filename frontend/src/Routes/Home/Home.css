@@ -67,8 +67,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700&display=swap');
 body{padding:0px; margin:0px;
     font-family: 'Gothic A1', sans-serif;}
-p{margin:10px; color:white;
-    font-family: 'Gothic A1', sans-serif; }
+
 .frame{
     position:fixed;
     width: 100%;
@@ -197,6 +196,9 @@ em{
     color:transparent;
     white-space: nowrap;
     letter-spacing: 6px;
+
+    margin:10px; color:white;
+    font-family: 'Gothic A1', sans-serif;
 }
 
 .slogan::before{
