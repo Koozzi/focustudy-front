@@ -4,7 +4,7 @@
 .navbar {
     width: 100%;
     overflow: hidden; /* Hide overflow */
-    background-color: red;
+    background-color:rgb(105, 104, 102);
     
 }
 
@@ -15,7 +15,7 @@
 
 /* Style the navigation bar links */
 .navbar button {
-    background-color: red;
+    background-color: rgb(105, 104, 102);
     outline: none;
     cursor: pointer;
     border: none; 
