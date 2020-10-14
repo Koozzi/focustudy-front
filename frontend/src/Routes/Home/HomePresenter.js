@@ -32,14 +32,13 @@ function Home() {
     return (
         <React.Fragment>
         <Header />
-        <div>
         <div class="frame">
             <video id="backvid" muted autoplay loop>
-                <source src="https://www.youtube.com/watch?v=2Gg6Seob5Mg&list=PLGmxyVGSCDKvmLInHxJ9VdiwEb82Lxd2E&index=10" type="video/mp4"/>
+                <source src="https://youtu.be/jnLSYfObARA?list=PLGmxyVGSCDKvmLInHxJ9VdiwEb82Lxd2E" type="video/mp4"/>
                 <strong>Your browser does not support the video tag</strong>
             </video>
             <div class="header">
-                <div class="up-logo"><a href="../index.html" class="logo-link">DSC UOS</a></div>
+                <div class="up-logo"><div class="logo-link">DSC UOS</div></div>
             </div>
             <ul class="btns">
                 <li class="left-btn">
@@ -54,7 +53,6 @@ function Home() {
                 </li>
             </ul>
             <p class="slogan">Connectiong the Dots</p>
-        </div>
         </div>
         </React.Fragment>
         
