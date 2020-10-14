@@ -16,10 +16,10 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { Container } from '@material-ui/core';
 import "./Home.css";
-import logo from "./assets/logo.PNG"
-import logo2 from "./assets/logo2.PNG"
-import backgroundvideo from "./assets/background.mp4"
-import Header from "../../Components/Header"
+import logo from "./assets/logo.PNG";
+import logo2 from "./assets/logo2.PNG";
+import backgroundvideo from "./assets/background.webm";
+import Header from "../../Components/Header";
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: '6px 16px',
@@ -36,11 +36,11 @@ function Home() {
         
         <div class="frame">
             <video id="backvid" muted autoplay loop>
-                <source src={backgroundvideo} type="video/mp4"/>
+                <source src={backgroundvideo} type="video/webm"/>
                 <strong>Your browser does not support the video tag.</strong>
             </video>
             <div class="header">
-                <div class="up-logo"><div class="logo-link">Focustudy.</div></div>
+                <div class="up-logo"><div class="logo-link">Focustudy</div></div>
             </div>
             <ul class="btns">
                 <li class="left-btn">
