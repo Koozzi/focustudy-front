@@ -33,10 +33,8 @@ function Home() {
         <React.Fragment>
         <Header />
         <div class="frame">
-            <video id="backvid" muted autoplay loop>
-                <source src="https://youtu.be/jnLSYfObARA?list=PLGmxyVGSCDKvmLInHxJ9VdiwEb82Lxd2E" type="video/mp4"/>
-                <strong>Your browser does not support the video tag</strong>
-            </video>
+            <iframe id="backvid" muted autoplay loop src="https://youtu.be/jnLSYfObARA?list=PLGmxyVGSCDKvmLInHxJ9VdiwEb82Lxd2E">
+            </iframe>
             <div class="header">
                 <div class="up-logo"><div class="logo-link">DSC UOS</div></div>
             </div>
