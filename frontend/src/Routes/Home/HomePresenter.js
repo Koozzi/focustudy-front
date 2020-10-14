@@ -54,7 +54,7 @@ function Home() {
                     <div class="rectangle">바로가기</div>
                 </li>
             </ul>
-            <p class="slogan">FocuStudy는 여러분을 항상 응원합니다. 세상에 없던 AI 집중력 타이머, 지금 바로 경험해보세요.</p>
+            <p class="slogan">세상에 없던 AI 집중력 타이머</p>
         </div>
         </React.Fragment>
         

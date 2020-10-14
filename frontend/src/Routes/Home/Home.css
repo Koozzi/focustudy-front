@@ -197,12 +197,12 @@ em{
     white-space: nowrap;
     letter-spacing: 6px;
 
-    margin:10px; color:white;
+    color:white;
     font-family: 'Gothic A1', sans-serif;
 }
 
 .slogan::before{
-    content: "Connecting the Dots";
+    content: "세상에 없던 AI 집중력 타이머";
     position: absolute;
     top:0; left:0;
     color:white;
