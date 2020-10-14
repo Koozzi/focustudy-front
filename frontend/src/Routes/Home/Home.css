@@ -179,7 +179,7 @@ em{
     margin: 16px 0;
 }
 .rectangle{
-    width: 100px;
+    width: 150px;
     align-self: center;
     font-size:20px;
     text-align: center;
@@ -197,9 +197,7 @@ em{
     white-space: nowrap;
     letter-spacing: 6px;
 
-    color:white;
-    font-family: 'Gothic A1', sans-serif;
-}
+  }
 
 .slogan::before{
     content: "세상에 없던 AI 집중력 타이머";
