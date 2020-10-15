@@ -46,7 +46,14 @@ function Dashboard_Social_Search( {displayName} ) {
     }
 
     const SendMessage = async() => {
-        //
+        await Axios.post(
+            "https://focustudy-back.site/social/send_message",
+            {
+                msg: "친구신청합니다.",
+                currentUser: displayName,
+                newUser: _displayName
+            }
+        )
     }
 
     useEffect(()=>{
