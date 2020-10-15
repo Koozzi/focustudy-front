@@ -13,14 +13,15 @@ function Dashboard_Social_Table({friends}) {
             ]}
             data={friends}
             options={{
-                paging: false
+                paging: false,
+                search: false
             }}
             detailPanel={[
                 {
                     render: rowData => {
                         return (
                             <div>
-                                <button>친구신청</button>
+                                <button>친구삭제</button>
                                 <li>{rowData.displayName}</li>
                                 <li>{rowData.totalScore}</li>
                                 <li>{rowData.totalScore}</li>

@@ -23,7 +23,6 @@ export default function Dashboard_Profile() {
                 }
             }
         );
-        console.log(tokenRes.data.displayName);
         setDisplayName(tokenRes.data.displayName);
         setTier(tokenRes.data.tier);
         setAvgScore(tokenRes.data.avgScore);

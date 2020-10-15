@@ -11,9 +11,6 @@ import UserContext from '../../Components/UserContext';
 import ErrorNotice from '../../Components/ErrorNotice';
 
 const https = require('https');
-const agent = new https.Agent({
-    rejectUnauthorized: false
-});
 
 const useStyles = makeStyles((theme) => ({
     root: {

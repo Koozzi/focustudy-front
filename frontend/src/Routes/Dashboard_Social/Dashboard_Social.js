@@ -12,7 +12,7 @@ import Dashborad_Social_Reqeust from './Dashborad_Social_Reqeust';
 export default function Dashboard_Social() {
     const [displayName, setDisplayName] = useState();
     const [friends, setFriends] = useState([]);
-
+    const [request, setRequest] = useState([]);
     const getFriendInfo = async() => {
         let token = localStorage.getItem("auth-token");
         const userToken = await Axios.post(
@@ -26,7 +26,8 @@ export default function Dashboard_Social() {
         );
 
         await setDisplayName(userToken.data.displayName);
-
+        await setRequest(userToken.data.message);
+        
         const tokenRes = await Axios.post(
             "https://focustudy-back.site/social/friend_list",
             null,
@@ -37,11 +38,7 @@ export default function Dashboard_Social() {
             }
         );
 
-        const _friends = await tokenRes.data.map(Element => {
-            return Element;
-        })
-
-        setFriends(_friends);
+        setFriends(tokenRes.data);
     }
 
     useEffect(()=>{
@@ -52,13 +49,10 @@ export default function Dashboard_Social() {
         <div>
             <h1 className="title"> Social</h1>
             <p>{displayName}님의 친구들은 열심히 하고 있나요?</p>
-            <Dashboard_Social_Search />
-            <Dashborad_Social_Reqeust />
+            <Dashboard_Social_Search displayName={displayName}/>
+            <Dashborad_Social_Reqeust request={request} displayName={displayName}/>
             <Dashboard_Social_Table friends={friends}/>
-            <li>유저찾기(찾아서 친구추가), 신청목록(본인에게 온 신청 목록) 버튼</li>
-            <li>Row에서 친구 아이디 누르면 친구 프로필 팝업</li>
-            <li>친구 프로필에서 친구 삭제, 메세지 보내기 기능</li>
-            <li>friends 데이터에 본인 정보 빼기</li>
+            <p>또 다른 데이터베이스를 둘까? 메모리는 많이 잡아먹지만 검색 속도를 빠르게 할 수 있는??</p>
         </div>
     )
 }
