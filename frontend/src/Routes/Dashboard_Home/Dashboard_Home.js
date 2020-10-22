@@ -8,7 +8,7 @@ export default function Dashboard_Home() {
 
     const study = () => history.push("/focus/study");
     return (
-        <div>
+        <div className="Real_Content">
             <div className="Dashboard-Home-Text">
                 <p>FocuStudy는 여러분을 항상 응원합니다.</p>
                 <p className="hi">세상에 없던 AI 집중력 타이머,</p>

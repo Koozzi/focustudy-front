@@ -10,10 +10,10 @@ export default function SelectStudy() {
     const Single = () => history.push("/focus/study/listroom");
 
     return (
-        <div>
-            <h1 className="Title"> Study</h1>
-            <p>여러분의 집중력은 저희가 체크할게요.</p>
-            <p>혼자 혹은 다른 사람들과 집중해서 공부를 시작해보세요.</p>
+        <div className="Real_Content">
+            <div className="title"> Study</div>
+            <div>여러분의 집중력은 저희가 체크할게요.</div>
+            <div>혼자 혹은 다른 사람들과 집중해서 공부를 시작해보세요.</div>
             <div className="study_button">
                 <span className="List">
                     <div className="Text">

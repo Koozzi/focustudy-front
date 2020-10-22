@@ -5,9 +5,9 @@ import { BsListCheck } from "react-icons/bs"
 
 export default function Dashboard_Todo() {
     return (
-        <>
+        <div className="Real_Content">
         <div>
-            <h1 className="title"> ToDo</h1>
+            <div className="title"> ToDo</div>
             <p>내일의 계획을 한 번 세워볼까요?</p>
         </div>
         <br/>
@@ -18,6 +18,6 @@ export default function Dashboard_Todo() {
             <div>2. Redis Rank System</div>
             <div>3. Rank Page Data Rendering</div>
         </div>
-        </>
+        </div>
     )
 }

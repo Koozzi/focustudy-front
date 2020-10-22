@@ -26,7 +26,7 @@ export default function Dashboard_Social() {
         );
 
         await setDisplayName(userToken.data.displayName);
-        await setRequest(userToken.data.message);
+        // await setRequest(userToken.data.message);
         
         const tokenRes = await Axios.post(
             "https://focustudy-back.site/social/friend_list",
@@ -37,8 +37,18 @@ export default function Dashboard_Social() {
                 }
             }
         );
-
         setFriends(tokenRes.data);
+        
+        const messages = await Axios.post(
+            "https://focustudy-back.site/social/my_message",
+            {
+                currentUser: userToken.data.displayName
+            }
+        )
+        
+        console.log(messages.data);
+        setRequest(messages.data)
+        
     }
 
     useEffect(()=>{
@@ -46,9 +56,9 @@ export default function Dashboard_Social() {
     }, [])
 
     return (
-        <div>
-            <h1 className="title"> Social</h1>
-            <p>{displayName}님의 친구들은 열심히 하고 있나요?</p>
+        <div className="Real_Content">
+            <div className="title"> Social</div>
+            <div>{displayName}님의 친구들은 열심히 하고 있나요?</div>
             <Dashboard_Social_Search displayName={displayName}/>
             <Dashborad_Social_Reqeust request={request} displayName={displayName}/>
             <Dashboard_Social_Table friends={friends}/>

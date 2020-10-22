@@ -24,8 +24,8 @@ export default function Dashboard_Rank() {
     }, []);
 
     return (
-        <div>
-            <h1 className="title"> Rank</h1>
+        <div className="Real_Content">
+            <div className="title"> Rank</div>
             <p>나의 집중력순위를 확인해보세요!</p>
             <br/>
             <Dashboard_Rank_Table users={users}/>
