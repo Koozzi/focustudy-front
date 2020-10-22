@@ -13,10 +13,11 @@
 
 .Profile_User {
     display: inline-block;
-    margin-left: 50px;
+    /* margin-left: 50px; */
+    left: 5%;
     position: absolute;
     top: 120px;
-    width: 300px;
+    width: 27%;
     height: 300px;
     background-color: white;
     border-radius: 20px;
@@ -95,9 +96,9 @@
     position: absolute;
     background-color: white;
     border-radius: 20px;
-    width: 300px;
+    width: 27%;
     height: 400px;
-    left: 50px;
+    left: 5%;
     top: 100px;
     padding: 15px;
     text-align: center;
@@ -146,9 +147,9 @@
     position: absolute;
     background-color: white;
     border-radius: 20px;
-    width: 670px;
+    width: 60%;
     height: 580px;
-    left: 370px;
+    left: 35%;
     top: -80px;
 }
 
