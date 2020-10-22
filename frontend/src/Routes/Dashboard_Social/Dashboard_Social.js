@@ -62,7 +62,10 @@ export default function Dashboard_Social() {
             <Dashboard_Social_Search displayName={displayName}/>
             <Dashborad_Social_Reqeust request={request} displayName={displayName}/>
             <Dashboard_Social_Table friends={friends}/>
-            <p>또 다른 데이터베이스를 둘까? 메모리는 많이 잡아먹지만 검색 속도를 빠르게 할 수 있는??</p>
+            <div>친구 요청 -> 수락 (완료)</div>
+            <div>친구 요청 -> 거절 (미완)</div>
+            <div>친구 삭제 (미완)</div>
+            <div>안터넷 창을 껐을 때, 자동으로 로그아웃이 되면 현재 친구들 온라인/오프라인 상태 알 수 있을 듯</div>
         </div>
     )
 }

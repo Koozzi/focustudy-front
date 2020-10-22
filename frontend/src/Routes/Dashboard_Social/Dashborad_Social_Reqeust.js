@@ -15,14 +15,6 @@ function Dashborad_Social_Reqeust( { request, displayName } ) {
             }
         )
 
-        // await Axios.post(
-        //     "https://focustudy-back.site/social/accept_message",
-        //     {
-        //         reqUser: message.sender,
-        //         resUser: displayName,
-        //     }
-        // )
-
         window.location.reload(false);
     }
 

@@ -54,6 +54,8 @@ function Dashboard_Social_Search( {displayName} ) {
                 resUser: _displayName
             }
         )
+        alert("친구요청 메세지를 전송했습니다!");
+        window.location.reload(false);
     }
 
     useEffect(()=>{
