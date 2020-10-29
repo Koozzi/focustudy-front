@@ -5,7 +5,7 @@ import Room from "../../Components/Room";
 
 
 export default function SelectStudy() {
-    const rooms = ["rmon1", "remon3", "remonvagegw", "awegwag", "waeg"];
+    const rooms = ["rmon1", "remon3", "remonvagegw", "awegwag", "waeasdg"];
 
     return (
         <Container maxwidth="sm">

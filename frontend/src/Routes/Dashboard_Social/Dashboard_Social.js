@@ -7,7 +7,6 @@ import "./Dashboard_Social.css"
 import Dashboard_Social_Table from './Dashboard_Social_Table'
 import Dashboard_Social_Search from './Dashboard_Social_Search';
 import Dashborad_Social_Reqeust from './Dashborad_Social_Reqeust';
-
   
 export default function Dashboard_Social() {
     const [displayName, setDisplayName] = useState();

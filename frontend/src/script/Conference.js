@@ -13,6 +13,10 @@ const initConference = (props) => {
   const key = "1234567890";
   const serviceId = "SERVICEID1";
 
+  console.log("----------");
+  console.log(props);
+  console.log("----------");
+
   // please register your own service key from remotemonster site.
   let config = {
     credential: {
@@ -128,6 +132,9 @@ const initConference = (props) => {
           await newVideo.remon.joinCast(newVideo.id.replace("-",":"));
         }
       })
+      await console.log("Room info");
+      await console.log(remon);
+      await console.log("Room info");
     }
   }
 
