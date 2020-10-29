@@ -47,7 +47,7 @@ export default function SelectStudy() {
     const createRoom = async() => {
         setOpen(false);
         await Axios.post(
-            "https://focustudy-back.site/create_room",
+            "https://focustudy-back.site/room/create_room",
             {
                 title: title,
                 description: description,
