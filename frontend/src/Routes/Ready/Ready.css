@@ -49,6 +49,8 @@
 .timerpath{
     width: 620px;
     height: 1px;
+    margin-left: auto;
+    margin-right: auto;
     border: solid 3px #f23a45;
 }
 /* Create two equal columns that floats next to each other */
