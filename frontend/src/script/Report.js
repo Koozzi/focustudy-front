@@ -82,25 +82,25 @@ const initJavis = () => {
         }
         data.push(score);
         times.push(time);
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var chart = new Chart(ctx, {
+        //var ctx = document.getElementById('myChart').getContext('2d');
+        //var chart = new Chart(ctx, {
             //The type of chart we want to create
-            type: 'line',
+            //type: 'line',
 
             // The data for our dataset
-            data: {
-                labels: times,
-                datasets: [{
-                    label: 'Your Pomodoro Score',
-                    backgroundColor: 'rgb(255, 99, 132)',
-                    borderColor: 'rgb(255, 99, 132)',
-                    data: data
-                }]
-            },
+            //data: {
+                //labels: times,
+                //datasets: [{
+                    //label: 'Your Pomodoro Score',
+                    //backgroundColor: 'rgb(255, 99, 132)',
+                    //borderColor: 'rgb(255, 99, 132)',
+                    //data: data
+                //}]
+            //},
 
             // Configuration options go here
-            options: {}
-        });
+            //options: {}
+        //});
     }
 
     // 배열 합계 구하기 함수
