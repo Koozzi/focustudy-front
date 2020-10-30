@@ -79,5 +79,11 @@
   .ment{
     font-size: 30px;
     text-align: center;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #f23a45;
 
   }
