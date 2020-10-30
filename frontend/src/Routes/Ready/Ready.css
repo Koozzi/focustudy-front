@@ -40,7 +40,21 @@
     letter-spacing: normal;
     color: #222426;
 }
+.timerbackground{
+  width: 1260px;
+  height: 450px;
+  border-radius: 20px;
+  background-color: #ffffff;
 
+}
+.timerpath{
+    
+    width: 620px;
+    height: 1px;
+    border: solid 3px var(--watermelon);
+    
+
+}
 /* Create two equal columns that floats next to each other */
 .column {
     float: left;
