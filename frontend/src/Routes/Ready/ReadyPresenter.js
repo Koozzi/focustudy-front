@@ -16,7 +16,9 @@ const ReadyPresenter = ({roomNumber})=> (
         <video id="myVideo" className="remote-video" autoPlay muted controls playsInline></video>
       </div>
       <div className="column">
-        <div> My message is <div id="facenum"></div></div>
+        <div className="messagebackground">
+          <div> My message is <div id="facenum"></div></div>
+        </div>
       </div>
     </div>
   </Container>
