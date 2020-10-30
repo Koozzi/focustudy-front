@@ -6,7 +6,7 @@ const ReadyPresenter = ({roomNumber})=> (
     <div className="roomtitle"><h1> {roomNumber} </h1></div>
     <div className="othervideos" id="otherVideos"></div>
     <div className="timerbackground">
-      <div className="timer" id="timer">Pomodoro</div>
+      <div className="timer" id="timer"></div>
       <div className="timerpath"></div>
       <button className="startbutton" id="enterBtn" href="#">ENTER</button>
     </div>

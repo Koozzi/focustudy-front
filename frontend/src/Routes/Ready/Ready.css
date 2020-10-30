@@ -39,7 +39,8 @@
     line-height: normal;
     letter-spacing: normal;
     color: #222426;
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 .timerbackground{
   width: 1260px;
