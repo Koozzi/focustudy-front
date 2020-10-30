@@ -39,11 +39,13 @@
     line-height: normal;
     letter-spacing: normal;
     color: #222426;
+    text-align: center;
 }
 .timerbackground{
   width: 1260px;
   height: 450px;
   border-radius: 20px;
+  text-align: center;
   background-color: #ffffff;
 
 }
