@@ -8,6 +8,7 @@ const ReadyPresenter = ({roomNumber})=> (
     <div className="timerbackground">
       <div className="timer" id="timer">00m00s</div>
       <div className="timerpath"></div>
+      <h6></h6>
       <button className="startbutton" id="enterBtn" href="#">ENTER</button>
     </div>
     <div className="row">
