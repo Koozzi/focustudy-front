@@ -4,6 +4,8 @@ const initJavis = () => {
     const enterBtn = document.querySelector("#enterBtn");
     const webcamElement = document.getElementById('myVideo');
     // const cocoSsd = require('@tensorflow-models/coco-ssd');
+    const facenum = document.getElementById("facenum");
+    
     const facemesh = require("@tensorflow-models/facemesh");
     var seconds = 0; 
     var minutes = 0;
@@ -13,9 +15,9 @@ const initJavis = () => {
     var times = new Array;  
     var prev_keypoints=0;
     var Chart = require('chart.js');
-    function speakstart(){
+    function speakstart(s){
         var msg = new SpeechSynthesisUtterance();
-        msg.text = "인성 문제 있어?";
+        msg.text = s;
         window.speechSynthesis.speak(msg);
     }
     async function inferencestart(){
@@ -70,6 +72,8 @@ const initJavis = () => {
             }
             if(mse>=500000){
                 score = 0.5;
+                speakstart("산만해");
+                facenum.innerHTML = "산만해";
             }
             else if(mse<500000){
                 score=1.0;
@@ -78,7 +82,8 @@ const initJavis = () => {
         }
         else{
             score = 0.0;
-            speakstart();
+            speakstart("어디 갔어?");
+            facenum.innerHTML = "어디갔어?";
         }
         data.push(score);
         times.push(time);
