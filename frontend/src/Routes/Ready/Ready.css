@@ -85,5 +85,6 @@
     line-height: normal;
     letter-spacing: normal;
     color: #f23a45;
-
+    margin-top: auto;
+    margin-bottom: auto;
   }
