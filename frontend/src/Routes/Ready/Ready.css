@@ -18,8 +18,13 @@
     font-family: "Nanum Gothic";
     align-items: right;
 }
-
+.remote-video{
+    border-radius: 10px; 
+    overflow: hidden;
+}
 .othervideos {
+    border-radius: 10px; 
+    overflow: hidden;
     display: relative;
     grid-template-columns: auto auto auto auto;
 }
