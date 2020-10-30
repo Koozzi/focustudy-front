@@ -47,14 +47,9 @@
 
 }
 .timerpath{
-    width: 60%;
+    width: 620px;
     height: 1px;
-    display: block;
-    position: absolute;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    border-bottom: 3px solid #f23a45;
-
+    border: solid 3px #f23a45;
 }
 /* Create two equal columns that floats next to each other */
 .column {
