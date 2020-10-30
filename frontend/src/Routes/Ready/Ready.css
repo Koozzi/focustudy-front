@@ -48,8 +48,6 @@
   height: 300px;
   border-radius: 20px;
   text-align: center;
-  background-color: #ffffff;
-
 }
 .timerpath{
     width: 620px;
@@ -77,4 +75,8 @@
     height: 226px;
     border-radius: 20px;
     background-color: #ffffff;
+  }
+  .ment{
+    font-size: 30px;
+    text-align: center;
   }
