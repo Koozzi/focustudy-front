@@ -17,7 +17,7 @@ const ReadyPresenter = ({roomNumber})=> (
       </div>
       <div className="column">
         <div className="messagebackground">
-          <div> My message is <div id="facenum"></div></div>
+          <div> AI says, <div id="facenum"></div></div>
         </div>
       </div>
     </div>
