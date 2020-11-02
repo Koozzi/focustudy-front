@@ -121,6 +121,9 @@ const initConference = (props) => {
       await remon.createRoom(roomid); 
       let participants = await remon.fetchRooms(roomid); 
       participants.forEach(async function(participant){
+        console.log("--------------");
+        console.log(participants);
+        console.log("--------------");
         if(!remonRoom[participant.id]){
           remonRoom[participant.id] = true;
           let newVideo = document.createElement('video'); 
