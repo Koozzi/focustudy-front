@@ -6,45 +6,57 @@
 
 .startbutton {
     cursor: pointer;
-    background-color: #A12003;;
-    padding: 5px 5px;
-    width: 60px;
+    background-color: #f23a45;
+    width: 120px;
+    height:36px;
     text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-    border:2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
     color: white;
     text-transform: uppercase;
     text-align:center;
-    font-weight: 800;
-    font-size: 6px;
+    font-size: 14px;
     font-family: "Nanum Gothic";
     align-items: right;
 }
-
+.remote-video{
+    border-radius: 10px; 
+    overflow: hidden;
+}
 .othervideos {
+    border-radius: 10px; 
+    overflow: hidden;
     display: relative;
     grid-template-columns: auto auto auto auto;
 }
 
 .timer{
-    display: inline-block;
-    margin: 0 auto;
-    width: 210px;
-    height: 210px;
-    margin-top: 25px;
-    display: flex;
-    display: -webkit-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 5px solid #A12003;
-    border-radius: 70%;
-    background-color: transparent;
-    font-size:32px;
-    color: #A12003;
+    width: 484px;
+    height: 186px;
+    font-family: AvertaCY;
+    font-size: 120px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #222426;
+    margin-left: auto;
+    margin-right: auto;
 }
-
+.timerbackground{
+  width: 1260px;
+  height: 300px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: #ffffff;
+}
+.timerpath{
+    width: 620px;
+    height: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 3px #f23a45;
+}
 /* Create two equal columns that floats next to each other */
 .column {
     float: left;
@@ -58,4 +70,21 @@
     content: "";
     display: table;
     clear: both;
+  }
+  .messagebackground{
+    width: 420px;
+    height: 226px;
+    border-radius: 20px;
+  }
+  .ment{
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #f23a45;
+    margin-top: auto;
+    margin-bottom: auto;
   }

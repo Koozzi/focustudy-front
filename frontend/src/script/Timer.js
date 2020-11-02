@@ -20,14 +20,14 @@ const initTimer = (props) => {
                 return;
             }
             if(enterBtn.innerHTML === "Enter"){
-                timer.innerHTML = "00:00";
+                timer.innerHTML = "00m00s";
                 window.clearInterval(contador);
                 return;
             }
             else if(minutes>=left_time){
                 seconds = 0;
                 minutes = 0;
-                timer.innerHTML = "00:00";
+                timer.innerHTML = "00m00s";
                 
                 window.clearInterval(contador);
                 window.location = '/result';
@@ -49,7 +49,7 @@ const initTimer = (props) => {
         if(show_sec<10){
             show_sec = "0"+show_sec;
         }
-        timer.innerHTML = show_min+":"+show_sec;
+        timer.innerHTML = show_min+"m"+show_sec+"s";
     }
     
     enterBtn.addEventListener("click",
