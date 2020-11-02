@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Axios from 'axios';
 
 import "./Dashboard_Listroom.css";
@@ -17,8 +18,10 @@ export default function SelectStudy() {
     const rooms = ["rmon1", "remon3", "remonvagegw", "awegwag", "waeg"];
     const [open, setOpen] = useState(false);
     const [displayName, setDisplayName] = useState();
-    const [title, setTitle] = useState("test");
-    const [description, setDescription] = useState("test");
+    const [title, setTitle] = useState();
+    const [description, setDescription] = useState();
+
+    const history = useHistory();
 
     const userinfo = async() => {
         let token = localStorage.getItem("auth-token");
@@ -54,6 +57,10 @@ export default function SelectStudy() {
                 host: displayName
             }
         )
+        history.push(`/focus/study/room/${title}`, {
+            roomNumber: title,
+            key: title
+        });
     }
 
     useEffect(() => {

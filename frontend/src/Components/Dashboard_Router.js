@@ -70,6 +70,7 @@ export default function Dashboard_Router() {
                     <Route path="/focus/multiroom" component={Multiroom} />
                     <Route path="/focus/study/listroom" component={Listroom} />
                     <Route path="/focus/study/room/:roomNumber" component={Ready} />
+                    {/* <Route path="focus/study/listroom/room" component={RealRoom} /> */}
                 </Switch>
             </div>
         </Router>
