@@ -21,12 +21,23 @@ const useStyles = makeStyles({
   });
 function Room({roomNumber}){
     const classes = useStyles();
+    const image_urls = ["https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80", 
+    "https://images.unsplash.com/photo-1604376120598-e7ecbf34d6bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=562&q=80",
+    "https://images.unsplash.com/photo-1508781197106-d8c535dcf276?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+    "https://images.unsplash.com/photo-1497553586717-63b4928e6d7c?ixlib=rb-1.2.1&auto=format&fit=crop&w=582&q=80",
+    "https://images.unsplash.com/photo-1604251036494-6568bd88db5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+];
+
+
+var max = image_urls.length;
+var idx = Math.floor(Math.random() * max); // 0 ~ (max - 1) 까지의 정수 값을 생성
+
 return (
     <Card className={classes.root}>
         <CardActionArea>
         <CardMedia
             className={classes.media}
-            image="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+            image= {image_urls[idx]}
             title={roomNumber}
         />
         <CardContent>
