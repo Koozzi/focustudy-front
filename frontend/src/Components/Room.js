@@ -36,31 +36,33 @@ var max = image_urls.length;
 var idx = Math.floor(Math.random() * max); // 0 ~ (max - 1) 까지의 정수 값을 생성
 
 return (
-    <Card className={classes.root}>
-        <CardActionArea>
-        <CardMedia
-            className={classes.media}
-            image= {image_urls[idx]}
-            title={roomNumber}
-        />
-        <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-                {roomNumber}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-                방 설명이 들어가면 딱 맞을듯.
-            </Typography>
-        </CardContent>
-        </CardActionArea>
-        <CardActions>
-        
-        <Link to={{pathname: `./room/${roomNumber}`, state:{roomNumber:roomNumber}}}><Button size="small" color="primary">Go</Button></Link>
-        
-        <Button size="small" color="primary">
-            Learn More
-        </Button>
-        </CardActions>
-    </Card>
+    <Link to={{pathname: `./room/${roomNumber}`, state:{roomNumber:roomNumber}}} style={{ textDecoration: 'none' }}>
+        <Card className={classes.root}>
+            <CardActionArea>
+            <CardMedia
+                className={classes.media}
+                image= {image_urls[idx]}
+                title={roomNumber}
+            />
+            <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                    {roomNumber}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                    방 설명이 들어가면 딱 맞을듯.
+                </Typography>
+            </CardContent>
+            </CardActionArea>
+            <CardActions>
+            
+            <Button size="small" color="primary">Go</Button>
+            
+            <Button size="small" color="primary">
+                Learn More
+            </Button>
+            </CardActions>
+        </Card>
+    </Link>
     );
 }
 
