@@ -36,11 +36,12 @@ var max = image_urls.length;
 var idx = Math.floor(Math.random() * max); // 0 ~ (max - 1) 까지의 정수 값을 생성
 
 return (
+    <Link to={{pathname: `./room/${roomNumber}`, state:{roomNumber:roomNumber}}} style={{ textDecoration: 'none' }}>
     <Card className={classes.root}>
         <CardActionArea>
         <CardMedia
             className={classes.media}
-            image="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+            image={image_urls[idx]}
             title={roomNumber}
         />
         <CardContent>
@@ -54,13 +55,13 @@ return (
         </CardActionArea>
         <CardActions>
         
-        <Link to={{pathname: `./room/${roomNumber}`, state:{roomNumber:roomNumber}}}><Button size="small" color="primary">Go</Button></Link>
-        
+        <Button size="small" color="primary">Go</Button>
         <Button size="small" color="primary">
             Learn More
         </Button>
         </CardActions>
     </Card>
+    </Link>
     );
 }
 
