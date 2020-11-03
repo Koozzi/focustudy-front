@@ -19,7 +19,7 @@ const useStyles = makeStyles({
       height: 140,
     },
   });
-function Room({roomNumber}){
+function Room({roomNumber, description}){
     const classes = useStyles();
 return (
     <Card className={classes.root}>
@@ -34,7 +34,7 @@ return (
                 {roomNumber}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-                방 설명이 들어가면 딱 맞을듯.
+                {description}
             </Typography>
         </CardContent>
         </CardActionArea>

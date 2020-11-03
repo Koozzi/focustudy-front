@@ -118,7 +118,7 @@ export default function SelectStudy() {
                 <div className="rooms">
                     {roomList.map(room => (
                         <Room 
-                            roomNumber={room.title} key={room.title}
+                            roomNumber={room.title} key={room.title} description={room.description}
                         />
                     ))}
                 </div>

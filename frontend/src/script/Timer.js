@@ -1,12 +1,30 @@
+import Axios from 'axios';
+
 const initTimer = (props) => {
     const enterBtn = document.querySelector("#enterBtn");
     let timer = document.getElementById('timer');
     var seconds = 0;
     var minutes = 0;
     let isConnected = 0;
-    let left_time = 25;
+    let left_time = 1;
     
-    
+    const update_score = async() => {
+
+    }
+
+    const update_time = async() => {
+        let token = localStorage.getItem("auth-token");
+        const userToken = await Axios.post(
+            "https://focustudy-back.site/score/update_study_time",
+            null,
+            {
+                headers:{
+                    "x-auth-token": token
+                }
+            }
+        )
+    }
+
     async function timerstart(){
         var contador = null;
        // console.log(isConnected);
@@ -30,6 +48,10 @@ const initTimer = (props) => {
                 timer.innerHTML = "00m00s";
                 
                 window.clearInterval(contador);
+
+                // 공부 시간 업데이트
+                update_time();
+
                 window.location = '/result';
                 return;
             }
