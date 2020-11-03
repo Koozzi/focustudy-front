@@ -14,8 +14,9 @@ const initTimer = (props) => {
 
     const update_time = async() => {
         let token = localStorage.getItem("auth-token");
-        const userToken = await Axios.post(
+        await Axios.post(
             "https://focustudy-back.site/score/update_study_time",
+            // "http://localhost:5050/score/update_study_time",
             null,
             {
                 headers:{
