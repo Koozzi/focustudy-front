@@ -106,7 +106,7 @@ export default function SelectStudy() {
                     <TextField autoFocus margin="dense" id="name" fullWidth onChange={e => setDescription(e.target.value)}/>
                 </DialogContent>
                 <DialogActions>
-                    <Button variant="contained" onClick={handleClickOpen} color="primary">생성</Button>
+                    <Button variant="contained" onClick={createRoom} color="primary">생성</Button>
                     <Button variant="contained" onClick={handleClose} color="primary">취소</Button>
                 </DialogActions>
             </Dialog>
