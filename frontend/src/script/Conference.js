@@ -4,7 +4,9 @@ const initConference = (props) => {
 		
 	const enterBtn = document.querySelector("#enterBtn");
 	const otherVideos= document.getElementById('otherVideos');
-	let roomid = props.location.state.roomNumber;
+  let roomid = props.location.state.roomNumber;
+  const hashCode = s => s.split('').reduce((a,b) => (((a << 5) - a) + b.charCodeAt(0))|0, 0)
+  roomid = "a" + hashCode(roomid) + "a";
 	//roomid="remn";
 	let isConnected = false;
 	let remon;
@@ -102,7 +104,6 @@ const initConference = (props) => {
 			console.log(`EVENT FIRED: onRoomEvent: ${JSON.stringify(result)}`)
 		}
 	};
-	
 	async function start() {
 		if (isConnected) { // 방에 참여하고 있을 때 
 			isConnected = false;

@@ -83,10 +83,10 @@ export default function SelectStudy() {
 
     return (
         <Container maxwidth="sm">
-            
+            <div className="title"> Study Room </div>
             <div>
                 {displayName}
-                 <button onClick={handleClickOpen}>
+                 <button className="startbutton" onClick={handleClickOpen}>
                     방생성
                  </button>
             </div>
