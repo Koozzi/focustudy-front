@@ -19,7 +19,15 @@ export default () => {
     const classes = useStyles();
     return (
         <Container maxwidth="sm">
+          <div className="title"> 스터디 결과 </div>
           <Grid container spacing={5}>
+            <Grid item xs>
+              <Paper className={classes.paper}>
+                <Typography className={classes.pos} color="textSecondary">
+                  <div>공부한다고 고생했어요~ 한번 더 해볼까요?</div>
+                </Typography>
+              </Paper>
+            </Grid>
             <Grid item xs>
               <Paper className={classes.paper}>
                 <Typography className={classes.pos} color="textSecondary">
@@ -28,6 +36,9 @@ export default () => {
                 <Typography component="legend">Your Pomodoro Score is </Typography>
                   <Rating name="size-large" value={5} size="large" readOnly />
               </Paper>
+            </Grid>
+            <Grid item xs>
+              <div className="chart.js"></div>
             </Grid>
           </Grid>
         </Container>
