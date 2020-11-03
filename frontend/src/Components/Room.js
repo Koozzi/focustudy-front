@@ -26,6 +26,9 @@ function Room({roomNumber}){
     "https://images.unsplash.com/photo-1508781197106-d8c535dcf276?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
     "https://images.unsplash.com/photo-1497553586717-63b4928e6d7c?ixlib=rb-1.2.1&auto=format&fit=crop&w=582&q=80",
     "https://images.unsplash.com/photo-1604251036494-6568bd88db5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+    "https://images.unsplash.com/photo-1509665653475-295f17f738e6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "https://images.unsplash.com/photo-1417217601328-d3c66e6f1d48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+
 ];
 
 
