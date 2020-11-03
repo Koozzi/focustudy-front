@@ -3,9 +3,7 @@
 /* Style the top navigation bar */
 .navbar {
     width: 100%;
-    overflow: hidden; /* Hide overflow */
-    background-color:rgb(105, 104, 102);
-    
+    overflow: hidden; /* Hide overflow */    
 }
 
 
@@ -15,7 +13,6 @@
 
 /* Style the navigation bar links */
 .navbar button {
-    background-color: rgb(105, 104, 102);
     outline: none;
     cursor: pointer;
     border: none; 
@@ -43,8 +40,17 @@
     right : calc(0%); */
     display: flex;
     float: right;
+    background-color: transparent;
   }
   
+  .RIGHT .header_button{
+    /* position: absolute;
+    right : calc(0%); */
+    display: flex;
+    float: right;
+    background-color: transparent;
+  }
+
   /* Change color on hover/mouse-over */
   .navbar button:hover {
     /* background-color: white;  */
@@ -55,6 +61,5 @@
 
   /* Active/current link */
 .navbar button.active a.active {
-    background-color: #666;
     color: white;
   }

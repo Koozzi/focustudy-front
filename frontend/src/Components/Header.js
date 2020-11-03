@@ -47,15 +47,15 @@ export default function Board() {
             <a href="/" className="Active">FocuStudy</a>
           </div>
           <div className="RIGHT">
-            <button onClick={Study}>공부하기</button>
-            <button onClick={About}>소개</button>
-            <button onClick={Contact}>문의</button>
+            <button onClick={Study} className="header_button">공부하기</button>
+            <button onClick={About} className="header_button">소개</button>
+            <button onClick={Contact} className="header_button">문의</button>
             {userData.user ?(
-              <button onClick={logout}>로그아웃</button>
+              <button onClick={logout} className="header_button">로그아웃</button>
                 ) : (
                 <>
-                  <button onClick={login}>로그인</button>
-                  <button onClick={register}>회원가입</button>
+                  <button onClick={login} className="header_button">로그인</button>
+                  <button onClick={register} className="header_button">회원가입</button>
                 </>
               )}
           </div>
