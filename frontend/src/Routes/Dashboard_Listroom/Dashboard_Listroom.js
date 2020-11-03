@@ -7,12 +7,14 @@ import Room from "../../Components/Room";
 
 // Material Ui
 import TextField from '@material-ui/core/TextField';
-import { Container} from '@material-ui/core';
+import { Container, Button} from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { red } from '@material-ui/core/colors';
+import Typography from '@material-ui/core/Typography';
 
 export default function SelectStudy() {
     const [rander, setRander] = useState(false);
@@ -83,13 +85,11 @@ export default function SelectStudy() {
 
     return (
         <Container maxwidth="sm">
-            <div className="title"> Study Room </div>
-            <div>
-                {displayName}
-                 <button className="startbutton" onClick={handleClickOpen}>
-                    방생성
-                 </button>
-            </div>
+            <Typography><div className="title"> Study Room </div></Typography>
+            <Typography>
+                {displayName} 님. 함께 공부하러가요!
+                <Button variant="contained" style={{ color: red[500] }} onClick={handleClickOpen}>방 만들기</Button>
+            </Typography>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">공부방 생성하기</DialogTitle>
                 <DialogContent>
@@ -106,12 +106,8 @@ export default function SelectStudy() {
                     <TextField autoFocus margin="dense" id="name" fullWidth onChange={e => setDescription(e.target.value)}/>
                 </DialogContent>
                 <DialogActions>
-                    <button onClick={createRoom}>
-                        생성
-                    </button>
-                    <button onClick={handleClose}>
-                        취소
-                    </button>
+                    <Button variant="contained" onClick={handleClickOpen} color="primary">생성</Button>
+                    <Button variant="contained" onClick={handleClose} color="primary">취소</Button>
                 </DialogActions>
             </Dialog>
             <div className="row">
@@ -122,19 +118,7 @@ export default function SelectStudy() {
                         />
                     ))}
                 </div>
-            </div>
-
-            <ui>
-                <li>방 생성 -> DB 저장 -> DB에서 목록 불러오기 ㅇ</li>
-                <li>1방 1 호스트 원칙</li>
-                <li>한 호스트가 한 방만 만들게 냅두면 테스트할 때 너무 귀찮아져서 예외처리 일단 빼놓음</li>
-                <li>방이 비어있으면 자동으로 방이 삭제되는 기능</li>
-                <li>지금 같은 경우는 한 호스트가 여러개의 방을 만들어 놓은 상태임</li>
-                <li>아무도 방에 존재하고 있지 않은데 방이 삭제되지 않고 있음</li>
-                <li>Remotemonster 문서를 보고 사용자 목록을 불어오려고 했지만 실패</li>
-                <li>사용자 목록 꼭 불러와야 함 -> 방에 누가 있나 없나 확인을 해야 함</li>
-            </ui>
-            
+            </div>        
         </Container>
     );
 }

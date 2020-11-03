@@ -27,7 +27,7 @@ export default () => {
                 <Typography className={classes.pos} color="textSecondary">
                   <div>공부한다고 고생했어요~ 한번 더 해볼까요?</div>
                 </Typography>
-                <Link to={"/focus/study"}>당장 공부하러 가기</Link>
+                <Link to={"/focus/study"}>다시 공부하러 가기</Link>
               </Paper>
             </Grid>
             <Grid item xs>
@@ -35,13 +35,21 @@ export default () => {
                 <Typography className={classes.pos} color="textSecondary">
                   <audio autoplay="autoplay" id="end-of-time" src="https://kr.object.ncloudstorage.com/resume/iu.mp3"></audio>
                 </Typography>
-                <Typography component="legend">Your Pomodoro Score is </Typography>
+                <Typography component="legend">Sum of Data Array</Typography>
+                  <Rating name="size-large" value={5} size="large" readOnly />
+              </Paper>
+            </Grid>
+            <Grid item xs>
+              <Paper className={classes.paper}>
+                <Typography component="legend">Ranking</Typography>
                   <Rating name="size-large" value={5} size="large" readOnly />
               </Paper>
             </Grid>
           </Grid>
           <Grid item xs>
-              <div className="chart.js"></div>
+            <Paper className={classes.paper}>
+              <div className="chart.js">여기에 차트가 들어갑니다.</div>
+            </Paper>
           </Grid>
         </Container>
       );
