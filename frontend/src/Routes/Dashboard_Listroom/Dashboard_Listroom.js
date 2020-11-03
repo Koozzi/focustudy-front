@@ -7,12 +7,14 @@ import Room from "../../Components/Room";
 
 // Material Ui
 import TextField from '@material-ui/core/TextField';
-import { Container} from '@material-ui/core';
+import { Container, Button} from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { red } from '@material-ui/core/colors';
+import Typography from '@material-ui/core/Typography';
 
 export default function SelectStudy() {
     const [rander, setRander] = useState(false);
@@ -83,13 +85,11 @@ export default function SelectStudy() {
 
     return (
         <Container maxwidth="sm">
-            <div className="title"> Study Room </div>
-            <div>
-                {displayName}
-                 <button className="startbutton" onClick={handleClickOpen}>
-                    방생성
-                 </button>
-            </div>
+            <Typography><div className="title"> Study Room </div></Typography>
+            <Typography>
+                {displayName} 님. 함께 공부하러가요!
+                <Button variant="contained" style={{ color: red[500] }} onClick={handleClickOpen}>방 만들기</Button>
+            </Typography>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">공부방 생성하기</DialogTitle>
                 <DialogContent>
@@ -106,12 +106,8 @@ export default function SelectStudy() {
                     <TextField autoFocus margin="dense" id="name" fullWidth onChange={e => setDescription(e.target.value)}/>
                 </DialogContent>
                 <DialogActions>
-                    <button onClick={createRoom}>
-                        생성
-                    </button>
-                    <button onClick={handleClose}>
-                        취소
-                    </button>
+                    <Button variant="contained" onClick={handleClickOpen} color="primary">생성</Button>
+                    <Button variant="contained" onClick={handleClose} color="primary">취소</Button>
                 </DialogActions>
             </Dialog>
             <div className="row">
