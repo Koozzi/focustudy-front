@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
   
 export default () => {
     const classes = useStyles();
-    const study = () => history.push("/focus/study");
     return (
         <Container maxwidth="sm">
           <div className="title"> 스터디 결과 </div>
@@ -27,7 +26,7 @@ export default () => {
                 <Typography className={classes.pos} color="textSecondary">
                   <div>공부한다고 고생했어요~ 한번 더 해볼까요?</div>
                 </Typography>
-                <span onClick={study}>당장 공부하러 가기</span>
+                <Link to={"/focus/study"}>당장 공부하러 가기</Link>
               </Paper>
             </Grid>
             <Grid item xs>
