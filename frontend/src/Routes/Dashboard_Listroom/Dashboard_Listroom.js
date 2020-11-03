@@ -15,7 +15,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 export default function SelectStudy() {
-    const rooms = ["rmon1", "remon3", "remonvagegw", "awegwag", "waeg"];
+    const [rander, setRander] = useState(false);
     const [open, setOpen] = useState(false);
     const [displayName, setDisplayName] = useState();
     const [title, setTitle] = useState();
@@ -26,13 +26,14 @@ export default function SelectStudy() {
 
     const getAllRooms = async() => {
         const allRooms = await Axios.post(
-            "http://localhost:5050/room/all_rooms"
+            "https://focustudy-back.site/room/all_rooms"
         )
         console.log(allRooms.data);
         const _rooms = await allRooms.data.map(Element => {
             return Element
         })
         setRoomList(_rooms);
+        setRander(true);
     }
 
     const userinfo = async() => {
@@ -82,6 +83,7 @@ export default function SelectStudy() {
 
     return (
         <Container maxwidth="sm">
+            
             <div>
                 {displayName}
                  <button onClick={handleClickOpen}>
