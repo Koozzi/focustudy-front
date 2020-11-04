@@ -68,8 +68,8 @@ export default function SelectStudy() {
                 
         const random_string = cryptoRandomString({length: 15});
         await Axios.post(
-            // "https://focustudy-back.site/room/create_room",
-            "http://localhost:5050/room/create_room",
+            "https://focustudy-back.site/room/create_room",
+            // "http://localhost:5050/room/create_room",
             {
                 title: title,
                 description: description,
