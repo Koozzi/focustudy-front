@@ -76,14 +76,14 @@ export default () => {
 				<Paper className={classes.paper}>
 					<Typography component="legend">집중력 점수(누적)</Typography>
 					{/* <Rating name="size-large" value={5} size="large" readOnly /> */}
-					{totalScore}
+					{totalScore} / 300
 				</Paper>
 				</Grid>
 				<Grid item xs>
 				<Paper className={classes.paper}>
 					<Typography component="legend">집중력 점수(평균)</Typography>
 					{/* <Rating name="size-large" value={5} size="large" readOnly /> */}
-					{avgScore}
+					{avgScore} / 100
 				</Paper>
 				</Grid>
 			</Grid>

@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as tf from '@tensorflow/tfjs';
+
 const initJavis = () => {
     const enterBtn = document.querySelector("#enterBtn");
     const webcamElement = document.getElementById('myVideo');
@@ -59,7 +60,7 @@ const initJavis = () => {
                 var mse = 0;
                 for(let j=0;j<keypoints.length;j++){
                     const [x, y, z] = keypoints[j];
-                    if(prev_keypoints!=0){
+                    if(prev_keypoints!==0){
                         const [prev_x, prev_y, prev_z] = prev_keypoints[j];
                         mse += (prev_x-x)*(prev_x-x) + (prev_y-y)*(prev_y-y)+(prev_z-z)*(prev_z-z);
                     }

@@ -1,13 +1,13 @@
 import Remon from "@remotemonster/sdk";
+import Axios from "axios";
 
 const initConference = (props) => {
-		
 	const enterBtn = document.querySelector("#enterBtn");
 	const otherVideos= document.getElementById('otherVideos');
-  let roomid = props.location.state.roomNumber;
-  const hashCode = s => s.split('').reduce((a,b) => (((a << 5) - a) + b.charCodeAt(0))|0, 0)
-  roomid = "a" + hashCode(roomid) + "a";
-	//roomid="remn";
+	const RoomId = props.location.state.roomNumber;
+	const hashCode = s => s.split('').reduce((a,b) => (((a << 5) - a) + b.charCodeAt(0))|0, 0)
+	const hashedRoomId = "a" + hashCode(RoomId) + "a";
+	
 	let isConnected = false;
 	let remon;
 	let remonRoom=[];
@@ -108,7 +108,11 @@ const initConference = (props) => {
 		if (isConnected) { // 방에 참여하고 있을 때 
 			isConnected = false;
 			document.querySelector('#enterBtn').innerHTML = "Enter";
+
+			var cnt = 0;
+
 			Object.keys(remonRoom).forEach(function(id){
+				cnt = cnt + 1;
 				if( id !== remon.getChannelId()){
 					let video = document.getElementById(id.replace(":","-"));
 					if(video && video.remon){
@@ -117,14 +121,19 @@ const initConference = (props) => {
 				}
 				delete remonRoom[id];
 			})
+
+			if(cnt === 1) {
+				// 무언가
+			}
+
 			remon.close()
 		} 
 		else { 
 			isConnected = true;
 			document.querySelector('#enterBtn').innerHTML = "leave"; 
 			remon = new Remon({ config, listener }); 
-			await remon.createRoom(roomid); 
-			let participants = await remon.fetchRooms(roomid); 
+			await remon.createRoom(hashedRoomId); 
+			let participants = await remon.fetchRooms(hashedRoomId); 
 			participants.forEach(async function(participant){
 				if(!remonRoom[participant.id]){
 					remonRoom[participant.id] = true;
@@ -137,13 +146,6 @@ const initConference = (props) => {
 					await newVideo.remon.joinCast(newVideo.id.replace("-",":"));
 				}
 			})
-
-			
-			console.log("*************************");
-			// console.log(remon.getChannelId());
-			console.log(remonRoom); // 방에 참여하고 있는 사용자들의 ID
-			console.log(remon); // 방 정보
-			console.log("*************************");
 		}
 	}
 

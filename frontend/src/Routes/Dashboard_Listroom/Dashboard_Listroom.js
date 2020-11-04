@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Axios from 'axios';
+import cryptoRandomString from 'crypto-random-string';
 
 import "./Dashboard_Listroom.css";
 import Room from "../../Components/Room";
@@ -20,6 +21,7 @@ export default function SelectStudy() {
     const [rander, setRander] = useState(false);
     const [open, setOpen] = useState(false);
     const [displayName, setDisplayName] = useState();
+    const [roomId, setRoomId] = useState();
     const [title, setTitle] = useState();
     const [description, setDescription] = useState();
     const [roomList, setRoomList] = useState([]);
@@ -63,16 +65,24 @@ export default function SelectStudy() {
     }
 
     const createRoom = async() => {
-        setOpen(false);
+                
+        const random_string = cryptoRandomString({length: 15});
         await Axios.post(
-            "https://focustudy-back.site/room/create_room",
+            // "https://focustudy-back.site/room/create_room",
+            "http://localhost:5050/room/create_room",
             {
                 title: title,
                 description: description,
-                host: displayName
+                host: displayName,
+                room_id: random_string
             }
         )
-        history.push(`/focus/study/room/${title}`, {
+        
+        console.log(random_string);
+
+        setOpen(false);
+
+        history.push(`/focus/study/room/${random_string}`, {
             roomNumber: title,
             key: title
         });
