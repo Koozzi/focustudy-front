@@ -1,26 +1,53 @@
-import React, { useLayoutEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
+import Axios from 'axios';
 import { Container, Grid, CardMedia, Card } from '@material-ui/core';
 import { Link, useHistory } from "react-router-dom";
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating'
+
+
 const useStyles = makeStyles((theme) => ({
     root: {
-      flexGrow: 1,
+      	flexGrow: 1,
     },
     paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
+      	padding: theme.spacing(2),
+      	textAlign: 'center',
+      	color: theme.palette.text.secondary,
     },
-  }));
-  
+}));
+
 export default () => {
-    const classes = useStyles();
+	const classes = useStyles();
+	
+	const [user, setUser] = useState();
+	const [studyTime, setStudyTime] = useState();
+
+	const getUserInfo = async() => {
+		let token = localStorage.getItem("auth-token");
+        const _user = await Axios.post(
+			"https://focustudy-back.site/result/user_info",
+            // "http://localhost:5050/result/user_info",
+            null,
+            {
+                headers:{
+                    "x-auth-token": token
+                }
+            }
+		)
+		setUser(_user.data.displayName);
+		setStudyTime(_user.data.studyTime);
+	}
+
+	useEffect(() => {
+		getUserInfo();
+	}, [])
+
     return (
         <Container maxwidth="sm">
-          <div className="title"> 스터디 결과 </div>
+          <div className="title"> {user}님의 스터디 결과 </div>
           <Grid container spacing={5}>
             <Grid item xs>
               <Paper className={classes.paper}>
@@ -35,8 +62,9 @@ export default () => {
                 <Typography className={classes.pos} color="textSecondary">
                   <audio autoplay="autoplay" id="end-of-time" src="https://kr.object.ncloudstorage.com/resume/iu.mp3"></audio>
                 </Typography>
-                <Typography component="legend">Sum of Data Array</Typography>
-                  <Rating name="size-large" value={5} size="large" readOnly />
+                <Typography component="legend">누적 공부 시간</Typography>
+                  {/* <Rating name="size-large" value={5} size="large" readOnly /> */}
+				  {studyTime} 분
               </Paper>
             </Grid>
             <Grid item xs>
