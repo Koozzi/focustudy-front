@@ -24,6 +24,8 @@ export default () => {
 	
 	const [user, setUser] = useState();
 	const [studyTime, setStudyTime] = useState();
+	const [totalScore, setTotalScore] = useState();
+	const [avgScore, setAvgScore] = useState();
 
 	const getUserInfo = async() => {
 		let token = localStorage.getItem("auth-token");
@@ -39,6 +41,8 @@ export default () => {
 		)
 		setUser(_user.data.displayName);
 		setStudyTime(_user.data.studyTime);
+		setTotalScore(_user.data.totalScore);
+		setAvgScore(_user.data.avgScore);
 	}
 
 	useEffect(() => {
@@ -47,38 +51,47 @@ export default () => {
 
     return (
         <Container maxwidth="sm">
-          <div className="title"> {user}님의 스터디 결과 </div>
-          <Grid container spacing={5}>
-            <Grid item xs>
-              <Paper className={classes.paper}>
-                <Typography className={classes.pos} color="textSecondary">
-                  <div>공부한다고 고생했어요~ 한번 더 해볼까요?</div>
-                </Typography>
-                <Link to={"/focus/study"}>다시 공부하러 가기</Link>
-              </Paper>
-            </Grid>
-            <Grid item xs>
-              <Paper className={classes.paper}>
-                <Typography className={classes.pos} color="textSecondary">
-                  <audio autoplay="autoplay" id="end-of-time" src="https://kr.object.ncloudstorage.com/resume/iu.mp3"></audio>
-                </Typography>
-                <Typography component="legend">누적 공부 시간</Typography>
-                  {/* <Rating name="size-large" value={5} size="large" readOnly /> */}
-				  {studyTime} 분
-              </Paper>
-            </Grid>
-            <Grid item xs>
-              <Paper className={classes.paper}>
-                <Typography component="legend">Ranking</Typography>
-                  <Rating name="size-large" value={5} size="large" readOnly />
-              </Paper>
-            </Grid>
-          </Grid>
-          <Grid item xs>
-            <Paper className={classes.paper}>
-              <div className="chart.js">여기에 차트가 들어갑니다.</div>
-            </Paper>
-          </Grid>
+			<div className="title">고생하셨습니다!</div>
+			<div className="title"> {user}님의 스터디 결과 </div>
+			<Grid container spacing={5}>
+				<Grid item xs>
+				<Paper className={classes.paper}>
+					<Typography className={classes.pos} color="textSecondary">
+					<div>한번 더 해볼까요?</div>
+					</Typography>
+					<Link to={"/focus/study"}>다시 공부하러 가기</Link>
+				</Paper>
+				</Grid>
+				<Grid item xs>
+				<Paper className={classes.paper}>
+					<Typography className={classes.pos} color="textSecondary">
+					<audio autoplay="autoplay" id="end-of-time" src="https://kr.object.ncloudstorage.com/resume/iu.mp3"></audio>
+					</Typography>
+					<Typography component="legend">누적 공부 시간</Typography>
+					{/* <Rating name="size-large" value={5} size="large" readOnly /> */}
+					{studyTime} 분
+				</Paper>
+				</Grid>
+				<Grid item xs>
+				<Paper className={classes.paper}>
+					<Typography component="legend">집중력 점수(누적)</Typography>
+					{/* <Rating name="size-large" value={5} size="large" readOnly /> */}
+					{totalScore}
+				</Paper>
+				</Grid>
+				<Grid item xs>
+				<Paper className={classes.paper}>
+					<Typography component="legend">집중력 점수(평균)</Typography>
+					{/* <Rating name="size-large" value={5} size="large" readOnly /> */}
+					{avgScore}
+				</Paper>
+				</Grid>
+			</Grid>
+			<Grid item xs>
+				<Paper className={classes.paper}>
+				<div className="chart.js">여기에 차트가 들어갑니다.</div>
+				</Paper>
+			</Grid>
         </Container>
       );
 };
