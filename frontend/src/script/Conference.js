@@ -1,9 +1,7 @@
 import Remon from "@remotemonster/sdk";
 import Axios from "axios";
 import * as tf from '@tensorflow/tfjs';
-
-import Result from '../Routes/Result/';
-
+import ResultContainer from '../Routes/Result/ResultContainer';
 
 const initConference = (props) => {
 	const enterBtn = document.querySelector("#enterBtn");
@@ -195,9 +193,7 @@ const initConference = (props) => {
               }
           }
       )
-      console.log(res.data);
-      // window.location = '/result';
-      
+      console.log(res.data);      
   }
 
   async function timerstart(){
@@ -228,7 +224,8 @@ const initConference = (props) => {
 
               // 공부 시간 업데이트
               update_time();
-              window.open("/result", "_self");
+              // window.open("/result", "_self");
+              ResultContainer(props);
               return;
           }
           else{

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default () => {
+export default ({scores}) => {
 	const classes = useStyles();
 	
 	const [user, setUser] = useState();
@@ -48,7 +48,9 @@ export default () => {
 	useEffect(() => {
 		getUserInfo();
 	}, [])
-
+	console.log("HIHIHIHIHIHIHIHIHIHIHI");
+	console.log(scores);
+	console.log("HIHIHIHIHIHIHIHIHIHIHI");
     return (
         <Container maxwidth="sm">
 			<div className="title">고생하셨습니다!</div>
@@ -89,7 +91,7 @@ export default () => {
 			</Grid>
 			<Grid item xs>
 				<Paper className={classes.paper}>
-				<div className="chart.js">여기에 차트가 들어갑니다.</div>
+				<div id="myChart" className="chart.js">여기에 차트가 들어갑니다.</div>
 				</Paper>
 			</Grid>
         </Container>
