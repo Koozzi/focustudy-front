@@ -1,10 +1,7 @@
-import * as React from "react";
-import * as tf from '@tensorflow/tfjs';
 
 const initJavis = () => {
     const enterBtn = document.querySelector("#enterBtn");
     const webcamElement = document.getElementById('myVideo');
-    // const cocoSsd = require('@tensorflow-models/coco-ssd');
     const facenum = document.getElementById("facenum");
     
     const facemesh = require("@tensorflow-models/facemesh");
@@ -81,7 +78,7 @@ const initJavis = () => {
             }
             // document.getElementById("facenum").innerText = sum(data);
         }
-        
+
         else{
             score = 0.0;
             speakstart("어디 갔어?");

@@ -1,5 +1,9 @@
 import Remon from "@remotemonster/sdk";
 import Axios from "axios";
+import * as tf from '@tensorflow/tfjs';
+
+import Result from '../Routes/Result/';
+
 
 const initConference = (props) => {
 	const enterBtn = document.querySelector("#enterBtn");
@@ -16,8 +20,31 @@ const initConference = (props) => {
 	const serviceId = "SERVICEID1";
   var seconds = 0;
   var minutes = 0;
-    let left_time = 1;
-	// please register your own service key from remotemonster site.
+  let left_time = 1;
+  
+
+
+  const webcamElement = document.getElementById('myVideo');
+  const facenum = document.getElementById("facenum");
+  const facemesh = require("@tensorflow-models/facemesh");
+  var seconds = 0; 
+  var minutes = 0;
+  var face_cnt = 0;
+  var time = 0;
+  var data = new Array;
+  var times = new Array;  
+  var prev_keypoints=0;
+  
+  var Chart = require('chart.js');
+  function speakstart(s){
+    var msg = new SpeechSynthesisUtterance();
+    msg.text = s;
+    window.speechSynthesis.speak(msg);
+  }
+  
+  
+  
+    // please register your own service key from remotemonster site.
 	let config = {
 		credential: {
 			key: key,
@@ -169,7 +196,8 @@ const initConference = (props) => {
           }
       )
       console.log(res.data);
-      window.location = '/result';
+      // window.location = '/result';
+      
   }
 
   async function timerstart(){
@@ -181,8 +209,10 @@ const initConference = (props) => {
               printTimer(minutes, seconds);
               seconds = 0;
               minutes++;
-              
               return;
+          }
+          if(seconds%5==0){
+            facemesh_inference();
           }
           if(enterBtn.innerHTML === "Enter"){
               timer.innerHTML = "00m00s";
@@ -198,6 +228,7 @@ const initConference = (props) => {
 
               // 공부 시간 업데이트
               update_time();
+              window.open("/result", "_self");
               return;
           }
           else{
@@ -218,7 +249,46 @@ const initConference = (props) => {
       }
       timer.innerHTML = show_min+"m"+show_sec+"s";
   }
-  
+  async function facemesh_inference(){
+    time += 1
+    const model = await facemesh.load();
+    const predictions = await model.estimateFaces(webcamElement);
+    var score = 1.0;
+    if(predictions.length > 0){
+        for(let i=0;i<predictions.length;i++){
+            const keypoints = predictions[i].scaledMesh;
+            var mse = 0;
+            for(let j=0;j<keypoints.length;j++){
+                const [x, y, z] = keypoints[j];
+                if(prev_keypoints!==0){
+                    const [prev_x, prev_y, prev_z] = prev_keypoints[j];
+                    mse += (prev_x-x)*(prev_x-x) + (prev_y-y)*(prev_y-y)+(prev_z-z)*(prev_z-z);
+                }
+                else{
+                    var mse = 0;
+                }
+            }
+            console.log(i, mse);
+            prev_keypoints = keypoints;
+        }
+        if(mse>=500000){
+            score = 0.5;
+            speakstart("산만해");
+            facenum.innerHTML = "산만해";
+        }
+        else if(mse<500000){
+            score=1.0;
+        }
+    }
+
+    else{
+        score = 0.0;
+        speakstart("어디 갔어?");
+        facenum.innerHTML = "어디갔어?";
+    }
+    data.push(score);
+    times.push(time);
+  }
 	enterBtn.addEventListener("click",
 		evt => {
       start();
