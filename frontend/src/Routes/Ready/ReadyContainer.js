@@ -1,6 +1,5 @@
 import ReadyPresenter from './ReadyPresenter';
 import initConference from '../../script/Conference';
-import initTimer from '../../script/Timer';
 import initJavis from '../../script/Report';
 import React, { useLayoutEffect, useEffect } from 'react'
 
@@ -12,7 +11,7 @@ export default (props) => {
     }, []);
     useLayoutEffect(() => {
         
-        initTimer(props);
+        // initTimer(props);
     }, []);
     
     return(

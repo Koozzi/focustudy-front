@@ -159,9 +159,6 @@ em{
     flex-direction: column;
     justify-content: center;
 }
-.left-btn:hover{
-    background: linear-gradient(to left,transparent,#9A13B8);
-}
 .right-btn{
     position: absolute;
     top:50%; right:0%;
@@ -171,9 +168,6 @@ em{
     display:flex;
     flex-direction: column;
     justify-content: center;
-}
-.right-btn:hover{
-    background: linear-gradient(to left,#9A13B8,transparent);
 }
 .btn-letter{
     font-size:35px;

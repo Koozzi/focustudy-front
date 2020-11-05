@@ -81,6 +81,7 @@ const initJavis = () => {
             }
             // document.getElementById("facenum").innerText = sum(data);
         }
+        
         else{
             score = 0.0;
             speakstart("어디 갔어?");

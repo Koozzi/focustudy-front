@@ -7,14 +7,16 @@ const initConference = (props) => {
 	const RoomId = props.location.state.roomNumber;
 	const hashCode = s => s.split('').reduce((a,b) => (((a << 5) - a) + b.charCodeAt(0))|0, 0)
 	const hashedRoomId = "a" + hashCode(RoomId) + "a";
-	
+  let timer = document.getElementById('timer');
 	let isConnected = false;
 	let remon;
 	let remonRoom=[];
 
 	const key = "1234567890";
 	const serviceId = "SERVICEID1";
-
+  var seconds = 0;
+  var minutes = 0;
+    let left_time = 1;
 	// please register your own service key from remotemonster site.
 	let config = {
 		credential: {
@@ -149,9 +151,78 @@ const initConference = (props) => {
 		}
 	}
 
+
+  const update_score = async() => {
+
+  }
+
+  const update_time = async() => {
+      let token = localStorage.getItem("auth-token");
+      const res = await Axios.post(
+          "https://focustudy-back.site/score/update_study_time",
+          // "http://localhost:5050/score/update_study_time",
+          null,
+          {
+              headers:{
+                  "x-auth-token": token
+              }
+          }
+      )
+      console.log(res.data);
+      window.location = '/result';
+  }
+
+  async function timerstart(){
+      var contador = null;
+     // console.log(isConnected);
+      seconds = 1;
+      contador = window.setInterval(function(){
+          if(seconds === 59){
+              printTimer(minutes, seconds);
+              seconds = 0;
+              minutes++;
+              
+              return;
+          }
+          if(enterBtn.innerHTML === "Enter"){
+              timer.innerHTML = "00m00s";
+              window.clearInterval(contador);
+              return;
+          }
+          else if(minutes>=left_time){
+              seconds = 0;
+              minutes = 0;
+              timer.innerHTML = "00m00s";
+              
+              window.clearInterval(contador);
+
+              // 공부 시간 업데이트
+              update_time();
+              return;
+          }
+          else{
+              printTimer(minutes, seconds);
+          }
+          seconds++;
+      }, 1000)
+  }
+  async function printTimer(minutes, seconds){
+      //console.log(minutes, seconds);
+      var show_min = left_time - minutes - 1;
+      var show_sec = (60 - seconds) % 60;
+      if(show_min<10){
+          show_min = "0"+show_min;
+      }
+      if(show_sec<10){
+          show_sec = "0"+show_sec;
+      }
+      timer.innerHTML = show_min+"m"+show_sec+"s";
+  }
+  
 	enterBtn.addEventListener("click",
 		evt => {
-			start();
+      start();
+      timerstart();
 			evt.preventDefault();
 		},
 		false

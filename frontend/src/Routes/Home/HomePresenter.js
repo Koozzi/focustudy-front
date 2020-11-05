@@ -2,10 +2,10 @@ import React from 'react';
 import { Link, useHistory } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import "./Home.css";
-import logo from "./assets/logo.PNG";
-import logo2 from "./assets/logo2.PNG";
-import backgroundvideo from "./assets/background.webm";
+import homeimage from "./assets/home.jpg";
 import Header from "../../Components/Header";
+import Container from '@material-ui/core/Container';
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: '6px 16px',
@@ -19,14 +19,12 @@ function Home() {
     return (
         <React.Fragment>
         <div class="frame">
-            <video id="backvid" muted autoplay loop>
-                <source src={backgroundvideo} type="video/webm"/>
-                <strong>Your browser does not support the video tag.</strong>
-            </video>
+            <img id="backvid" src={homeimage}></img>
             <Header />
             <div class="header">
                 <div class="up-logo"><div class="logo-link">Focustudy</div></div>
             </div>
+            <Container>
             <ul class="btns">
                 <li class="left-btn">
                     <em>Single Mode</em>
@@ -40,6 +38,7 @@ function Home() {
                 </li>
             </ul>
             <p class="slogan">세상에 없던 AI 집중력 타이머</p>
+            </Container>
         </div>
         </React.Fragment>
         
