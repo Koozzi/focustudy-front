@@ -7,18 +7,18 @@ const initConference = (props) => {
 	const enterBtn = document.querySelector("#enterBtn");
 	const otherVideos= document.getElementById('otherVideos');
 	const RoomId = props.location.state.roomNumber;
-	const hashCode = s => s.split('').reduce((a,b) => (((a << 5) - a) + b.charCodeAt(0))|0, 0)
+	const hashCode = s => s.split('').reduce((a,b) => (((a << 5) - a) + b.charCodeAt(0))|0, 0);
 	const hashedRoomId = "a" + hashCode(RoomId) + "a";
-  	let timer = document.getElementById('timer');
+  let timer = document.getElementById('timer');
 	let isConnected = false;
 	let remon;
 	let remonRoom=[];
 
 	const key = "1234567890";
 	const serviceId = "SERVICEID1";
-  	var seconds = 0;
-  	var minutes = 0;
-  	let left_time = 25;
+  var seconds = 0;
+  var minutes = 0;
+  let left_time = 5;
 
 	const webcamElement = document.getElementById('myVideo');
 	const facenum = document.getElementById("facenum");
@@ -201,9 +201,9 @@ const initConference = (props) => {
 		seconds = 1;
 		contador = window.setInterval(function(){
 			if(seconds === 59){
-				printTimer(minutes, seconds);
-				seconds = 0;
-				minutes++;
+        minutes++;
+        seconds = 0;
+        // printTimer(minutes, seconds);
 				return;
 			}
 			if(seconds%5==0){
@@ -270,7 +270,8 @@ const initConference = (props) => {
 				facenum.innerHTML = "산만해";
 			}
 			else if(mse<500000){
-				score=1.0;
+        score=1.0;
+        facenum.innerHTML = "잘하고 있어";
 			}
 		}
 
@@ -287,7 +288,7 @@ const initConference = (props) => {
 		evt => {
       		start();
       		timerstart();
-			evt.preventDefault();
+			    evt.preventDefault();
 		},
 		false
 	);
