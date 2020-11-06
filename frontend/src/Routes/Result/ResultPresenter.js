@@ -115,9 +115,7 @@ export default ({scores}) => {
 				</Grid>
 				<Grid item xs>
 				<Paper className={classes.paper}>
-					<Typography className={classes.pos} color="textSecondary">
-					<audio autoplay="autoplay" id="end-of-time" src="https://kr.object.ncloudstorage.com/resume/iu.mp3"></audio>
-					</Typography>
+					
 					<Typography component="legend">공부 시간</Typography>
 					{/* <Rating name="size-large" value={5} size="large" readOnly /> */}
 					25 분
