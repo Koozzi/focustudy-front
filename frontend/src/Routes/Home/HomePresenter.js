@@ -18,7 +18,7 @@ function Home() {
     const classes = useStyles();
     return (
         <React.Fragment>
-          <header><script data-ad-client="ca-pub-9742360312927367" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></header>
+          <head><script data-ad-client="ca-pub-9742360312927367" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></head>
         
         <div class="frame">
             <img id="backvid" src={homeimage}></img>
