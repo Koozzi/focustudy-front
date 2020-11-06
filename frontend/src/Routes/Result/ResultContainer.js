@@ -3,10 +3,6 @@ import ResultPresenter from './ResultPresenter';
 
 
 function ResultContainer (props){
-    console.log("HIHIHIHIHIHIHIHIHIHIHI");
-	console.log(props);
-	console.log("HIHIHIHIHIHIHIHIHIHIHI");
-    let data = 5555555;
     var Chart = require('chart.js');
     // var ctx = document.getElementById('myChart').getContext('2d');
     /*var chart = new Chart(ctx, {
@@ -24,7 +20,7 @@ function ResultContainer (props){
             options: {}
     });*/
     return(
-        <ResultPresenter scores={data}/>
+        <ResultPresenter scores={props}/>
     )
 }
 export default ResultContainer;

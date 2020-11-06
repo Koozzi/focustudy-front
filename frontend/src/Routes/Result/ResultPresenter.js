@@ -5,8 +5,6 @@ import { Link, useHistory } from "react-router-dom";
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Rating from '@material-ui/lab/Rating'
-
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -47,14 +45,15 @@ export default ({scores}) => {
 
 	useEffect(() => {
 		getUserInfo();
+		console.log("ScoresScoresScoresScoresScores");
+		console.log(scores);
+		console.log("ScoresScoresScoresScoresScores");
 	}, [])
-	console.log("HIHIHIHIHIHIHIHIHIHIHI");
-	console.log(scores);
-	console.log("HIHIHIHIHIHIHIHIHIHIHI");
+
     return (
         <Container maxwidth="sm">
 			<div className="title">고생하셨습니다!</div>
-			<div className="title"> {user}님의 스터디 결과 </div>
+			<div className="title"> {user}님의 스터디 결과 -> </div>
 			<Grid container spacing={5}>
 				<Grid item xs>
 				<Paper className={classes.paper}>

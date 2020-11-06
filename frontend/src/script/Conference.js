@@ -9,38 +9,34 @@ const initConference = (props) => {
 	const RoomId = props.location.state.roomNumber;
 	const hashCode = s => s.split('').reduce((a,b) => (((a << 5) - a) + b.charCodeAt(0))|0, 0)
 	const hashedRoomId = "a" + hashCode(RoomId) + "a";
-  let timer = document.getElementById('timer');
+  	let timer = document.getElementById('timer');
 	let isConnected = false;
 	let remon;
 	let remonRoom=[];
 
 	const key = "1234567890";
 	const serviceId = "SERVICEID1";
-  var seconds = 0;
-  var minutes = 0;
-  let left_time = 1;
-  
+  	var seconds = 0;
+  	var minutes = 0;
+  	let left_time = 1;
 
-
-  const webcamElement = document.getElementById('myVideo');
-  const facenum = document.getElementById("facenum");
-  const facemesh = require("@tensorflow-models/facemesh");
-  var seconds = 0; 
-  var minutes = 0;
-  var face_cnt = 0;
-  var time = 0;
-  var data = new Array;
-  var times = new Array;  
-  var prev_keypoints=0;
-  
-  var Chart = require('chart.js');
-  function speakstart(s){
-    var msg = new SpeechSynthesisUtterance();
-    msg.text = s;
-    window.speechSynthesis.speak(msg);
-  }
-  
-  
+	const webcamElement = document.getElementById('myVideo');
+	const facenum = document.getElementById("facenum");
+	const facemesh = require("@tensorflow-models/facemesh");
+	var seconds = 0; 
+	var minutes = 0;
+	var face_cnt = 0;
+	var time = 0;
+	var data = new Array;
+	var times = new Array;  
+	var prev_keypoints=0;
+	
+	var Chart = require('chart.js');
+	function speakstart(s){
+		var msg = new SpeechSynthesisUtterance();
+		msg.text = s;
+		window.speechSynthesis.speak(msg);
+	}
   
     // please register your own service key from remotemonster site.
 	let config = {
@@ -102,9 +98,9 @@ const initConference = (props) => {
 			//join
 			switch (result.event) {
 			case 'join':
-				console.log("****SWITCH****");
-				console.log(result);
-				console.log("****SWITCH****");
+				// console.log("****SWITCH****");
+				// console.log(result);
+				// console.log("****SWITCH****");
 				if(!remonRoom[result.channel.id]){
 					remonRoom[result.channel.id] = true;
 					let newVideo = document.createElement('video')
@@ -131,6 +127,7 @@ const initConference = (props) => {
 			console.log(`EVENT FIRED: onRoomEvent: ${JSON.stringify(result)}`)
 		}
 	};
+
 	async function start() {
 		if (isConnected) { // 방에 참여하고 있을 때 
 			isConnected = false;
@@ -176,124 +173,155 @@ const initConference = (props) => {
 		}
 	}
 
+	const update_score = async() => {
+		console.log("This is Update Score", data);
+	}
 
-  const update_score = async() => {
+	const update_time = async() => {
+		let token = localStorage.getItem("auth-token");
+		const res = await Axios.post(
+			"https://focustudy-back.site/score/update_study_time",
+			// "http://localhost:5050/score/update_study_time",
+			null,
+			{
+				headers:{
+					"x-auth-token": token
+				}
+			}
+		)
+		console.log("This is total study time", res.data);      
+	}
 
-  }
+	const update_time_score = async() => {
+		let token = localStorage.getItem("auth-token");
+		const update_time = await Axios.post(
+			"https://focustudy-back.site/score/update_study_time",
+			// "http://localhost:5050/score/update_study_time",
+			null,
+			{
+				headers:{
+					"x-auth-token": token
+				}
+			}
+		);
+		const update_score = await Axios.post(
+			"https://focustudy-back.site/score/update_study_score",
+			// "http://localhost:5050/score/update_study_score",
+			null,
+			{
+				headers:{
+					"x-auth-token": token
+				}
+			}
+		);
+		window.open("/result", "_self");
+	}
 
-  const update_time = async() => {
-      let token = localStorage.getItem("auth-token");
-      const res = await Axios.post(
-          "https://focustudy-back.site/score/update_study_time",
-          // "http://localhost:5050/score/update_study_time",
-          null,
-          {
-              headers:{
-                  "x-auth-token": token
-              }
-          }
-      )
-      console.log(res.data);      
-  }
+	const timerstart = async() => {
+		var contador = null;
+		// console.log(isConnected);
+		
+		seconds = 1;
+		contador = window.setInterval(function(){
+			if(seconds === 59){
+				printTimer(minutes, seconds);
+				seconds = 0;
+				minutes++;
+				return;
+			}
+			if(seconds%5==0){
+				facemesh_inference();
+			}
+			if(enterBtn.innerHTML === "Enter"){
+				timer.innerHTML = "00m00s";
+				window.clearInterval(contador);
+				return;
+			}
+			else if(minutes>=left_time){
+				seconds = 0;
+				minutes = 0;
+				timer.innerHTML = "00m00s";
+				
+				window.clearInterval(contador);
 
-  async function timerstart(){
-      var contador = null;
-     // console.log(isConnected);
-      seconds = 1;
-      contador = window.setInterval(function(){
-          if(seconds === 59){
-              printTimer(minutes, seconds);
-              seconds = 0;
-              minutes++;
-              return;
-          }
-          if(seconds%5==0){
-            facemesh_inference();
-          }
-          if(enterBtn.innerHTML === "Enter"){
-              timer.innerHTML = "00m00s";
-              window.clearInterval(contador);
-              return;
-          }
-          else if(minutes>=left_time){
-              seconds = 0;
-              minutes = 0;
-              timer.innerHTML = "00m00s";
-              
-              window.clearInterval(contador);
+				// 공부 시간 업데이트
+				update_time();
+				update_score();
+				ResultContainer(data);
 
-              // 공부 시간 업데이트
-              update_time();
-              // window.open("/result", "_self");
-              ResultContainer(props);
-              return;
-          }
-          else{
-              printTimer(minutes, seconds);
-          }
-          seconds++;
-      }, 1000)
-  }
-  async function printTimer(minutes, seconds){
-      //console.log(minutes, seconds);
-      var show_min = left_time - minutes - 1;
-      var show_sec = (60 - seconds) % 60;
-      if(show_min<10){
-          show_min = "0"+show_min;
-      }
-      if(show_sec<10){
-          show_sec = "0"+show_sec;
-      }
-      timer.innerHTML = show_min+"m"+show_sec+"s";
-  }
-  async function facemesh_inference(){
-    time += 1
-    const model = await facemesh.load();
-    const predictions = await model.estimateFaces(webcamElement);
-    var score = 1.0;
-    if(predictions.length > 0){
-        for(let i=0;i<predictions.length;i++){
-            const keypoints = predictions[i].scaledMesh;
-            var mse = 0;
-            for(let j=0;j<keypoints.length;j++){
-                const [x, y, z] = keypoints[j];
-                if(prev_keypoints!==0){
-                    const [prev_x, prev_y, prev_z] = prev_keypoints[j];
-                    mse += (prev_x-x)*(prev_x-x) + (prev_y-y)*(prev_y-y)+(prev_z-z)*(prev_z-z);
-                }
-                else{
-                    var mse = 0;
-                }
-            }
-            console.log(i, mse);
-            prev_keypoints = keypoints;
-        }
-        if(mse>=500000){
-            score = 0.5;
-            speakstart("산만해");
-            facenum.innerHTML = "산만해";
-        }
-        else if(mse<500000){
-            score=1.0;
-        }
-    }
+				// 위 방식대로 하면 점수와 시간이 업데이트되지 않았는데 Result 페이지로 넘어갈 수 있음.
+				// update_time_score라는 async함수를 만들어서 그 안에서 동기로 작업을 해줘야 함.
 
-    else{
-        score = 0.0;
-        speakstart("어디 갔어?");
-        facenum.innerHTML = "어디갔어?";
-    }
-    data.push(score);
-    times.push(time);
-  }
+				// window.open("/result", "_self");
+				return;
+			}
+			else{
+				printTimer(minutes, seconds);
+			}
+			seconds++;
+		}, 1000)
+	}
+	async function printTimer(minutes, seconds){
+		//console.log(minutes, seconds);
+		var show_min = left_time - minutes - 1;
+		var show_sec = (60 - seconds) % 60;
+		if(show_min<10){
+			show_min = "0"+show_min;
+		}
+		if(show_sec<10){
+			show_sec = "0"+show_sec;
+		}
+		timer.innerHTML = show_min+"m"+show_sec+"s";
+	}
+	async function facemesh_inference(){
+		time += 1
+		const model = await facemesh.load();
+		const predictions = await model.estimateFaces(webcamElement);
+		var score = 1.0;
+		if(predictions.length > 0){
+			for(let i=0;i<predictions.length;i++){
+				const keypoints = predictions[i].scaledMesh;
+				var mse = 0;
+				for(let j=0;j<keypoints.length;j++){
+					const [x, y, z] = keypoints[j];
+					if(prev_keypoints!==0){
+						const [prev_x, prev_y, prev_z] = prev_keypoints[j];
+						mse += (prev_x-x)*(prev_x-x) + (prev_y-y)*(prev_y-y)+(prev_z-z)*(prev_z-z);
+					}
+					else{
+						var mse = 0;
+					}
+				}
+				console.log(i, mse);
+				prev_keypoints = keypoints;
+			}
+			if(mse>=500000){
+				score = 0.5;
+				speakstart("산만해");
+				facenum.innerHTML = "산만해";
+			}
+			else if(mse<500000){
+				score=1.0;
+			}
+		}
+
+		else{
+			score = 0.0;
+			speakstart("어디 갔어?");
+			facenum.innerHTML = "어디갔어?";
+		}
+		data.push(score);
+		times.push(time);
+	}
+
 	enterBtn.addEventListener("click",
 		evt => {
-      start();
-      timerstart();
+      		start();
+      		timerstart();
 			evt.preventDefault();
 		},
 		false
 	);
 }
 
-	export default initConference;
+export default initConference;
