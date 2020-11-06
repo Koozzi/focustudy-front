@@ -22,7 +22,7 @@ const initConference = (props) => {
 
 	const webcamElement = document.getElementById('myVideo');
 	const facenum = document.getElementById("facenum");
-	const facemesh = require("@tensrflow-models/facemesh");
+	const facemesh = require("@tensorflow-models/facemesh");
 	var seconds = 0; 
 	var minutes = 0;
 	var face_cnt = 0;
