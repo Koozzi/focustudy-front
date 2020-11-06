@@ -18,11 +18,11 @@ const initConference = (props) => {
 	const serviceId = "SERVICEID1";
   	var seconds = 0;
   	var minutes = 0;
-  	let left_time = 1;
+  	let left_time = 25;
 
 	const webcamElement = document.getElementById('myVideo');
 	const facenum = document.getElementById("facenum");
-	const facemesh = require("@tensorflow-models/facemesh");
+	const facemesh = require("@tensrflow-models/facemesh");
 	var seconds = 0; 
 	var minutes = 0;
 	var face_cnt = 0;
