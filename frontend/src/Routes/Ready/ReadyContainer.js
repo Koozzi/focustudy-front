@@ -4,6 +4,7 @@ import React, { useLayoutEffect, useEffect } from 'react'
 
 export default (props) => {
     let roomNumber = props.location.state.roomNumber;
+
     useEffect(()=>{
         initConference(props);
     }, []);

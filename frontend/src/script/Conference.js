@@ -173,47 +173,24 @@ const initConference = (props) => {
 		}
 	}
 
-	const update_score = async() => {
-		console.log("This is Update Score", data);
-	}
-
-	const update_time = async() => {
-		let token = localStorage.getItem("auth-token");
-		const res = await Axios.post(
-			"https://focustudy-back.site/score/update_study_time",
-			// "http://localhost:5050/score/update_study_time",
-			null,
-			{
-				headers:{
-					"x-auth-token": token
-				}
-			}
-		)
-		console.log("This is total study time", res.data);      
-	}
 
 	const update_time_score = async() => {
 		let token = localStorage.getItem("auth-token");
-		const update_time = await Axios.post(
-			"https://focustudy-back.site/score/update_study_time",
-			// "http://localhost:5050/score/update_study_time",
-			null,
-			{
-				headers:{
-					"x-auth-token": token
-				}
-			}
-		);
+
 		const update_score = await Axios.post(
 			"https://focustudy-back.site/score/update_study_score",
 			// "http://localhost:5050/score/update_study_score",
-			null,
+			{
+				data: data,
+				study_time: left_time
+			},
 			{
 				headers:{
 					"x-auth-token": token
 				}
 			}
 		);
+		
 		window.open("/result", "_self");
 	}
 
@@ -243,16 +220,8 @@ const initConference = (props) => {
 				timer.innerHTML = "00m00s";
 				
 				window.clearInterval(contador);
-
-				// 공부 시간 업데이트
-				update_time();
-				update_score();
-				ResultContainer(data);
-
-				// 위 방식대로 하면 점수와 시간이 업데이트되지 않았는데 Result 페이지로 넘어갈 수 있음.
-				// update_time_score라는 async함수를 만들어서 그 안에서 동기로 작업을 해줘야 함.
-
-				// window.open("/result", "_self");
+				// ResultContainer(data);
+				update_time_score();
 				return;
 			}
 			else{

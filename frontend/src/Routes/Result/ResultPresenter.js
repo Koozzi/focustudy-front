@@ -24,6 +24,9 @@ export default ({scores}) => {
 	const [studyTime, setStudyTime] = useState();
 	const [totalScore, setTotalScore] = useState();
 	const [avgScore, setAvgScore] = useState();
+	const [lastTotalScore, setLastTotalScore] = useState();
+	const [lastAvgScore, setLastAvgScore] = useState();
+	const [lastData, setLastData] = useState();
 
 	const getUserInfo = async() => {
 		let token = localStorage.getItem("auth-token");
@@ -37,23 +40,34 @@ export default ({scores}) => {
                 }
             }
 		)
-		setUser(_user.data.displayName);
-		setStudyTime(_user.data.studyTime);
-		setTotalScore(_user.data.totalScore);
-		setAvgScore(_user.data.avgScore);
+		await setUser(_user.data.displayName);
+		await setStudyTime(_user.data.studyTime);
+		await setTotalScore(_user.data.totalScore);
+		await setAvgScore(_user.data.avgScore);
+		await setLastData(_user.data.lastData);
+
+		let sum = 0;
+		let cnt = 0;
+		let avg = 0;
+
+		_user.data.lastData.forEach(Element => {
+			cnt += 1;
+			sum += Element;
+		})
+		
+		avg = (sum / cnt) * 100;
+
+		await setLastTotalScore(sum);
+		await setLastAvgScore(avg);
 	}
 
 	useEffect(() => {
 		getUserInfo();
-		console.log("ScoresScoresScoresScoresScores");
-		console.log(scores);
-		console.log("ScoresScoresScoresScoresScores");
 	}, [])
-
     return (
         <Container maxwidth="sm">
 			<div className="title">고생하셨습니다!</div>
-			<div className="title"> {user}님의 스터디 결과 -> </div>
+			<div className="title"> {user}님의 스터디 결과</div>
 			<Grid container spacing={5}>
 				<Grid item xs>
 				<Paper className={classes.paper}>
@@ -68,23 +82,23 @@ export default ({scores}) => {
 					<Typography className={classes.pos} color="textSecondary">
 					<audio autoplay="autoplay" id="end-of-time" src="https://kr.object.ncloudstorage.com/resume/iu.mp3"></audio>
 					</Typography>
-					<Typography component="legend">누적 공부 시간</Typography>
+					<Typography component="legend">공부 시간</Typography>
 					{/* <Rating name="size-large" value={5} size="large" readOnly /> */}
-					{studyTime} 분
+					25 분
 				</Paper>
 				</Grid>
 				<Grid item xs>
 				<Paper className={classes.paper}>
 					<Typography component="legend">집중력 점수(누적)</Typography>
 					{/* <Rating name="size-large" value={5} size="large" readOnly /> */}
-					{totalScore} / 300
+					{lastTotalScore} / 300
 				</Paper>
 				</Grid>
 				<Grid item xs>
 				<Paper className={classes.paper}>
 					<Typography component="legend">집중력 점수(평균)</Typography>
 					{/* <Rating name="size-large" value={5} size="large" readOnly /> */}
-					{avgScore} / 100
+					{lastAvgScore} / 100
 				</Paper>
 				</Grid>
 			</Grid>
