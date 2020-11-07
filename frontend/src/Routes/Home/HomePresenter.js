@@ -21,21 +21,22 @@ function Home() {
         
         <div class="frame">
             <img id="backvid" src={homeimage}></img>
-            <Header />
-            <div class="header">
-                <div class="up-logo"><div class="logo-link">Focustudy</div></div>
-            </div>
+            
             <Container>
-            <ul class="btns">
-                <li class="left-btn">
+            <Header />
+            <div className="header">
+                <div className="up-logo"><div className="logo-link">Focustudy</div></div>
+            </div>
+            <ul className="btns">
+                <li className="left-btn">
                     <em>Single Mode</em>
-                    <div class="btn-letter">싱글모드</div>
-                    <Link to={"/focus/study"}><button class="rectangle">바로가기</button></Link>
+                    <div className="btn-letter">싱글모드</div>
+                    <Link to={"/focus/study"}><button className="rectangle">바로가기</button></Link>
                 </li>
                 <li class="right-btn">
                     <em>Multi Mode</em>
-                    <div class="btn-letter">멀티모드</div>
-                    <Link to={"/focus/study"}><button class="rectangle">바로가기</button></Link>
+                    <div className="btn-letter">멀티모드</div>
+                    <Link to={"/focus/study"}><button className="rectangle">바로가기</button></Link>
                 </li>
             </ul>
             <p class="slogan">세상에 없던 AI 집중력 타이머</p>
