@@ -30,8 +30,8 @@ export default function Board() {
   const About = () => history.push("/");
   const Contact = () => history.push("/");
   const Study = () => {
-    if(userData.user) history.push("/focus")
-    else history.push("/login")
+    if(userData.user) history.push("/focus");
+    else history.push("/login");
   }
 
   return (
@@ -42,7 +42,7 @@ export default function Board() {
       </div> */}
       
       <div className="navbar">
-        <Container className="navbar_container">
+        <div className="navbar_container">
           <div className="LEFT">
             <a href="/" className="Active">FocuStudy</a>
           </div>
@@ -59,7 +59,7 @@ export default function Board() {
                 </>
               )}
           </div>
-        </Container>
+        </div>
       </div>
       
     </React.Fragment>
