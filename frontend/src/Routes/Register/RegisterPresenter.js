@@ -16,11 +16,8 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
-
 import UserContext from '../../Components/UserContext';
 import ErrorNotice from '../../Components/ErrorNotice';
-
-const https = require('https');
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -141,6 +138,11 @@ export default function RegisterPresenter() {
     const [error, setError] = useState();
     const [open, setOpen] = useState(false);
 
+    const [existDisplayName, setExistDisplayName] = useState(false);
+    const [existEmail, setExistEmail] = useState(false);
+    const [passwdCheck, setPasswdCheck] = useState(true); // 패스워드 일치함.
+    const [passwdLength, setPasswdLength] = useState(true);
+
     const classes = useStyles();
     const {setUserData} = useContext(UserContext);
 
@@ -148,21 +150,35 @@ export default function RegisterPresenter() {
 
     const verifyEmail = async(e) => {
         e.preventDefault();
-        setOpen(true);
+        
 
         const userEmail = { email };
 
-        const verify = await Axios({
-            method: 'get',
-            url: 'https://focustudy-back.site/users/verify',
-            params: {
-                toEmail: userEmail
-            },
-        })
+        const existUser = await Axios.post(
+            'https://focustudy-back.site/users/exist_email',
+            {
+                toEmail: userEmail.email
+            }
+        )
+        if(existUser.data){
+            setExistEmail(true);
+            return;
+        }
+        else {
+            setExistEmail(false);
+            setOpen(true);
+            const verify = await Axios({
+                method: 'get',
+                url: 'https://focustudy-back.site/users/verify',
+                params: {
+                    toEmail: userEmail
+                },
+            })
 
-        console.log(verify.data.verifyCode);
-        setVerifyCode(verify.data.verifyCode);
-        setSentEmail(true);
+            console.log(verify.data.verifyCode);
+            setVerifyCode(verify.data.verifyCode);
+            setSentEmail(true);
+        }
     }
 
     const handleClose = () => {
@@ -174,7 +190,8 @@ export default function RegisterPresenter() {
         e.preventDefault();
         setCheckedCode(true);
         if(typeVerifyCode == verifyCode){
-            await setIsCodeEqual(true);
+            setIsCodeEqual(true);
+            setOpen(false);
         } else {
             setIsCodeEqual(false);
         }
@@ -212,7 +229,33 @@ export default function RegisterPresenter() {
     const registerSubmit = async(e) => {
         e.preventDefault();
         try{
+
             const newUser = {email, password, passwordCheck, displayName};
+
+            const existUser = await Axios.post(
+                "https://focustudy-back.site/users/exist_displayName",
+                {
+                    displayName: displayName
+                }
+            )
+            console.log(existUser);
+            if(existUser.data){
+                setExistDisplayName(true);
+                return;
+            }
+
+            if(password !== passwordCheck){
+                setExistDisplayName(false);
+                setPasswdCheck(false);
+                return;
+            }
+
+            if(password.length < 8){
+                setExistDisplayName(false);
+                setPasswdCheck(true);
+                setPasswdLength(false);
+            }
+
             await Axios.post(
                 "https://focustudy-back.site/users/register",
                 // "http://localhost:5050/users/register",
@@ -261,8 +304,11 @@ export default function RegisterPresenter() {
             <Typography className={classes.Login} component="h1" variant="h5">
                 FocuStudy
             </Typography>
+            
             <form onSubmit={verifyEmail} className={classes.emailForm} noValidate>
-                <TextField
+                {isCodeEqual ? (
+                    <TextField
+                    disabled
                     fullWidth
                     margin="normal"
                     required
@@ -275,14 +321,34 @@ export default function RegisterPresenter() {
                     type="text"
                     onChange={e => setEmail(e.target.value)}
                 />
+                ) : (
+                    <TextField
+                    fullWidth
+                    margin="normal"
+                    required
+                    variant="outlined"
+                    id="standard-basic"
+                    autoComplete="email"
+                    label="이메일 주소"
+                    autoFocus
+                    inputProps={{ 'aria-label': 'description' }}
+                    type="text"
+                    onChange={e => setEmail(e.target.value)}
+                />
+                )}
                 <SendEmailButton />
+                {existEmail ? (
+                    <>해당 이메일 주소로 이미 가입이 되어 있습니다.</>
+                ) : (
+                    <></>
+                )}
             </form>
 
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
             <DialogTitle id="form-dialog-title">이메일을 확인해주세요!</DialogTitle>
                 <DialogContent>
                 <DialogContentText>
-                    방금 {email}로 인증코드를 보냈습니다.아래에 코드를 입력해주세요!
+                    방금 {email}로 인증코드를 보냈습니다.
                 </DialogContentText>
                 <DialogContentText>
                     아래에 코드를 입력해주세요!
@@ -301,12 +367,12 @@ export default function RegisterPresenter() {
                 </form>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} color="primary">
+                    {/* <Button onClick={handleClose} color="primary">
                         확인
                     </Button>
                     <Button onClick={handleClose} color="primary">
                         취소
-                    </Button>
+                    </Button> */}
                 </DialogActions>
             </Dialog>
 
@@ -339,6 +405,21 @@ export default function RegisterPresenter() {
                     onChange={e => setPasswordCheck(e.target.value)}                
                 />
                 {/* {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />} */}
+                {passwdCheck ? (
+                    <></>
+                ) : (
+                    <>비밀번호가 일치되지 않습니디.</>
+                )}
+                {existDisplayName ? (
+                    <>해당 아이디는 이미 사용중입니다.</>
+                ) : (
+                    <></>
+                )}
+                {passwdLength ? (
+                    <></>
+                ) : (
+                    <>비밀 번호는 8자리 이상으로 해주세요.</>
+                )}
                 <Button className={classes.emailSubmit}  fullWidth  type="submit" variant="contained" color="primary">회원가입</Button>
             </form>
         </div>
