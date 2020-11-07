@@ -18,7 +18,7 @@ const initConference = (props) => {
 	const serviceId = "SERVICEID1";
   var seconds = 0;
   var minutes = 0;
-  let left_time = 5;
+  let left_time = 25;
 
 	const webcamElement = document.getElementById('myVideo');
 	const facenum = document.getElementById("facenum");
