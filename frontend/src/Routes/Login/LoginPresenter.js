@@ -70,6 +70,7 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [isMatch, setIsMatch] = useState(true);
   // const [error, setError] = useState();
 
   const { setUserData } = useContext(UserContext);
@@ -84,6 +85,12 @@ export default function SignIn() {
             // "http://localhost:5050/users/login",
             loginUser
         );
+
+        if(!loginRes.data){
+          setIsMatch(false);
+          return;
+        }
+
         setUserData({
             token: loginRes.data.token,
             user: loginRes.data.user,
@@ -133,6 +140,11 @@ export default function SignIn() {
             type="password"
             onChange={e => setPassword(e.target.value)}
           />
+          {isMatch ? (
+            <></>
+          ) : (
+            <>"이메일"과 비밀번호를 확인해주세요.</>
+          )}
           <Button
             type="RealSubmit"
             fullWidth
