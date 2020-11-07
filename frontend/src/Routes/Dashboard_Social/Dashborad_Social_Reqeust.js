@@ -18,9 +18,11 @@ function Dashborad_Social_Reqeust( { request, displayName } ) {
         window.location.reload(false);
     }
 
+    console.log(request);
+
     return (
         <div>
-            {request.map((message, index) => {
+            {/* {request.map((message, index) => {
                 return(
                     <div key={index}>
                         {message.accept || message.deleted ? (
@@ -34,7 +36,7 @@ function Dashborad_Social_Reqeust( { request, displayName } ) {
                         )}
                     </div>
                 )
-            })}
+            })} */}
         </div>
     )
 }

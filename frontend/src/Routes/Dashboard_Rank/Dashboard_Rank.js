@@ -29,11 +29,6 @@ export default function Dashboard_Rank() {
             <p>나의 집중력순위를 확인해보세요!</p>
             <br/>
             <Dashboard_Rank_Table users={users}/>
-            <br/>
-            <div>
-                <li>사용자 아이디 누르면 사용자 프로필 팝업</li>
-                <li>유저 프로필에서 친구신청 혹은 메세지 보내기 기능</li>
-            </div>
         </div>
     )
 }

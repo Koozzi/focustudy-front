@@ -12,6 +12,9 @@ function Dashboard_Profile_Table({studyLogs}) {
                 {title: '평균점수(100)', field: 'avgScore'}
             ]}
             data={studyLogs}
+            options={{
+                pageSize: 5
+            }}
             / >
         </div>
     )

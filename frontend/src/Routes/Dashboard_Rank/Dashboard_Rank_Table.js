@@ -16,22 +16,22 @@ function Dashboard_Rank_Table({ users }) {
             ]}
             data={users}
             options={{
-                paging: false
+                paging: 10
             }}
-            detailPanel={[
-                {
-                    render: rowData => {
-                        return (
-                            <div>
-                                <button>친구신청</button>
-                                <li>{rowData.displayName}</li>
-                                <li>{rowData.totalScore}</li>
-                                <li>{rowData.totalScore}</li>
-                            </div>
-                        )
-                    }
-                }
-            ]}
+            // detailPanel={[
+            //     {
+            //         render: rowData => {
+            //             return (
+            //                 <div>
+            //                     {/* <button>친구신청</button> */}
+            //                     <li>{rowData.displayName}</li>
+            //                     <li>{rowData.totalScore.toFixed(2)}</li>
+            //                     <li>{rowData.totalScore.toFixed(2)}</li>
+            //                 </div>
+            //             )
+            //         }
+            //     }
+            // ]}
             />
         </div>
     )

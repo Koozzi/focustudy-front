@@ -15,6 +15,7 @@ export default function Dashboard_Profile() {
     const [badge2, setBadge2] = useState();
     const [badge3, setBadge3] = useState();
     const [studyLogs, setStudyLogs] = useState([]);
+    const [totalStudyTime, setTotalStudyTime] = useState();
 
     const getUserInfo = async() => {
         let token = localStorage.getItem("auth-token");
@@ -37,6 +38,7 @@ export default function Dashboard_Profile() {
         setBadge1(tokenRes.data[0].badge.badge1);
         setBadge2(tokenRes.data[0].badge.badge2);
         setBadge3(tokenRes.data[0].badge.badge3);
+        setTotalStudyTime(tokenRes.data[0].studyTime);
         setStudyLogs(tokenRes.data[1]);
     }
 
@@ -80,9 +82,9 @@ export default function Dashboard_Profile() {
                     <div className="Profile_Score_Container">
                         <div className="Profile_Tier">
                             <div className="Profile_Tier_Picture">
-                                
+                                {totalStudyTime}
                             </div>
-                            {tier}
+                            누적 공부 시간
                         </div>
                         <div className="Profile_Total">
                             {totalScore}
@@ -99,12 +101,9 @@ export default function Dashboard_Profile() {
                     </div>
                 </div>
                 <div className="Profile_Chart">
-                    CHART
+                    Chart
                     <div>
-                        쉬이 불러 이웃 비둘기, 있습니다. 하나에 마다씩 이름자
-                    </div>
-                    <div>
-                        이런 다 속의 파란 까닭입니다.
+                        평소 공부 기록을 확인해보세요!
                     </div>
                     <div className="Real_Chart">
                         <Dashboard_Profile_Table studyLogs={studyLogs} />

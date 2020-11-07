@@ -58,13 +58,10 @@ export default function Dashboard_Social() {
         <div className="Real_Content">
             <div className="title"> Social</div>
             <div>{displayName}님의 친구들은 열심히 하고 있나요?</div>
-            <Dashboard_Social_Search displayName={displayName}/>
-            <Dashborad_Social_Reqeust request={request} displayName={displayName}/>
+            <br />
+            {/* <Dashboard_Social_Search displayName={displayName}/>
+            <Dashborad_Social_Reqeust request={request} displayName={displayName}/> */}
             <Dashboard_Social_Table friends={friends}/>
-            <div>친구 요청 -> 수락 (완료)</div>
-            <div>친구 요청 -> 거절 (미완)</div>
-            <div>친구 삭제 (미완)</div>
-            <div>안터넷 창을 껐을 때, 자동으로 로그아웃이 되면 현재 친구들 온라인/오프라인 상태 알 수 있을 듯</div>
         </div>
     )
 }
