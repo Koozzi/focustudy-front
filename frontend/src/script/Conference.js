@@ -23,6 +23,7 @@ const initConference = (props) => {
 	const webcamElement = document.getElementById('myVideo');
 	const facenum = document.getElementById("facenum");
 	const facemesh = require("@tensorflow-models/facemesh");
+
 	var seconds = 0; 
 	var minutes = 0;
 	var face_cnt = 0;
@@ -98,9 +99,6 @@ const initConference = (props) => {
 			//join
 			switch (result.event) {
 			case 'join':
-				// console.log("****SWITCH****");
-				// console.log(result);
-				// console.log("****SWITCH****");
 				if(!remonRoom[result.channel.id]){
 					remonRoom[result.channel.id] = true;
 					let newVideo = document.createElement('video')
@@ -134,7 +132,6 @@ const initConference = (props) => {
 			document.querySelector('#enterBtn').innerHTML = "Enter";
 
 			var cnt = 0;
-
 			Object.keys(remonRoom).forEach(function(id){
 				cnt = cnt + 1;
 				if( id !== remon.getChannelId()){
@@ -176,7 +173,6 @@ const initConference = (props) => {
 
 	const update_time_score = async() => {
 		let token = localStorage.getItem("auth-token");
-
 		const update_score = await Axios.post(
 			"https://focustudy-back.site/score/update_study_score",
 			// "http://localhost:5050/score/update_study_score",
@@ -242,6 +238,7 @@ const initConference = (props) => {
 		}
 		timer.innerHTML = show_min+"m"+show_sec+"s";
 	}
+
 	async function facemesh_inference(){
 		time += 1
 		const model = await facemesh.load();

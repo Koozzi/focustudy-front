@@ -57,8 +57,8 @@ export default ({scores}) => {
 		
 		avg = (sum / cnt) * 100;
 
-		await setLastTotalScore(sum);
-		await setLastAvgScore(avg);
+		await setLastTotalScore(sum.toFixed(2));
+		await setLastAvgScore(avg.toFixed(2));
 	}
 
 	useEffect(() => {

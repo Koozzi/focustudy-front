@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios';
 
+import Dashboard_Profile_Table from './Dashboard_Profile_Table';
+
 import './Dashboard_Profile.css'
 
 export default function Dashboard_Profile() {
@@ -12,11 +14,13 @@ export default function Dashboard_Profile() {
     const [badge1, setBadge1] = useState();
     const [badge2, setBadge2] = useState();
     const [badge3, setBadge3] = useState();
+    const [studyLogs, setStudyLogs] = useState([]);
 
     const getUserInfo = async() => {
         let token = localStorage.getItem("auth-token");
         const tokenRes = await Axios.post(
             "https://focustudy-back.site/profile/userinfo",
+            // "http://localhost:5050/profile/userinfo",
             null,
             {
                 headers:{
@@ -24,14 +28,16 @@ export default function Dashboard_Profile() {
                 }
             }
         );
-        setEmail(tokenRes.data.email);
-        setDisplayName(tokenRes.data.displayName);
-        setTier(tokenRes.data.tier);
-        setAvgScore(tokenRes.data.avgScore);
-        setTotalScore(tokenRes.data.totalScore);
-        setBadge1(tokenRes.data.badge.badge1);
-        setBadge2(tokenRes.data.badge.badge2);
-        setBadge3(tokenRes.data.badge.badge3);
+        
+        setEmail(tokenRes.data[0].email);
+        setDisplayName(tokenRes.data[0].displayName);
+        setTier(tokenRes.data[0].tier);
+        setAvgScore(tokenRes.data[0].avgScore.toFixed(2));
+        setTotalScore(tokenRes.data[0].totalScore.toFixed(2));
+        setBadge1(tokenRes.data[0].badge.badge1);
+        setBadge2(tokenRes.data[0].badge.badge2);
+        setBadge3(tokenRes.data[0].badge.badge3);
+        setStudyLogs(tokenRes.data[1]);
     }
 
     useEffect(()=>{
@@ -101,7 +107,7 @@ export default function Dashboard_Profile() {
                         이런 다 속의 파란 까닭입니다.
                     </div>
                     <div className="Real_Chart">
-
+                        <Dashboard_Profile_Table studyLogs={studyLogs} />
                     </div>
                 </div>
             </div>

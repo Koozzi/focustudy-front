@@ -113,7 +113,7 @@
 }
 
 .Profile_Tier_Picture {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     height: 170px;
     margin-bottom: 10px;
 }
@@ -162,7 +162,7 @@
 .Real_Chart {
     margin-top: 20px;
     margin-left: 16px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     width: 95%;
     height: 80%;
 }
