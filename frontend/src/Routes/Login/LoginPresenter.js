@@ -15,6 +15,7 @@ import Container from '@material-ui/core/Container';
 import {useHistory} from 'react-router-dom';
 import Axios from 'axios';
 import UserContext from '../../Components/UserContext';
+
 // import ErrorNotice from '../../Components/ErrorNotice';
 
 function Copyright() {
@@ -36,6 +37,10 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+  },
+  title: {
+    textDecoration: 'none',
+    color: 'black'
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -109,7 +114,7 @@ export default function SignIn() {
       <CssBaseline />
       <div className={classes.paper}>
         <Typography className={classes.Login} component="h1" variant="h5">
-          FocuStudy
+          <a className={classes.title} href="/">FocuStudy</a>
         </Typography>
         {/* {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />} */}
         <form className={classes.form} noValidate onClick={RealSubmit}>

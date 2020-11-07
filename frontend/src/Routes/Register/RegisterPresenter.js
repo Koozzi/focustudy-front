@@ -26,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
       },
+      title: {
+        textDecoration: 'none',
+        color: 'black'
+      },
     form: {
         '& > *': {
             margin: theme.spacing(1),
@@ -303,7 +307,7 @@ export default function RegisterPresenter() {
         <CssBaseline />
         <div className={classes.paper}>
             <Typography className={classes.Login} component="h1" variant="h5">
-                FocuStudy
+                <a className={classes.title} href="/">FocuStudy</a>
             </Typography>
             
             <form onSubmit={verifyEmail} className={classes.emailForm} noValidate>
