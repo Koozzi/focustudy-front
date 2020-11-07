@@ -254,6 +254,7 @@ export default function RegisterPresenter() {
                 setExistDisplayName(false);
                 setPasswdCheck(true);
                 setPasswdLength(false);
+                return;
             }
 
             await Axios.post(
