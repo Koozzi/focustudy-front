@@ -41,13 +41,13 @@ const useStyles = makeStyles((theme) => ({
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
     "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-      borderColor: "#F55364"
+      borderColor: "#2d3436"
     },
     "& .MuiOutlinedInput-input": {
-      color: "#F55364"
+      color: "#2d3436"
     },
     "& .MuiInputLabel-outlined": {
-      color: "#F55364"
+      color: "#2d3436"
     },
   },
   submit: {
@@ -55,9 +55,9 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 8,
     paddingBottom: 8,
     fontSize: 20,
-    backgroundColor: '#F55364',
+    backgroundColor: '#2d3436',
     '&:hover':{
-      backgroundColor: '#F55364',
+      backgroundColor: '#2d3436',
     }
   },
   Login: {
@@ -133,10 +133,6 @@ export default function SignIn() {
             type="password"
             onChange={e => setPassword(e.target.value)}
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="아이디 저장"
-          />
           <Button
             type="RealSubmit"
             fullWidth
@@ -148,14 +144,14 @@ export default function SignIn() {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link to="/register">
+              {/* <Link to="/register">
                 비밀번호를 잊으셨나요?
-              </Link>
+              </Link> */}
             </Grid>
             <Grid item>
-              <Link href="/register">
+              {/* <Link href="/register">
                 {"아직 계정이 없으신가요? 가입하기"}
-              </Link>
+              </Link> */}
             </Grid>
           </Grid>
         </form>

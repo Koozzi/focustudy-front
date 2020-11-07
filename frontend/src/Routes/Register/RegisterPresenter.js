@@ -3,9 +3,19 @@ import {useHistory} from 'react-router-dom';
 import Axios from 'axios';
 
 import { makeStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+
 
 import UserContext from '../../Components/UserContext';
 import ErrorNotice from '../../Components/ErrorNotice';
@@ -13,12 +23,109 @@ import ErrorNotice from '../../Components/ErrorNotice';
 const https = require('https');
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+    paper: {
+        marginTop: theme.spacing(8),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      },
+    form: {
         '& > *': {
             margin: theme.spacing(1),
-            width: '25ch',
+            
+        },
+        width: '100%',
+        marginRight: 11,
+        marginTop:10,
+        marginBottom:10,
+        
+        "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+          borderColor: "#2d3436"
+        },
+        "& .MuiOutlinedInput-input": {
+          color: "#2d3436"
+        },
+        "& .MuiInputLabel-outlined": {
+          color: "#2d3436"
         },
     },
+    emailForm: {
+        width: '100%', // Fix IE 11 issue.
+        marginTop: theme.spacing(1),
+        "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+          borderColor: "#2d3436"
+        },
+        "& .MuiOutlinedInput-input": {
+          color: "#2d3436"
+        },
+        "& .MuiInputLabel-outlined": {
+          color: "#2d3436"
+        },
+    },
+    emailSubmit: {
+        
+        marginTop:10,
+        marginBottom:10,
+        paddingTop: 8,
+        paddingBottom: 8,
+        fontSize: 20,
+        backgroundColor: '#2d3436',
+        '&:hover':{
+          backgroundColor: '#2d3436',
+        }
+    },
+
+    submit: {
+        margin: theme.spacing(3, 0, 2),
+        paddingTop: 12,
+        paddingBottom: 12,
+        fontSize: 17.5,
+        backgroundColor: '#2d3436',
+        '&:hover':{
+          backgroundColor: '#2d3436',
+        }
+    }
+    ,
+    beforeVerify: {
+        margin: theme.spacing(1.2, 0, 2),
+        paddingTop: 12,
+        paddingBottom: 12,
+        color: 'white',
+        fontSize: 17.5,
+        backgroundColor: '#2d3436',
+        '&:hover':{
+          backgroundColor: '#2d3436',
+        }
+    },
+    completeVerify: {
+        margin: theme.spacing(1.2, 0, 2),
+        paddingTop: 12,
+        paddingBottom: 12,
+        
+        fontSize: 17.5,
+        backgroundColor: '#b2bec3',
+        '&:hover':{
+            backgroundColor: '#b2bec3',
+        }
+    },
+    failVerify: {
+        margin: theme.spacing(1.2, 0, 2),
+        paddingTop: 12,
+        paddingBottom: 12,
+        color: 'white',
+        fontSize: 17.5,
+        backgroundColor: '#d63031',
+        '&:hover':{
+            backgroundColor: '#d63031',
+        }
+    },
+
+    Login: {
+        fontSize: 35,
+        fontWeight: 1000,
+        marginBottom: 40
+      },
+
 }));
 
 export default function RegisterPresenter() {
@@ -32,6 +139,8 @@ export default function RegisterPresenter() {
     const [sentEmail, setSentEmail] = useState(false);
     const [checkedCode, setCheckedCode] = useState(false);
     const [error, setError] = useState();
+    const [open, setOpen] = useState(false);
+
     const classes = useStyles();
     const {setUserData} = useContext(UserContext);
 
@@ -39,6 +148,8 @@ export default function RegisterPresenter() {
 
     const verifyEmail = async(e) => {
         e.preventDefault();
+        setOpen(true);
+
         const userEmail = { email };
 
         const verify = await Axios({
@@ -52,6 +163,10 @@ export default function RegisterPresenter() {
         console.log(verify.data.verifyCode);
         setVerifyCode(verify.data.verifyCode);
         setSentEmail(true);
+    }
+
+    const handleClose = () => {
+        setOpen(false);
     }
 
     const compareCode = async(e) => {
@@ -70,26 +185,26 @@ export default function RegisterPresenter() {
             if(!checkedCode){
                 return (<>
                     {/* <VerifyInput /> */}
-                    <Button type="submit" variant="contained" color="primary">인증하기</Button>
+                    <Button className={classes.beforeVerify} type="submit" variant="contained">인증하기</Button>
                 </>)
             } else {
                 if(isCodeEqual){
                     return (<>
-                        <Button type="submit" variant="contained" disabled color="primary">인증완료</Button>
+                        <Button className={classes.completeVerify} type="submit" variant="contained" disabled>인증완료</Button>
                     </>)
                 } else {
                     return (<> 
                         {/* <VerifyInput /> */}
-                        <Button type="submit" variant="contained" color="secondary">인증하기</Button>
+                        <Button className={classes.failVerify} type="submit" variant="contained">인증하기</Button>
                         <br/>
-                        인증번호를 확인해주세요.
+                        인증번호를 다시 한 번 확인해주세요.
                     </>)
                 }
             }
         } else {
             return (<>
                 {/* <VerifyInput /> */}
-                <Button type="submit" variant="contained" disabled color="primary">인증하기</Button>
+                <Button className={classes.beforeVerify} type="submit" variant="contained" disabled color="primary">인증하기</Button>
             </>)
         }
     }
@@ -120,67 +235,113 @@ export default function RegisterPresenter() {
             // err.response.data.msg && setError(err.response.data.msg);
         }
     };
+
+    const SendEmailButton = () => {
+        if(sentEmail){
+            if(isCodeEqual){
+                return(
+                    <Button className={classes.emailSubmit} type="submit" fullWidth variant="contained" disabled color="primary">인증완료</Button>
+                )
+            } else {
+                return(
+                    <Button className={classes.emailSubmit} type="submit" fullWidth variant="contained" color="primary">다시 보내기</Button>
+                )
+            }
+        } else {
+            return(
+                <Button className={classes.emailSubmit} type="submit" fullWidth variant="contained" color="primary">인증 코드 보내기</Button>
+            )
+        }
+    }
+
     return (
-        <div>
-            <form onSubmit={verifyEmail} className={classes.root} noValidate autoComplete="off">
+        <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+            <Typography className={classes.Login} component="h1" variant="h5">
+                FocuStudy
+            </Typography>
+            <form onSubmit={verifyEmail} className={classes.emailForm} noValidate>
                 <TextField
-                variant="outlined"
+                    fullWidth
+                    margin="normal"
+                    required
+                    variant="outlined"
                     id="standard-basic"
-                    label="Email"
-                    placeholder="email@example.com"
+                    autoComplete="email"
+                    label="이메일 주소"
+                    autoFocus
                     inputProps={{ 'aria-label': 'description' }}
                     type="text"
                     onChange={e => setEmail(e.target.value)}
                 />
-                {sentEmail ? (
-                    <Button type="submit" variant="contained" color="primary">다시 보내기</Button>
-                ) : (
-                    <Button type="submit" variant="contained" color="primary">인증 번호 보내기</Button>
-                )}
+                <SendEmailButton />
             </form>
-            <form onSubmit={compareCode} className={classes.root} noValidate autoComplete="off">
+
+            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+            <DialogTitle id="form-dialog-title">이메일을 확인해주세요!</DialogTitle>
+                <DialogContent>
+                <DialogContentText>
+                    방금 {email}로 인증코드를 보냈습니다.아래에 코드를 입력해주세요!
+                </DialogContentText>
+                <DialogContentText>
+                    아래에 코드를 입력해주세요!
+                </DialogContentText>
+                <form onSubmit={compareCode} className={classes.form} noValidate autoComplete="off">
+                    <TextField
+                        variant="outlined"
+                        id="standard-basic"
+                        label="인증번호"
+                        placeholder="인증번호"
+                        inputProps={{ 'aria-label': 'description' }}
+                        type="password"
+                        onChange={e => setTypeVerifyCode(e.target.value)}
+                    />              
+                    <VerifyCheckButton />
+                </form>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose} color="primary">
+                        확인
+                    </Button>
+                    <Button onClick={handleClose} color="primary">
+                        취소
+                    </Button>
+                </DialogActions>
+            </Dialog>
+
+            <form onSubmit={registerSubmit} className={classes.form} noValidate>
                 <TextField
-                variant="outlined"
+                    variant="outlined"
                     id="standard-basic"
-                    label="인증번호"
-                    placeholder="인증번호"
-                    inputProps={{ 'aria-label': 'description' }}
-                    type="password"
-                    onChange={e => setTypeVerifyCode(e.target.value)}
-                />              
-                <VerifyCheckButton />
-            </form>
-            <form onSubmit={registerSubmit} className={classes.root} noValidate autoComplete="off">
-                <TextField
-                variant="outlined"
-                    id="standard-basic"
-                    label="Username"
-                    placeholder="Username"
+                    label="아이디"
                     inputProps={{ 'aria-label': 'description' }}
                     type="text"
+                    fullWidth
                     onChange={e => setDisplayName(e.target.value)}                
-                /><br/>
+                />
                 <TextField
-                variant="outlined"
+                    variant="outlined"
                     id="standard-basic"
+                    fullWidth
                     label="비밀번호"
-                    placeholder="비밀번호"
                     inputProps={{ 'aria-label': 'description' }}
                     type="password"
                     onChange={e => setPassword(e.target.value)}                    
-                /><br />
+                />
                 <TextField
-                variant="outlined"
+                    variant="outlined"
                     id="standard-basic"
                     label="비밀번호 확인"
-                    placeholder="비밀번호 확인"
+                    fullWidth
                     inputProps={{ 'aria-label': 'description' }}
                     type="password"
                     onChange={e => setPasswordCheck(e.target.value)}                
-                /><br />
-                {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
-                <Button type="submit" variant="contained" color="primary">가입하기</Button>
+                />
+                {/* {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />} */}
+                <Button className={classes.emailSubmit}  fullWidth  type="submit" variant="contained" color="primary">회원가입</Button>
             </form>
         </div>
+        </Container>
     )
 }
