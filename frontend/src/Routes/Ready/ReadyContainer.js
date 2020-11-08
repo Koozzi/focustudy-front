@@ -1,6 +1,6 @@
 import ReadyPresenter from './ReadyPresenter';
 import initConference from '../../script/Conference';
-import React, { useLayoutEffect, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 export default (props) => {
     let roomNumber = props.location.state.roomNumber;

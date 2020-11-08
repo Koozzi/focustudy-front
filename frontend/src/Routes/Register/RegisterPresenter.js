@@ -2,10 +2,9 @@ import React, {useState, useContext } from 'react';
 import {useHistory} from 'react-router-dom';
 import Axios from 'axios';
 
-import { makeStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -14,10 +13,8 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
 
 import UserContext from '../../Components/UserContext';
-import ErrorNotice from '../../Components/ErrorNotice';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -139,7 +136,6 @@ export default function RegisterPresenter() {
     const [isCodeEqual, setIsCodeEqual] = useState(false)
     const [sentEmail, setSentEmail] = useState(false);
     const [checkedCode, setCheckedCode] = useState(false);
-    const [error, setError] = useState();
     const [open, setOpen] = useState(false);
 
     const [existDisplayName, setExistDisplayName] = useState(false);
@@ -193,7 +189,7 @@ export default function RegisterPresenter() {
         console.log("After Send Email : ", sentEmail);
         e.preventDefault();
         setCheckedCode(true);
-        if(typeVerifyCode == verifyCode){
+        if(typeVerifyCode === verifyCode){
             setIsCodeEqual(true);
             setOpen(false);
         } else {

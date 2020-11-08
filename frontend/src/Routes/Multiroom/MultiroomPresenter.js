@@ -1,6 +1,5 @@
-import React, { useLayoutEffect } from 'react';
-import { Container, Grid, Paper, Button} from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
+import React from 'react';
+import { Container } from '@material-ui/core';
 import "./Multiroom.css";
 
 const Room = () => {

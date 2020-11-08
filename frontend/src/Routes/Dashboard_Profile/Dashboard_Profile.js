@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios';
 
-import Dashboard_Profile_Table from './Dashboard_Profile_Table';
+import DashboardTable from './Dashboard_Profile_Table';
 
 import './Dashboard_Profile.css'
 
 export default function Dashboard_Profile() {
     const [displayName, setDisplayName] = useState();
-    const [tier, setTier] = useState();
     const [totalScore, setTotalScore] = useState();
     const [avgScore, setAvgScore] = useState();
     const [email, setEmail] = useState();
-    const [badge1, setBadge1] = useState();
-    const [badge2, setBadge2] = useState();
-    const [badge3, setBadge3] = useState();
     const [studyLogs, setStudyLogs] = useState([]);
     const [totalStudyTime, setTotalStudyTime] = useState();
 
@@ -31,12 +27,8 @@ export default function Dashboard_Profile() {
         
         setEmail(tokenRes.data[0].email);
         setDisplayName(tokenRes.data[0].displayName);
-        setTier(tokenRes.data[0].tier);
         setAvgScore(tokenRes.data[0].avgScore.toFixed(2));
         setTotalScore(tokenRes.data[0].totalScore.toFixed(2));
-        setBadge1(tokenRes.data[0].badge.badge1);
-        setBadge2(tokenRes.data[0].badge.badge2);
-        setBadge3(tokenRes.data[0].badge.badge3);
         setTotalStudyTime(tokenRes.data[0].studyTime);
         setStudyLogs(tokenRes.data[1]);
     }
@@ -105,7 +97,7 @@ export default function Dashboard_Profile() {
                         평소 공부 기록을 확인해보세요!
                     </div>
                     <div className="Real_Chart">
-                        <Dashboard_Profile_Table studyLogs={studyLogs} />
+                        <DashboardTable studyLogs={studyLogs} />
                     </div>
                 </div>
             </div>

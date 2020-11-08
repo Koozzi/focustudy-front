@@ -114,7 +114,6 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
-            type="password"
             onChange={e => setPassword(e.target.value)}
           />
           <FormControlLabel

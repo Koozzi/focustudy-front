@@ -16,12 +16,11 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { red } from '@material-ui/core/colors';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 export default function SelectStudy() {
-    const [rander, setRander] = useState(false);
     const [open, setOpen] = useState(false);
     const [displayName, setDisplayName] = useState();
-    const [roomId, setRoomId] = useState();
     const [title, setTitle] = useState();
     const [description, setDescription] = useState();
     const [roomList, setRoomList] = useState([]);
@@ -36,7 +35,6 @@ export default function SelectStudy() {
             return Element
         })
         setRoomList(_rooms);
-        setRander(true);
     }
 
     const userinfo = async() => {
@@ -94,9 +92,16 @@ export default function SelectStudy() {
     return (
         <Container maxwidth="sm">
             <Typography><div className="title"> Study Room </div></Typography>
+            <br/>
             <Typography>
-                {displayName} 님. 함께 공부하러가요!
-                <Button variant="contained" style={{ color: red[500] }} onClick={handleClickOpen}>방 만들기</Button>
+            <Grid container spacing={1}>
+                <Grid item xs={10}>
+                    {displayName} 님. 함께 공부하러가요!
+                </Grid>
+                <Grid item xs={2}>
+                    <Button variant="contained" style={{ color: red[500] }} onClick={handleClickOpen}>방 만들기</Button>
+                </Grid>
+            </Grid>
             </Typography>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">공부방 생성하기</DialogTitle>

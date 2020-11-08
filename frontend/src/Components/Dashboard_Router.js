@@ -1,5 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Redirect, Switch, useHistory, useLocation } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch, useHistory } from "react-router-dom";
 import Axios from 'axios';
 
 import Dashboard_Header from '../Routes/Dashboard_Header/Dashboard_Header';
@@ -20,7 +20,7 @@ export default function Dashboard_Router() {
         user: null
     }
     const history = useHistory();
-    const location = useLocation();
+    
     const checkLoggedIn = async() => {
         let token = localStorage.getItem("auth-token");
         if(token === null){

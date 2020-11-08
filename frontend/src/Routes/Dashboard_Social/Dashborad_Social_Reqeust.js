@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Axios from 'axios';
 
 import Button from '@material-ui/core/Button';
@@ -6,11 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SaveIcon from '@material-ui/icons/Save';
 import Paper from '@material-ui/core/Paper';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -26,22 +21,13 @@ const useStyles = makeStyles((theme) => ({
 
 function Dashborad_Social_Reqeust( { request, displayName } ) {
     const classes = useStyles();
-    const [open, setOpen] = useState(false);
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-    
-    const handleClose = () => {
-        setOpen(false);
-    };
 
     const RefreshPage = () => {
         window.location.reload(false);
     }
 
     const DeleteMessage = async(index, message, e) => {
-        const res = await Axios.post(
+        await Axios.post(
             "https://focustudy-back.site/social/delete_message",
             {
                 rUser: displayName,
@@ -52,7 +38,7 @@ function Dashborad_Social_Reqeust( { request, displayName } ) {
     }
 
     const AddFriend = async(index, message, e) => {
-        const res = await Axios.post(
+        await Axios.post(
             "https://focustudy-back.site/social/addfriend",
             {
                 rUser: displayName,
@@ -64,7 +50,7 @@ function Dashborad_Social_Reqeust( { request, displayName } ) {
 
     return (
         <div>
-            <Paper elevation={3} className={classes.paper} onClick={handleClickOpen}>
+            <Paper elevation={3} className={classes.paper}>
             {request.map((message, index) => {
                 return(
                     <div key={index}>

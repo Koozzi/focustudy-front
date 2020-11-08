@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Header from './Header';
-import Ready from '../Routes/Ready/';
 import Home from '../Routes/Home/';
-import Study from '../Routes/Study/';
-import Multiroom from '../Routes/Multiroom/';
-import Listroom from '../Routes/Listroom/';
 import Signin from '../Routes/SignIn';
 import JoinRoom from '../Routes/JoinRoom';
 import Result from '../Routes/Result/';

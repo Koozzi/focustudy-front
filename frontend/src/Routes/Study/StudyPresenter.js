@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { BsPeopleFill, BsFillPersonFill, BsPencilSquare } from "react-icons/bs"
+import { BsPeopleFill, BsFillPersonFill } from "react-icons/bs"
+import cryptoRandomString from 'crypto-random-string';
 import "./Study.css";
 
 export default function SelectStudy() {
     const history = useHistory();
- 
+    const random_string = cryptoRandomString({length: 15});
     const Multi = () => history.push("/focus/study/listroom");
-    const Single = () => history.push("/focus/study/listroom");
+    const Single = () => history.push(`/focus/study/room/${random_string}`, {
+        roomNumber: 'Single Mode',
+        key: 'Single Mode'
+    });
 
     return (
         <div className="Real_Content">
@@ -21,7 +25,7 @@ export default function SelectStudy() {
                         <div className="RealText">싱글 모드</div>
                     </div>
                     <div className="Explain">혼자 집중해서 공부해보세요.</div>
-                    <button className="Button" onClick={Multi}>Start</button>
+                    <button className="Button" onClick={Single}>Start</button>
                 </span>
                 <span className="List">
                     <div className="Text">

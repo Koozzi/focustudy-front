@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useHistory, NavLink } from 'react-router-dom';
+import React from 'react'
+import { NavLink } from 'react-router-dom';
 
 import "./Dashboard_Header.css";
 import { TiHome } from "react-icons/ti";

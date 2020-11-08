@@ -1,7 +1,6 @@
 import Remon from "@remotemonster/sdk";
 import Axios from "axios";
 import * as tf from '@tensorflow/tfjs';
-import ResultContainer from '../Routes/Result/ResultContainer';
 
 const initConference = (props) => {
 	const enterBtn = document.querySelector("#enterBtn");
@@ -9,30 +8,26 @@ const initConference = (props) => {
 	const RoomId = props.location.state.roomNumber;
 	const hashCode = s => s.split('').reduce((a,b) => (((a << 5) - a) + b.charCodeAt(0))|0, 0);
 	const hashedRoomId = "a" + hashCode(RoomId) + "a";
-  let timer = document.getElementById('timer');
+  	let timer = document.getElementById('timer');
 	let isConnected = false;
 	let remon;
 	let remonRoom=[];
 
 	const key = "1234567890";
 	const serviceId = "SERVICEID1";
-  var seconds = 0;
-  var minutes = 0;
-  let left_time = 25;
+  	var seconds = 0;
+  	var minutes = 0;
+  	let left_time = 25;
 
 	const webcamElement = document.getElementById('myVideo');
 	const facenum = document.getElementById("facenum");
 	const facemesh = require("@tensorflow-models/facemesh");
 
-	var seconds = 0; 
-	var minutes = 0;
-	var face_cnt = 0;
 	var time = 0;
-	var data = new Array;
-	var times = new Array;  
+	var data = new Array();
+	var times = new Array();  
 	var prev_keypoints=0;
 	
-	var Chart = require('chart.js');
 	function speakstart(s){
 		var msg = new SpeechSynthesisUtterance();
 		msg.text = s;
@@ -173,7 +168,7 @@ const initConference = (props) => {
 
 	const update_time_score = async() => {
 		let token = localStorage.getItem("auth-token");
-		const update_score = await Axios.post(
+		await Axios.post(
 			"https://focustudy-back.site/score/update_study_score",
 			{
 				data: data,
@@ -201,7 +196,7 @@ const initConference = (props) => {
         // printTimer(minutes, seconds);
 				return;
 			}
-			if(seconds%5==0){
+			if(seconds%5===0){
 				facemesh_inference();
 			}
 			if(enterBtn.innerHTML === "Enter"){

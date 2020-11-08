@@ -1,29 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Axios from 'axios';
-import { setRef } from '@material-ui/core';
 
 function Dashboard_Social_Search( {displayName} ) {
-    const [user, setUser] = useState("");
-    const [allUsers, setAllUsers] = useState([]);
     const [input, setInput] = useState("");
-    const [result, setResult] = useState();
-
     const [found, setFound] = useState(false);
     const [relation, setRelation] = useState(false);
     const [_displayName, _setDisplayName] = useState();
-    const [_tier, _setTier] = useState();
 
     const handleChange = async(e) => {
         e.preventDefault();
         setInput(e.target.value);
     };
-
-    const getAllUsers = async() => {
-        const _allUser = await Axios.post(
-            "https://focustudy-back.site/rank/all_users",
-        );
-        setAllUsers(_allUser.data);
-    }
 
     const SearchUser = async(e) => {
         e.preventDefault();
@@ -42,12 +29,10 @@ function Dashboard_Social_Search( {displayName} ) {
         }
         setFound(true);
         _setDisplayName(SearchResult.data.displayName);
-        _setTier(SearchResult.data.tier);
     }
 
     const SendMessage = async() => {
         await Axios.post(
-            // "https://focustudy-back.site/social/send_message",
             "https://focustudy-back.site/social/send_message",
             {
                 reqUser: displayName,
@@ -57,10 +42,6 @@ function Dashboard_Social_Search( {displayName} ) {
         alert("친구요청 메세지를 전송했습니다!");
         window.location.reload(false);
     }
-
-    useEffect(()=>{
-        // getAllUsers();
-    }, []);
 
     return (
         <div>

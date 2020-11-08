@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import UserContext from './UserContext';
 import "./Header.css";
-import Container from '@material-ui/core/Container';
 
 const btnStyle = {
   color: "white",
@@ -36,10 +35,6 @@ export default function Board() {
 
   return (
     <React.Fragment>
-      {/* <div className="header">
-        <h1>Focustudy</h1>
-        <p>세상에 없던 AI 집중력 타이머. Jenkins Test</p>
-      </div> */}
       
       <div className="navbar">
         <div className="navbar_container">

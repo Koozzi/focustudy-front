@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import Axios from 'axios';
-import { Container, Grid, CardMedia, Card } from '@material-ui/core';
-import { Link, useHistory } from "react-router-dom";
+import { Container, Grid } from '@material-ui/core';
+import { Link } from "react-router-dom";
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -20,14 +20,10 @@ const useStyles = makeStyles((theme) => ({
 export default ({scores}) => {
 	const classes = useStyles();
 	const [user, setUser] = useState();
-	const [studyTime, setStudyTime] = useState();
-	const [totalScore, setTotalScore] = useState();
-	const [avgScore, setAvgScore] = useState();
 	const [lastTotalScore, setLastTotalScore] = useState();
 	const [lastAvgScore, setLastAvgScore] = useState();
 	const [lastData, setLastData] = useState();
-	let y_data = new Array();
-	let x_data = [];
+	
 	let max_times = 0;
 	const getUserInfo = async() => {
 		let token = localStorage.getItem("auth-token");
@@ -41,9 +37,6 @@ export default ({scores}) => {
             }
 		)
 		await setUser(_user.data.displayName);
-		await setStudyTime(_user.data.studyTime);
-		await setTotalScore(_user.data.totalScore);
-		await setAvgScore(_user.data.avgScore);
 		await setLastData(_user.data.lastData);
 
 		let sum = 0;
