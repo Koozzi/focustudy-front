@@ -13,7 +13,8 @@ function Dashboard_Profile_Table({studyLogs}) {
             ]}
             data={studyLogs}
             options={{
-                pageSize: 5
+                pageSize: 5,
+                search: false
             }}
             / >
         </div>

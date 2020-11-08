@@ -11,11 +11,13 @@ export default function Dashboard_Rank() {
         const allUsers = await Axios.post(
             "https://focustudy-back.site/rank/all_users",
         );
-        console.log(allUsers.data);
+
         const _users = await allUsers.data.map(Element=>{
             return Element
         })
+
         await _users.sort((a,b) => (a.totalScore > b.totalScore) ? -1 : 1)
+        
         setUsers(_users);
     }
 

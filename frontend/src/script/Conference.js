@@ -175,7 +175,6 @@ const initConference = (props) => {
 		let token = localStorage.getItem("auth-token");
 		const update_score = await Axios.post(
 			"https://focustudy-back.site/score/update_study_score",
-			// "http://localhost:5050/score/update_study_score",
 			{
 				data: data,
 				study_time: left_time

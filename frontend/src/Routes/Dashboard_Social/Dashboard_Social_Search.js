@@ -64,7 +64,6 @@ function Dashboard_Social_Search( {displayName} ) {
 
     return (
         <div>
-            유저검색
             <form type="submit" onSubmit={SearchUser}>
                 <input
                     type="text"
@@ -76,10 +75,10 @@ function Dashboard_Social_Search( {displayName} ) {
                 <br/>
                 {found ? (
                     <div>
-                        {_tier} {_displayName}
+                        {_displayName}
                         {relation ? (
                             <div>
-                                이미친구
+                                이미 친구입니다.
                             </div>
                         ) : (
                             <button onClick={SendMessage}>친구추가</button>

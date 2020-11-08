@@ -21,7 +21,6 @@ export default function Dashboard_Profile() {
         let token = localStorage.getItem("auth-token");
         const tokenRes = await Axios.post(
             "https://focustudy-back.site/profile/userinfo",
-            // "http://localhost:5050/profile/userinfo",
             null,
             {
                 headers:{

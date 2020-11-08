@@ -32,7 +32,6 @@ export default function SelectStudy() {
         const allRooms = await Axios.post(
             "https://focustudy-back.site/room/all_rooms"
         )
-        console.log(allRooms.data);
         const _rooms = await allRooms.data.map(Element => {
             return Element
         })
@@ -69,7 +68,6 @@ export default function SelectStudy() {
         const random_string = cryptoRandomString({length: 15});
         await Axios.post(
             "https://focustudy-back.site/room/create_room",
-            // "http://localhost:5050/room/create_room",
             {
                 title: title,
                 description: description,

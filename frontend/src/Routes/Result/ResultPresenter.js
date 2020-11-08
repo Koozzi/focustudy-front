@@ -33,7 +33,6 @@ export default ({scores}) => {
 		let token = localStorage.getItem("auth-token");
         const _user = await Axios.post(
 			"https://focustudy-back.site/result/user_info",
-            // "http://localhost:5050/result/user_info",
             null,
             {
                 headers:{

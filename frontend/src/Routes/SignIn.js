@@ -62,7 +62,7 @@ export default function SignIn() {
     try{
         const loginUser = {email, password};
         const loginRes = await Axios.post(
-            "http://localhost:5050/users/login",
+            "https://focustudy-back.site/users/login/",
             loginUser
         );
         setUserData({
