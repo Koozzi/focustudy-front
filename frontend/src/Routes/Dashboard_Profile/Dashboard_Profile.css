@@ -113,9 +113,11 @@
 }
 
 .Profile_Tier_Picture {
-    /* border: 2px solid red; */
     height: 170px;
     margin-bottom: 10px;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 6rem;
 }
 
 .Profile_Tier {

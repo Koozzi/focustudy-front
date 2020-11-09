@@ -4,14 +4,47 @@ import Axios from 'axios';
 import DashboardTable from './Dashboard_Profile_Table';
 
 import './Dashboard_Profile.css'
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+    },
+    paper: {
+        align:"center",
+        justify:"center",
+        direction:"column",
+        color: theme.palette.text.secondary,
+    },
+}));
+
 
 export default function Dashboard_Profile() {
+    const classes = useStyles();
     const [displayName, setDisplayName] = useState();
     const [totalScore, setTotalScore] = useState();
     const [avgScore, setAvgScore] = useState();
     const [email, setEmail] = useState();
     const [studyLogs, setStudyLogs] = useState([]);
     const [totalStudyTime, setTotalStudyTime] = useState();
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+  
+    const handleClose = () => {
+        setOpen(false);
+    };
+  
 
     const getUserInfo = async() => {
         let token = localStorage.getItem("auth-token");
@@ -52,7 +85,7 @@ export default function Dashboard_Profile() {
                         <br/>
                         {email}
                     </div>
-                    <div className="Profile_User_Badge">
+                    <div className="Profile_User_Badge" onClick={handleClickOpen} >
                         배지 보관함
                     </div>
                 </section>
@@ -72,10 +105,12 @@ export default function Dashboard_Profile() {
                 <div className="Profile_Scores">
                     <div className="Profile_Score_Container">
                         <div className="Profile_Tier">
-                            <div className="Profile_Tier_Picture">
-                                {totalStudyTime}
-                            </div>
-                            누적 공부 시간
+                            <Paper >
+                                <div className="Profile_Tier_Picture">
+                                    {totalStudyTime} 
+                                </div>
+                            </Paper>
+                            총 공부 시간 (분)
                         </div>
                         <div className="Profile_Total">
                             {totalScore}
@@ -101,6 +136,25 @@ export default function Dashboard_Profile() {
                     </div>
                 </div>
             </div>
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">열심히 공부하고 다양한 뱃지를 모아보세요!</DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        2020.11.30 출시 예정
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                <Button onClick={handleClose} color="primary">
+                    닫기
+                </Button>
+                </DialogActions>
+            </Dialog>
+
         </div>
     )
 }
