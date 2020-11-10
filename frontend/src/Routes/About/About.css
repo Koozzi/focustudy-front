@@ -1,0 +1,68 @@
+
+
+/* Style the top navigation bar */
+.navbar2 {
+    width: 100%;
+    overflow: hidden; /* Hide overflow */    
+}
+
+
+.LEFT2 {
+  font-size: x-large;
+  color: black;
+  background-color: white;
+}
+
+/* Style the navigation bar links */
+.navbar2 button {
+    outline: none;
+    cursor: pointer;
+    border: none; 
+    color: white;
+    text-align: center;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 1rem;
+}
+
+.navbar2 a {
+    float: left; 
+    display: flex;
+    color: black; /* White text color */
+    text-align: center;
+    padding-top: 5px;
+    text-decoration: none; /* Remove underline */
+}
+
+
+  /* Right-aligned link */
+  .RIGHT2 {
+    /* position: absolute;
+    right : calc(0%); */
+    display: flex;
+    float: right;
+    background-color: transparent;
+  }
+  
+  .RIGHT2 .header_button2{
+    /* position: absolute;
+    right : calc(0%); */
+    display: flex;
+    float: right;
+    background-color: white;
+    color: black;
+  }
+
+  /* Change color on hover/mouse-over */
+  .navbar2 button:hover {
+    /* background-color: white;  */
+    /* color: blue;  */
+    /* transition: 0.5s ease-in-out; */
+    outline: none;
+  }
+
+  /* Active/current link */
+.navbar2 button.active a.active {
+    color: white;
+  }

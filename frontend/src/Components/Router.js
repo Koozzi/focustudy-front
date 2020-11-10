@@ -6,6 +6,8 @@ import Signin from '../Routes/SignIn';
 import JoinRoom from '../Routes/JoinRoom';
 import Result from '../Routes/Result/';
 import Login from '../Routes/Login/';
+import About from '../Routes/About/';
+import Contact from '../Routes/Contact/';
 import Register from '../Routes/Register/';
 import UserContext from './UserContext';
 import Axios from 'axios';
@@ -67,6 +69,8 @@ export default () => {
                     <Route path="/listroom" exact component={Listroom} /> */}
                     <Route path="/joinroom" exact component={JoinRoom} />
                     <Route path="/result" exact component={Result} />
+                    <Route path="/about" exact component={About} />
+                    <Route path="/contact" exact component={Contact} />
                 </Switch>
             </UserContext.Provider>
         </Router>

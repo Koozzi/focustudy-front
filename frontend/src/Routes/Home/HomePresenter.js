@@ -4,7 +4,7 @@ import React from 'react';
 import "./Home.css";
 import homeimage from "./assets/home.jpg";
 import Header from "../../Components/Header";
-import Container from '@material-ui/core/Container';
+import { Container, Grid } from '@material-ui/core';
 
 // const useStyles = makeStyles((theme) => ({
 //   	paper: {
@@ -20,32 +20,21 @@ function Home() {
 	const First = () => {
 		return(
 		<>
+			
+			
 			<img id="backvid" src={homeimage}></img>
 			<Container>
 			<Header />
-			{/* <div className="header">
-				<div className="up-logo"><div className="logo-link">Focustudy</div></div>
-			</div> */}
-			{/*}
-			<ul className="btns">
-				<li className="left-btn">
-					<em>Single Mode</em>
-					<div className="btn-letter">싱글모드</div>
-					<Link to={"/focus/study"}><button className="rectangle">바로가기</button></Link>
-				</li>
-				<li class="right-btn">
-					<em>Multi Mode</em>
-					<div className="btn-letter">멀티모드</div>
-					<Link to={"/focus/study"}><button className="rectangle">바로가기</button></Link>
-				</li>
-			</ul> */}
+			
 			<p class="slogan">세상에 없던 AI 집중력 타이머</p>
 			</Container>
+			
 		</>
 		)
 	}
     return (
         <React.Fragment>
+			
 			<div class="frame">
 				<First />
 			</div>

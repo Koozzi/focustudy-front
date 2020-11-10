@@ -26,8 +26,8 @@ export default function Board() {
     localStorage.setItem("auth-token", "");
     history.push("/");
   };
-  const About = () => history.push("/");
-  const Contact = () => history.push("/");
+  const About = () => history.push("/about");
+  const Contact = () => history.push("/contact");
   const Study = () => {
     if(userData.user) history.push("/focus");
     else history.push("/login");
