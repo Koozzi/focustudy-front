@@ -9,8 +9,8 @@ export default function SelectStudy() {
     const random_string = cryptoRandomString({length: 15});
     const Multi = () => history.push("/focus/study/listroom");
     const Single = () => history.push(`/focus/study/room/${random_string}`, {
-        roomNumber: 'random_string',
-        key: 'random_string'
+        roomNumber: random_string,
+        key: random_string
     });
 
     return (
