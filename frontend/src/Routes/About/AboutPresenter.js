@@ -1,4 +1,4 @@
-import { Container, Grid } from '@material-ui/core';
+import { Container, Grid, Paper } from '@material-ui/core';
 import asset3 from "./assets/asset3.png";
 import asset4 from "./assets/asset4.png";
 import React, { useContext } from 'react';
@@ -15,26 +15,25 @@ export default () => {
     const register = () => history.push("/register");
     const login = () => history.push("/login");
     const logout = () => {
-      setUserData({
-          token: undefined,
-          user: undefined
-      })
-      localStorage.setItem("auth-token", "");
-      history.push("/");
+        setUserData({
+            token: undefined,
+            user: undefined
+        })
+        localStorage.setItem("auth-token", "");
+        history.push("/");
     };
+
     const About = () => history.push("/about");
     const Home = () => history.push("/");
     const Contact = () => history.push("/contact");
     const Study = () => {
-      if(userData.user) history.push("/focus");
-      else history.push("/login");
+        if(userData.user) history.push("/focus");
+        else history.push("/login");
     }
   
     return (
         <React.Fragment>
             <Container>
-            
-            
             <Grid container spacing={20}>
                 <div className="navbar2">
                     <div className="navbar_container2">
@@ -59,8 +58,9 @@ export default () => {
                 </div>
             </Grid>
             
-            
-            
+            <br />
+            <br />
+
 			<Grid container spacing={20}>
 				<Grid item xs>
                     <h1>집중력 타이머 소개</h1>

@@ -20,7 +20,7 @@ const ReadyPresenter = ({roomNumber})=> {
 
     return(
         <Container maxwidth="sm">
-            <div className="roomtitle"><h1> {roomNumber} </h1></div>
+            <div className="roomtitle"><h1> '{roomNumber}' 방</h1></div>
             <div className="othervideos" id="otherVideos"></div>
             <Paper className={classes.paper}>
                 <div className="timer" id="timer">00m00s</div>
