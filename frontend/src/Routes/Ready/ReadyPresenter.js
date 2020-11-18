@@ -1,9 +1,12 @@
 import React from 'react';
-import { Container, Grid} from '@material-ui/core';
-import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
+import Remon from "@remotemonster/sdk";
+import Axios from "axios";
+import * as tf from '@tensorflow/tfjs';
 
 import "./Ready.css";
+import { Container, Grid, Paper} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
 const useStyles = makeStyles((theme) => ({
     root: {
       	flexGrow: 1,
@@ -20,12 +23,12 @@ const ReadyPresenter = ({roomNumber})=> {
 
     return(
         <Container maxwidth="sm">
-            <div className="roomtitle"><h1> '{roomNumber}' 방</h1></div>
+            <div class Name="roomtitle"><h1> '{roomNumber}' 방</h1></div>
             <div className="othervideos" id="otherVideos"></div>
             <Paper className={classes.paper}>
                 <div className="timer" id="timer">00m00s</div>
                 <div className="timerpath"></div>
-                <button className="startbutton" id="enterBtn" href="#">ENTER</button>
+                <button className="startbutton" id="enterBtn">Enter</button>
             </Paper>
             
             <Grid container spacing={5}>

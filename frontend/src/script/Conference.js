@@ -17,7 +17,7 @@ const initConference = (props) => {
 	const serviceId = "SERVICEID1";
   	var seconds = 0;
   	var minutes = 0;
-  	let left_time = 25;
+  	let left_time = 1;
 
 	const webcamElement = document.getElementById('myVideo');
 	const facenum = document.getElementById("facenum");
@@ -138,10 +138,6 @@ const initConference = (props) => {
 				delete remonRoom[id];
 			})
 
-			if(cnt === 1) {
-				// 무언가
-			}
-
 			remon.close()
 		} 
 		else { 
@@ -184,16 +180,17 @@ const initConference = (props) => {
 		window.open("/result", "_self");
 	}
 
+
+
 	const timerstart = async() => {
 		var contador = null;
 		// console.log(isConnected);
-		
 		seconds = 1;
 		contador = window.setInterval(function(){
 			if(seconds === 59){
-        minutes++;
-        seconds = 0;
-        // printTimer(minutes, seconds);
+        		minutes++;
+        		seconds = 0;
+        		// printTimer(minutes, seconds);
 				return;
 			}
 			if(seconds%5===0){
@@ -278,8 +275,8 @@ const initConference = (props) => {
 	enterBtn.addEventListener("click",
 		evt => {
       		start();
-      		timerstart();
-			    evt.preventDefault();
+			timerstart();
+			evt.preventDefault();
 		},
 		false
 	);

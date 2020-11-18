@@ -6,6 +6,7 @@ function Dashboard_Rank_Table({ users }) {
         <div>
             <MaterialTable title="전체 랭킹"
                 columns={[
+                    {title: '순위', field:'rank'},
                     {title:'아이디', field:'displayName'},
                     {title:'공부시간', field:'studyTime'},
                     {title:'누적점수', field:'totalScore'},
