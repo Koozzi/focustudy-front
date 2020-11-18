@@ -44,7 +44,6 @@ export default function Board() {
           <div className="RIGHT">
             <button onClick={Study} className="header_button">공부하기</button>
             <button onClick={About} className="header_button">소개</button>
-            <button onClick={Contact} className="header_button">문의</button>
             {userData.user ?(
               <button onClick={logout} className="header_button">로그아웃</button>
                 ) : (

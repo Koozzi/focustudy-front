@@ -89,17 +89,7 @@ export default function Dashboard_Profile() {
                         배지 보관함
                     </div>
                 </section>
-                <div className="Profile_Text">
-                    <div className="Profile_Banner_Content1">
-                        배너 이미지 추가
-                    </div>
-                    <div className="Profile_Banner_Content2">
-                        이곳을 클릭해 이미지를 업로드하거나
-                    </div>
-                    <div className="Profile_Banner_Content3">
-                        이미지를 드래그 해 이곳에 놓아주세요.
-                    </div>
-                </div>
+                
             </div>
             <div className="Profile_Contents">
                 <div className="Profile_Scores">
